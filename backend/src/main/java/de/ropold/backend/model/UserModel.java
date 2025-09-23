@@ -34,14 +34,14 @@ public class UserModel {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "role", nullable = false)
-    private String role = "USER";
-
     @Column(name = "avatar_url")
     private String avatarUrl;
 
     @Column(name = "github_url")
     private String githubUrl;
+
+    @Column(name = "role", nullable = false)
+    private String role = "USER";
 
     @Column(name = "preferred_language", length = 2)
     private String preferredLanguage = "de";

@@ -75,13 +75,12 @@ public class UserController {
         newUser.setGithubId(githubId);
         newUser.setUsername(username);
         newUser.setName(name != null ? name : username);
+        newUser.setAvatarUrl(avatarUrl);
+        newUser.setGithubUrl(githubUrl);
         newUser.setRole("USER");
         newUser.setPreferredLanguage("de");
         newUser.setCreatedAt(LocalDateTime.now());
         newUser.setLastLoginAt(LocalDateTime.now());
-        newUser.setAvatarUrl(avatarUrl);
-        newUser.setGithubUrl(githubUrl);
-
         return userRepository.save(newUser);
     }
 
@@ -91,10 +90,10 @@ public class UserController {
                 "githubId", user.getGithubId() != null ? user.getGithubId() : "",
                 "username", user.getUsername(),
                 "name", user.getName(),
-                "role", user.getRole(),
-                "preferredLanguage", user.getPreferredLanguage(),
                 "avatarUrl", user.getAvatarUrl() != null ? user.getAvatarUrl() : "",
                 "githubUrl", user.getGithubUrl() != null ? user.getGithubUrl() : "",
+                "role", user.getRole(),
+                "preferredLanguage", user.getPreferredLanguage(),
                 "createdAt", user.getCreatedAt() != null ? user.getCreatedAt().toString() : "",
                 "lastLoginAt", user.getLastLoginAt() != null ? user.getLastLoginAt().toString() : ""
         );
