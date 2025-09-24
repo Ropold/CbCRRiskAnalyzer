@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import {Route, Routes} from "react-router-dom";
+import Navbar from "./components/Navbar.tsx";
+import Welcome from "./components/Welcome.tsx";
+import ProtectedRoute from "./components/ProtectedRoute.tsx";
+import {useEffect, useState} from "react";
+import NotFound from "./components/NotFound.tsx";
+import axios from "axios";
+import CbCR from "./components/CbCR.tsx";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+    const [user, setUser] = useState<string>("anonymousUser");
+
+    function getUser() {
+        axios.get("/api/users/me")
+            .then((response) => {
+                setUser(response.data.toString());
+            })
+            .catch((error) => {
+                console.error(error);
+                setUser("anonymousUser");
+            });
+    }
+
+    useEffect(() => {
+        getUser();
+    }, []);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>CbCR Risk Analyzer</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Navbar user={user} getUser={getUser}/>
+      <Routes>
+          <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<Welcome />}/>
+              <Route element={<ProtectedRoute user={user}/>}>
+                  <Route path="/cbcr" element={<CbCR />} />
+              </Route>
+      </Routes>
     </>
   )
 }
 
-export default App
