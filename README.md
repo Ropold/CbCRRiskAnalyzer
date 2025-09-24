@@ -1,4 +1,4 @@
-CbCr Risk Analyzer – Project with Java/Spring Boot, PostgreSQL, React & GitHub OAuth
+CbCR Risk Analyzer – Project with Java/Spring Boot, PostgreSQL, React & GitHub OAuth
 
 Live: [cbcrriskanalyzer.onrender.com](https://cbcrriskanalyzer.onrender.com)
 
