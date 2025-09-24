@@ -35,7 +35,9 @@ public class UserController {
 
         try {
             // GitHub ID aus dem "id" Attribut extrahieren
-            String githubId = String.valueOf(authentication.getAttribute("id"));
+            Object idAttribute = authentication.getAttribute("id");
+            String githubId = String.valueOf(idAttribute);
+
             Optional<UserModel> userOpt = userRepository.findByGithubId(githubId);
 
             if (userOpt.isEmpty()) {
@@ -50,7 +52,6 @@ public class UserController {
             return createUserResponse(user);
 
         } catch (Exception e) {
-            // Fallback für Race Conditions
             return Map.of("error", "User data temporarily unavailable, please refresh");
         }
     }
@@ -60,7 +61,11 @@ public class UserController {
         if (authentication == null) {
             throw new AccessDeniedException("User not authenticated");
         }
-        String githubId = String.valueOf(authentication.getAttribute("id"));
+        Object idAttribute = authentication.getAttribute("id");
+        if (idAttribute == null) {
+            throw new AccessDeniedException("GitHub ID not found");
+        }
+        String githubId = String.valueOf(idAttribute);
         userService.setPreferredLanguage(githubId, languageIso);
     }
 

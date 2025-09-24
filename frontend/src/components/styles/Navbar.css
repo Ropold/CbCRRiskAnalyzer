@@ -28,11 +28,14 @@
     border-radius: 5px;
     border: 1px solid transparent;
     transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+    height: 40px; /* Gleiche Höhe wie Buttons */
+    padding: 0 10px; /* Gleicher Padding wie Buttons */
+    box-sizing: border-box;
 }
 
 .clickable-header:hover {
     background-color: #007bff;
-    border: 1px solid black;
+    border: 1px solid transparent;
 }
 
 #clickable-header-home {
