@@ -7,9 +7,11 @@ import {useEffect, useState} from "react";
 import NotFound from "./components/NotFound.tsx";
 import axios from "axios";
 import CbCR from "./components/CbCR.tsx";
+import {DefaultUser, type UserModel} from "./components/models/UserModel.ts";
 
 export default function App() {
     const [user, setUser] = useState<string>("anonymousUser");
+    const [userDetails, setUserDetails] = useState<UserModel | null>(DefaultUser);
 
     function getUser() {
         axios.get("/api/users/me")
@@ -22,9 +24,26 @@ export default function App() {
             });
     }
 
+    function getUserDetails() {
+        axios.get("/api/users/me/details")
+            .then((response) => {
+                setUserDetails(response.data as UserModel);
+            })
+            .catch((error) => {
+                console.error(error);
+                setUserDetails(null);
+            });
+    }
+
     useEffect(() => {
         getUser();
     }, []);
+
+    useEffect(() => {
+        if(user !== "anonymousUser"){
+            getUserDetails();
+        }
+    }, [user]);
 
   return (
     <>
