@@ -8,8 +8,8 @@ export type UserModel = {
     githubUrl?: string;
     role: string;
     preferredLanguage: string;
-    createdAt?: string;
-    lastLoginAt?: string;
+    createdAt: string;
+    lastLoginAt: string;
 };
 
 export const DefaultUser: UserModel = {
@@ -21,6 +21,6 @@ export const DefaultUser: UserModel = {
     preferredLanguage: "de",
     avatarUrl: undefined,
     githubUrl: undefined,
-    lastLoginAt: undefined,
-    createdAt: "Loading..."
+    createdAt: "Loading...",
+    lastLoginAt: "Loading..."
 }

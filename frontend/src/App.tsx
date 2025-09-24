@@ -8,6 +8,7 @@ import NotFound from "./components/NotFound.tsx";
 import axios from "axios";
 import CbCR from "./components/CbCR.tsx";
 import {DefaultUser, type UserModel} from "./components/models/UserModel.ts";
+import Profile from "./components/Profile.tsx";
 
 export default function App() {
     const [user, setUser] = useState<string>("anonymousUser");
@@ -53,6 +54,7 @@ export default function App() {
           <Route path="/" element={<Welcome />}/>
               <Route element={<ProtectedRoute user={user}/>}>
                   <Route path="/cbcr" element={<CbCR />} />
+                  <Route path="/profile" element={<Profile user={user} userDetails={userDetails} />} />
               </Route>
       </Routes>
     </>
