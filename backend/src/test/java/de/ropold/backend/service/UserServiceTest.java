@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -89,13 +90,48 @@ class UserServiceTest {
         verify(userRepository, times(1)).findByGithubId(githubId);
     }
 
-//    @Test
-//    void createOrUpdateFromGitHub_UserExists_UpdatesLastLogin() {
-//    }
-//
-//    @Test
-//    void createOrUpdateFromGitHub_UserDoesNotExist_CreatesNewUser() {
-//    }
+    @Test
+    void createOrUpdateFromGitHub_UserExists_UpdatesLastLogin() {
+        OAuth2User oAuth2User = mock(OAuth2User.class);
+        when(oAuth2User.getAttribute("id")).thenReturn("githubId123");
+        when(userRepository.findByGithubId("githubId123")).thenReturn(Optional.of(testUser));
+        when(userRepository.save(any(UserModel.class))).thenReturn(testUser);
+
+        UserModel result = userService.createOrUpdateFromGitHub(oAuth2User);
+
+        assertNotNull(result);
+        assertEquals(testUser, result);
+        verify(userRepository, times(1)).findByGithubId("githubId123");
+        verify(userRepository, times(1)).save(any(UserModel.class));
+    }
+
+    @Test
+    void createOrUpdateFromGitHub_UserDoesNotExist_CreatesNewUser() {
+        OAuth2User oAuth2User = mock(OAuth2User.class);
+        when(oAuth2User.getAttribute("id")).thenReturn("newGithubId");
+        when(oAuth2User.getAttribute("login")).thenReturn("newuser");
+        when(oAuth2User.getAttribute("name")).thenReturn("New User");
+        when(userRepository.findByGithubId("newGithubId")).thenReturn(Optional.empty());
+
+        UserModel savedUser = new UserModel(
+                UUID.randomUUID(),
+                "newGithubId",
+                "newuser",
+                "New User",
+                null,
+                null,
+                "USER",
+                "de",
+                LocalDateTime.now(),
+                LocalDateTime.now()
+        );
+        when(userRepository.save(any(UserModel.class))).thenReturn(savedUser);
+
+        UserModel result = userService.createOrUpdateFromGitHub(oAuth2User);
+        assertNotNull(result);
+        verify(userRepository, times(1)).findByGithubId("newGithubId");
+        verify(userRepository, times(1)).save(any(UserModel.class));
+    }
 
     @Test
     void setPreferredLanguage_UpdatesLanguage() {

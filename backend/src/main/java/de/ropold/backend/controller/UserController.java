@@ -61,7 +61,11 @@ public class UserController {
         if (authentication == null) {
             throw new AccessDeniedException("User not authenticated");
         }
-        String githubId = String.valueOf(authentication.getAttribute("id"));
+        Object idAttribute = authentication.getAttribute("id");
+        if (idAttribute == null) {
+            throw new AccessDeniedException("GitHub ID not found");
+        }
+        String githubId = String.valueOf(idAttribute);
         userService.setPreferredLanguage(githubId, languageIso);
     }
 

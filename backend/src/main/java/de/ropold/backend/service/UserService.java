@@ -3,6 +3,7 @@ package de.ropold.backend.service;
 import de.ropold.backend.model.UserModel;
 import de.ropold.backend.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -25,5 +26,30 @@ public class UserService {
 
     public void setPreferredLanguage(String githubId, String languageIso) {
         userRepository.updatePreferredLanguage(githubId, languageIso);
+    }
+
+    public UserModel createOrUpdateFromGitHub(OAuth2User oAuth2User) {
+        String githubId = oAuth2User.getAttribute("id");
+
+        return userRepository.findByGithubId(githubId)
+                .map(existingUser -> {
+                    existingUser.setLastLoginAt(java.time.LocalDateTime.now());
+                    return userRepository.save(existingUser);
+                })
+                .orElseGet(() -> {
+                    UserModel newUser = new UserModel(
+                            UUID.randomUUID(),
+                            githubId,
+                            oAuth2User.getAttribute("login"),
+                            oAuth2User.getAttribute("name"),
+                            oAuth2User.getAttribute("avatar_url"),
+                            oAuth2User.getAttribute("html_url"),
+                            "USER",
+                            "de",
+                            java.time.LocalDateTime.now(),
+                            java.time.LocalDateTime.now()
+                    );
+                    return userRepository.save(newUser);
+                });
     }
 }

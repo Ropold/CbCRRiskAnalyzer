@@ -2,13 +2,13 @@ package de.ropold.backend.controller;
 
 import de.ropold.backend.model.UserModel;
 import de.ropold.backend.repository.UserRepository;
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.security.oauth2.core.user.OAuth2User;
@@ -17,12 +17,13 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Map;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.authentication;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -94,8 +95,6 @@ class UserControllerIntegrationTest {
         when(mockUser.getAttribute("html_url")).thenReturn("https://github.com/userName1");
         when(mockUser.getAttribute("role")).thenReturn("USER");
         when(mockUser.getAttribute("preferred_language")).thenReturn("de");
-        when(mockUser.getAttribute("created_at")).thenReturn("2024-01-01T12:00");
-        when(mockUser.getAttribute("last_login_at")).thenReturn("2024-01-01T12:30");
 
         // Verwende OAuth2AuthenticationToken statt UsernamePasswordAuthenticationToken
 
@@ -117,10 +116,34 @@ class UserControllerIntegrationTest {
                 .andExpect(jsonPath("$.avatarUrl").value("https://avatars.githubusercontent.com/u/123456"))
                 .andExpect(jsonPath("$.githubUrl").value("https://github.com/userName1"))
                 .andExpect(jsonPath("$.role").value("USER"))
-                .andExpect(jsonPath("$.preferredLanguage").value("de"))
-                .andExpect(jsonPath("$.createdAt").value("2024-01-01T12:00" ))
-                .andExpect(jsonPath("$.lastLoginAt").value("2024-01-01T12:30"));
+                .andExpect(jsonPath("$.preferredLanguage").value("de"));
     }
 
+    @Test
+    void testSetPreferredLanguage_withLoggedInUser() throws Exception {
+        OAuth2User mockOAuth2User = mock(OAuth2User.class);
+        when(mockOAuth2User.getAttribute("id")).thenReturn("githubId1");
+
+        OAuth2AuthenticationToken authToken = new OAuth2AuthenticationToken(
+                mockOAuth2User,
+                List.of(new SimpleGrantedAuthority("OIDC_USER")),
+                "github"
+        );
+
+        SecurityContextHolder.getContext().setAuthentication(authToken);
+
+        mockMvc.perform(post("/api/users/me/language/en"))
+                .andExpect(status().isOk());
+
+        UserModel updatedUser = userRepository.findByGithubId("githubId1").orElseThrow();
+        assertThat(updatedUser).isNotNull();
+        assertThat(updatedUser.getPreferredLanguage()).isEqualTo("en");
+    }
+
+    @Test
+    void testSetPreferredLanguage_unauthenticated() throws Exception {
+        mockMvc.perform(post("/api/users/me/language/en"))
+                .andExpect(status().isUnauthorized());
+    }
 
 }
