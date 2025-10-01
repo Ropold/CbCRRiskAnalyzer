@@ -54,6 +54,9 @@ public class CompanyModel {
     @Column(name = "cbcr_reporting_threshold", precision = 15, scale = 2)
     private BigDecimal cbcrReportingThreshold;
 
+    @Column(name = "image_url", length = 500)
+    private String imageUrl;
+
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
