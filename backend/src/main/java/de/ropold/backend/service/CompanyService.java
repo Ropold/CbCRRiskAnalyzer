@@ -1,5 +1,6 @@
 package de.ropold.backend.service;
 
+import de.ropold.backend.exception.notfoundexceptions.CompanyNotFoundException;
 import de.ropold.backend.model.CompanyModel;
 import de.ropold.backend.repository.CompanyRepository;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +23,7 @@ public class CompanyService {
 
     public CompanyModel getCompanyById(UUID id) {
         return companyRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Company not found with id: " + id));
+                .orElseThrow(() -> new CompanyNotFoundException("Company not found with id: " + id));
     }
 
     public CompanyModel addCompany(CompanyModel companyModel) {
@@ -31,7 +32,7 @@ public class CompanyService {
 
     public void deleteCompany(UUID id) {
         CompanyModel companyModel = companyRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Company not found with id: " + id));
+                .orElseThrow(() -> new CompanyNotFoundException("Company not found with id: " + id));
 
         if (companyModel.getImageUrl() != null) {
             cloudinaryService.deleteImage(companyModel.getImageUrl());

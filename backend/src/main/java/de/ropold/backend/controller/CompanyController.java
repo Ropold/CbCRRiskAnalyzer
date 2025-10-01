@@ -1,5 +1,7 @@
 package de.ropold.backend.controller;
 
+
+import de.ropold.backend.exception.notfoundexceptions.AccessDeniedException;
 import de.ropold.backend.model.CompanyModel;
 import de.ropold.backend.service.CloudinaryService;
 import de.ropold.backend.service.CompanyService;
@@ -31,12 +33,7 @@ public class CompanyController {
 
     @GetMapping("/{id}")
     public CompanyModel getCompanyById(@PathVariable UUID id) {
-       CompanyModel company = companyService.getCompanyById(id);
-        if(company == null){
-            throw new RuntimeException("Company not found");
-        } else {
-            return company;
-        }
+        return companyService.getCompanyById(id);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
@@ -47,7 +44,7 @@ public class CompanyController {
             @AuthenticationPrincipal OAuth2User authentication) throws IOException {
 
         if(authentication == null){
-            throw new RuntimeException("User not authenticated");
+            throw new AccessDeniedException("User not authenticated");
         }
 
         String imageUrl = null;
@@ -83,7 +80,7 @@ public class CompanyController {
             @AuthenticationPrincipal OAuth2User authentication) throws IOException {
 
         if (authentication == null) {
-            throw new RuntimeException("User not authenticated");
+            throw new AccessDeniedException("User not authenticated");
         }
 
         CompanyModel existingCompany = companyService.getCompanyById(id);
@@ -115,8 +112,8 @@ public class CompanyController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteCompany(@PathVariable UUID id, @AuthenticationPrincipal OAuth2User authentication){
 
-        if(authentication == null){
-            throw new RuntimeException("User not authenticated");
+        if (authentication == null) {
+            throw new AccessDeniedException("User not authenticated");
         }
         companyService.deleteCompany(id);
     }
