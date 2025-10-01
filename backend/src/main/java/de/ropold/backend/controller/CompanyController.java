@@ -1,6 +1,5 @@
 package de.ropold.backend.controller;
 
-
 import de.ropold.backend.exception.notfoundexceptions.AccessDeniedException;
 import de.ropold.backend.model.CompanyModel;
 import de.ropold.backend.service.CloudinaryService;
@@ -103,7 +102,6 @@ public class CompanyController {
                 existingCompany.getCreatedAt(),
                 existingCompany.getUpdatedAt()
         );
-
 
         return companyService.addCompany(updatedCompany);
     }
