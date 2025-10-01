@@ -253,6 +253,15 @@ class CompanyControllerIntegrationTest {
                 .andExpect(status().isNoContent());
 
         Assertions.assertFalse(companyRepository.existsById(company.getId()));
+    }
 
+    @Test
+    void testDeleteCompany_Unauthenticated_ShouldReturnForbidden() throws Exception {
+        CompanyModel company = companyRepository.findAll().getFirst();
+
+        mockMvc.perform(MockMvcRequestBuilders.delete("/api/companies/" + company.getId()))
+                .andExpect(status().isForbidden());
+
+        Assertions.assertTrue(companyRepository.existsById(company.getId()));
     }
 }

@@ -150,4 +150,53 @@ class CompanyServiceTest {
         verify(companyRepository, times(1)).deleteById(companyToDelete.getId());
         verify(cloudinaryService, times(1)).deleteImage(companyToDelete.getImageUrl());
     }
+
+    @Test
+    void testDeleteCompany_WithoutImage(){
+        CompanyModel companyWithoutImage = new CompanyModel(
+                java.util.UUID.randomUUID(),
+                "Company Without Image",
+                "Technology",
+                null,
+                "EUR",
+                "DE111222333",
+                null,
+                null,
+                true,
+                "Full",
+                java.math.BigDecimal.valueOf(750000000),
+                null,
+                null,
+                null
+        );
+
+        when(companyRepository.findById(companyWithoutImage.getId())).thenReturn(java.util.Optional.of(companyWithoutImage));
+        companyService.deleteCompany(companyWithoutImage.getId());
+        verify(companyRepository, times(1)).deleteById(companyWithoutImage.getId());
+        verify(cloudinaryService, never()).deleteImage(any());
+    }
+
+    @Test
+    void testGetCompanyById_NotFound(){
+        java.util.UUID nonExistentId = java.util.UUID.randomUUID();
+        when(companyRepository.findById(nonExistentId)).thenReturn(java.util.Optional.empty());
+
+        org.junit.jupiter.api.Assertions.assertThrows(
+                de.ropold.backend.exception.notfoundexceptions.CompanyNotFoundException.class,
+                () -> companyService.getCompanyById(nonExistentId)
+        );
+    }
+
+    @Test
+    void testDeleteCompany_NotFound(){
+        java.util.UUID nonExistentId = java.util.UUID.randomUUID();
+        when(companyRepository.findById(nonExistentId)).thenReturn(java.util.Optional.empty());
+
+        org.junit.jupiter.api.Assertions.assertThrows(
+                de.ropold.backend.exception.notfoundexceptions.CompanyNotFoundException.class,
+                () -> companyService.deleteCompany(nonExistentId)
+        );
+
+        verify(companyRepository, never()).deleteById(any());
+    }
 }
