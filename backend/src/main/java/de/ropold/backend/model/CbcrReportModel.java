@@ -22,6 +22,7 @@ import java.util.UUID;
 public class CbcrReportModel {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -71,6 +72,9 @@ public class CbcrReportModel {
     @Column(name = "tangible_assets", precision = 15, scale = 2)
     private BigDecimal tangibleAssets;
 
+    @Column(name = "intangible_assets", precision = 15, scale = 2)
+    private BigDecimal intangibleAssets;
+
     @Column(name = "number_of_employees")
     private Integer numberOfEmployees;
 
@@ -86,6 +90,13 @@ public class CbcrReportModel {
     @Column(name = "data_source", length = 20, columnDefinition = "VARCHAR(20) DEFAULT 'IFRS'")
     private String dataSource = "IFRS";
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "audit_status", length = 20, columnDefinition = "VARCHAR(20) DEFAULT 'DRAFT'")
+    private AuditStatus auditStatus = AuditStatus.DRAFT;
+
+    @Column(name = "business_activities", columnDefinition = "TEXT")
+    private String businessActivities;
+
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
@@ -93,4 +104,11 @@ public class CbcrReportModel {
     @UpdateTimestamp
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
+
+    public enum AuditStatus {
+        DRAFT,
+        IN_REVIEW,
+        SUBMITTED,
+        FINALIZED
+    }
 }

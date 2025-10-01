@@ -18,6 +18,7 @@ import java.util.UUID;
 public class CountryModel {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
     @Column(name = "country_code", length = 2, unique = true, nullable = false)
@@ -39,6 +40,19 @@ public class CountryModel {
     @Column(name = "expected_tax_rate", precision = 5, scale = 2)
     private BigDecimal expectedTaxRate;
 
+    @Column(name = "statutory_tax_rate", precision = 5, scale = 2)
+    private BigDecimal statutoryTaxRate;
+
+    @Column(name = "is_eu_member", nullable = false, columnDefinition = "BOOLEAN DEFAULT FALSE")
+    private Boolean isEuMember = false;
+
+    @Column(name = "is_oecd_member", nullable = false, columnDefinition = "BOOLEAN DEFAULT FALSE")
+    private Boolean isOecdMember = false;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "blacklist_status", length = 20)
+    private BlacklistStatus blacklistStatus;
+
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
@@ -47,5 +61,12 @@ public class CountryModel {
         COUNTRY,
         TERRITORY,
         OFFSHORE
+    }
+
+    public enum BlacklistStatus {
+        NONE,
+        EU_GREYLIST,
+        EU_BLACKLIST,
+        OECD_NON_COOPERATIVE
     }
 }

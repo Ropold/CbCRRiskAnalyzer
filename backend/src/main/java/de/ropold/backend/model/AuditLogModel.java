@@ -17,6 +17,7 @@ import java.util.UUID;
 public class AuditLogModel {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
     @Column(name = "table_name", nullable = false, length = 100)
@@ -36,6 +37,16 @@ public class AuditLogModel {
 
     @Column(name = "new_value", columnDefinition = "TEXT")
     private String newValue;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private UserModel user;
+
+    @Column(name = "username", length = 100)
+    private String username;
+
+    @Column(name = "ip_address", length = 45)
+    private String ipAddress;
 
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)

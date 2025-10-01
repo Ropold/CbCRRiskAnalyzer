@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -18,6 +19,7 @@ import java.util.UUID;
 public class CompanyModel {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
     @Column(name = "name", nullable = false, length = 255)
@@ -32,6 +34,25 @@ public class CompanyModel {
 
     @Column(name = "reporting_currency", length = 3, columnDefinition = "VARCHAR(3) DEFAULT 'EUR'")
     private String reportingCurrency = "EUR";
+
+    @Column(name = "tax_identification_number", length = 50)
+    private String taxIdentificationNumber;
+
+    @Column(name = "lei_code", length = 20)
+    private String leiCode;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "parent_company_id", referencedColumnName = "id")
+    private CompanyModel parentCompany;
+
+    @Column(name = "is_ultimate_parent", nullable = false, columnDefinition = "BOOLEAN DEFAULT TRUE")
+    private Boolean isUltimateParent = true;
+
+    @Column(name = "consolidation_scope", length = 50)
+    private String consolidationScope;
+
+    @Column(name = "cbcr_reporting_threshold", precision = 15, scale = 2)
+    private BigDecimal cbcrReportingThreshold;
 
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
