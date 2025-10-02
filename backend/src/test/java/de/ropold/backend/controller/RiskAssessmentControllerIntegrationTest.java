@@ -19,7 +19,19 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.http.MediaType;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
+import org.springframework.security.oauth2.core.user.OAuth2User;
+import org.springframework.security.test.context.support.WithMockUser;
+
+import java.util.UUID;
+
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -41,6 +53,14 @@ class RiskAssessmentControllerIntegrationTest {
 
     @Autowired
     private CountryRepository countryRepository;
+
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    private RiskAssessmentModel testRiskAssessment1;
+    private RiskAssessmentModel testRiskAssessment2;
+    private CbcrReportModel testCbcrReport1;
+    private CbcrReportModel testCbcrReport2;
 
     @BeforeEach
     void setUp() {
@@ -162,6 +182,9 @@ class RiskAssessmentControllerIntegrationTest {
         );
         testCbcrReport2 = cbcrReportRepository.save(testCbcrReport2);
 
+        this.testCbcrReport1 = testCbcrReport1;
+        this.testCbcrReport2 = testCbcrReport2;
+
         // Create test risk assessments
         RiskAssessmentModel riskAssessmentModel1 = new RiskAssessmentModel(
                 null,
@@ -205,7 +228,8 @@ class RiskAssessmentControllerIntegrationTest {
                 null
         );
 
-        riskAssessmentRepository.saveAll(List.of(riskAssessmentModel1, riskAssessmentModel2));
+        testRiskAssessment1 = riskAssessmentRepository.save(riskAssessmentModel1);
+        testRiskAssessment2 = riskAssessmentRepository.save(riskAssessmentModel2);
     }
 
     @Test
@@ -215,5 +239,219 @@ class RiskAssessmentControllerIntegrationTest {
                 .andExpect(jsonPath("$.length()").value(2))
                 .andExpect(jsonPath("$[0].overallRiskLevel").value("CRITICAL"))
                 .andExpect(jsonPath("$[1].overallRiskLevel").value("LOW"));
+    }
+
+    @Test
+    void testGetRiskAssessmentById() throws Exception {
+        mockMvc.perform(get("/api/risk-assessments/" + testRiskAssessment1.getId()))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").value(testRiskAssessment1.getId().toString()))
+                .andExpect(jsonPath("$.overallRiskLevel").value("CRITICAL"))
+                .andExpect(jsonPath("$.riskScore").value(95.50))
+                .andExpect(jsonPath("$.taxHavenFlag").value(true))
+                .andExpect(jsonPath("$.cbcrReport.country.countryCode").value("KY"));
+    }
+
+    @Test
+    void testGetRiskAssessmentById_NotFound() throws Exception {
+        UUID nonExistentId = UUID.randomUUID();
+        mockMvc.perform(get("/api/risk-assessments/" + nonExistentId))
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    @WithMockUser(username = "test-user", authorities = {"OIDC_USER"})
+    void testAddRiskAssessment() throws Exception {
+        OAuth2User mockOAuth2User = mock(OAuth2User.class);
+        when(mockOAuth2User.getName()).thenReturn("test-user");
+        when(mockOAuth2User.getAttribute("id")).thenReturn("github-id-123");
+
+        OAuth2AuthenticationToken authToken = new OAuth2AuthenticationToken(
+                mockOAuth2User,
+                List.of(new SimpleGrantedAuthority("OIDC_USER")),
+                "github"
+        );
+
+        SecurityContextHolder.getContext().setAuthentication(authToken);
+
+        // Delete existing risk assessment for testCbcrReport2 to avoid unique constraint violation
+        riskAssessmentRepository.delete(testRiskAssessment2);
+
+        RiskAssessmentModel newRiskAssessment = new RiskAssessmentModel(
+                null,
+                testCbcrReport2,
+                RiskAssessmentModel.RiskLevel.MEDIUM,
+                BigDecimal.valueOf(55.00),
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                BigDecimal.valueOf(-5.00),
+                BigDecimal.valueOf(150000.00),
+                BigDecimal.valueOf(25000.00),
+                "Medium risk assessment",
+                "Monitor closely",
+                null,
+                null
+        );
+
+        String jsonRequest = objectMapper.writeValueAsString(newRiskAssessment);
+
+        mockMvc.perform(post("/api/risk-assessments")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonRequest))
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath("$.overallRiskLevel").value("MEDIUM"))
+                .andExpect(jsonPath("$.riskScore").value(55.00));
+    }
+
+    @Test
+    void testAddRiskAssessment_Unauthorized() throws Exception {
+        RiskAssessmentModel newRiskAssessment = new RiskAssessmentModel(
+                null,
+                testCbcrReport1,
+                RiskAssessmentModel.RiskLevel.MEDIUM,
+                BigDecimal.valueOf(55.00),
+                false, false, false, false, false, false, false,
+                null, null, null, null, null, null, null
+        );
+
+        String jsonRequest = objectMapper.writeValueAsString(newRiskAssessment);
+
+        mockMvc.perform(post("/api/risk-assessments")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonRequest))
+                .andExpect(status().isForbidden());
+    }
+
+    @Test
+    @WithMockUser(username = "test-user", authorities = {"OIDC_USER"})
+    void testUpdateRiskAssessment() throws Exception {
+        OAuth2User mockOAuth2User = mock(OAuth2User.class);
+        when(mockOAuth2User.getName()).thenReturn("test-user");
+        when(mockOAuth2User.getAttribute("id")).thenReturn("github-id-123");
+
+        OAuth2AuthenticationToken authToken = new OAuth2AuthenticationToken(
+                mockOAuth2User,
+                List.of(new SimpleGrantedAuthority("OIDC_USER")),
+                "github"
+        );
+
+        SecurityContextHolder.getContext().setAuthentication(authToken);
+
+        RiskAssessmentModel updatedRiskAssessment = new RiskAssessmentModel(
+                testRiskAssessment1.getId(),
+                testCbcrReport1,
+                RiskAssessmentModel.RiskLevel.HIGH,
+                BigDecimal.valueOf(85.00),
+                true,
+                true,
+                true,
+                false,
+                true,
+                true,
+                true,
+                BigDecimal.valueOf(-2.00),
+                BigDecimal.valueOf(3500000.00),
+                BigDecimal.valueOf(1400000.00),
+                "Updated: High risk - requires immediate attention",
+                "Updated: Full audit recommended",
+                null,
+                null
+        );
+
+        String jsonRequest = objectMapper.writeValueAsString(updatedRiskAssessment);
+
+        mockMvc.perform(put("/api/risk-assessments/" + testRiskAssessment1.getId())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonRequest))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.overallRiskLevel").value("HIGH"))
+                .andExpect(jsonPath("$.riskScore").value(85.00))
+                .andExpect(jsonPath("$.riskExplanation").value("Updated: High risk - requires immediate attention"));
+    }
+
+    @Test
+    @WithMockUser(username = "test-user", authorities = {"OIDC_USER"})
+    void testUpdateRiskAssessment_NotFound() throws Exception {
+        OAuth2User mockOAuth2User = mock(OAuth2User.class);
+        when(mockOAuth2User.getName()).thenReturn("test-user");
+        when(mockOAuth2User.getAttribute("id")).thenReturn("github-id-123");
+
+        OAuth2AuthenticationToken authToken = new OAuth2AuthenticationToken(
+                mockOAuth2User,
+                List.of(new SimpleGrantedAuthority("OIDC_USER")),
+                "github"
+        );
+
+        SecurityContextHolder.getContext().setAuthentication(authToken);
+
+        UUID nonExistentId = UUID.randomUUID();
+        RiskAssessmentModel updatedRiskAssessment = new RiskAssessmentModel(
+                nonExistentId,
+                testCbcrReport1,
+                RiskAssessmentModel.RiskLevel.HIGH,
+                BigDecimal.valueOf(85.00),
+                true, true, true, false, true, true, true,
+                null, null, null, null, null, null, null
+        );
+
+        String jsonRequest = objectMapper.writeValueAsString(updatedRiskAssessment);
+
+        mockMvc.perform(put("/api/risk-assessments/" + nonExistentId)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonRequest))
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    void testUpdateRiskAssessment_Unauthorized() throws Exception {
+        RiskAssessmentModel updatedRiskAssessment = new RiskAssessmentModel(
+                testRiskAssessment1.getId(),
+                testCbcrReport1,
+                RiskAssessmentModel.RiskLevel.HIGH,
+                BigDecimal.valueOf(85.00),
+                true, true, true, false, true, true, true,
+                null, null, null, null, null, null, null
+        );
+
+        String jsonRequest = objectMapper.writeValueAsString(updatedRiskAssessment);
+
+        mockMvc.perform(put("/api/risk-assessments/" + testRiskAssessment1.getId())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonRequest))
+                .andExpect(status().isForbidden());
+    }
+
+    @Test
+    @WithMockUser(username = "test-user", authorities = {"OIDC_USER"})
+    void testDeleteRiskAssessment() throws Exception {
+        OAuth2User mockOAuth2User = mock(OAuth2User.class);
+        when(mockOAuth2User.getName()).thenReturn("test-user");
+        when(mockOAuth2User.getAttribute("id")).thenReturn("github-id-123");
+
+        OAuth2AuthenticationToken authToken = new OAuth2AuthenticationToken(
+                mockOAuth2User,
+                List.of(new SimpleGrantedAuthority("OIDC_USER")),
+                "github"
+        );
+
+        SecurityContextHolder.getContext().setAuthentication(authToken);
+
+        mockMvc.perform(delete("/api/risk-assessments/" + testRiskAssessment1.getId()))
+                .andExpect(status().isNoContent());
+
+        // Verify deletion
+        mockMvc.perform(get("/api/risk-assessments/" + testRiskAssessment1.getId()))
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    void testDeleteRiskAssessment_Unauthorized() throws Exception {
+        mockMvc.perform(delete("/api/risk-assessments/" + testRiskAssessment1.getId()))
+                .andExpect(status().isForbidden());
     }
 }
