@@ -1,6 +1,7 @@
 package de.ropold.backend.service;
 
 import de.ropold.backend.dto.RiskAssessmentResponse;
+import de.ropold.backend.exception.notfoundexceptions.RiskAssessmentNotFoundException;
 import de.ropold.backend.model.CbcrReportModel;
 import de.ropold.backend.model.CompanyModel;
 import de.ropold.backend.model.CountryModel;
@@ -11,11 +12,12 @@ import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+import static org.mockito.ArgumentMatchers.any;
 
 class RiskAssessmentServiceTest {
 
@@ -139,6 +141,89 @@ class RiskAssessmentServiceTest {
         assertEquals(2, result.size());
         assertEquals(RiskAssessmentModel.RiskLevel.LOW, result.get(0).overallRiskLevel());
         assertEquals(RiskAssessmentModel.RiskLevel.HIGH, result.get(1).overallRiskLevel());
+    }
+
+    @Test
+    void testGetRiskAssessmentById_Success() {
+        UUID testId = UUID.randomUUID();
+        RiskAssessmentModel riskAssessment = allRiskAssessments.get(0);
+        riskAssessment.setId(testId);
+
+        when(riskAssessmentRepository.findById(testId)).thenReturn(Optional.of(riskAssessment));
+
+        RiskAssessmentResponse result = riskAssessmentService.getRiskAssessmentById(testId);
+
+        assertNotNull(result);
+        assertEquals(RiskAssessmentModel.RiskLevel.LOW, result.overallRiskLevel());
+        verify(riskAssessmentRepository, times(1)).findById(testId);
+    }
+
+    @Test
+    void testGetRiskAssessmentById_NotFound() {
+        UUID testId = UUID.randomUUID();
+
+        when(riskAssessmentRepository.findById(testId)).thenReturn(Optional.empty());
+
+        assertThrows(RiskAssessmentNotFoundException.class, () -> {
+            riskAssessmentService.getRiskAssessmentById(testId);
+        });
+
+        verify(riskAssessmentRepository, times(1)).findById(testId);
+    }
+
+    @Test
+    void testAddRiskAssessment() {
+        RiskAssessmentModel newRiskAssessment = allRiskAssessments.get(0);
+
+        when(riskAssessmentRepository.save(any(RiskAssessmentModel.class))).thenReturn(newRiskAssessment);
+
+        RiskAssessmentModel result = riskAssessmentService.addRiskAssessment(newRiskAssessment);
+
+        assertNotNull(result);
+        assertEquals(RiskAssessmentModel.RiskLevel.LOW, result.getOverallRiskLevel());
+        verify(riskAssessmentRepository, times(1)).save(newRiskAssessment);
+    }
+
+    @Test
+    void testUpdateRiskAssessment() {
+        RiskAssessmentModel updatedRiskAssessment = allRiskAssessments.get(0);
+        updatedRiskAssessment.setOverallRiskLevel(RiskAssessmentModel.RiskLevel.CRITICAL);
+
+        when(riskAssessmentRepository.save(any(RiskAssessmentModel.class))).thenReturn(updatedRiskAssessment);
+
+        RiskAssessmentModel result = riskAssessmentService.updateRiskAssessment(updatedRiskAssessment);
+
+        assertNotNull(result);
+        assertEquals(RiskAssessmentModel.RiskLevel.CRITICAL, result.getOverallRiskLevel());
+        verify(riskAssessmentRepository, times(1)).save(updatedRiskAssessment);
+    }
+
+    @Test
+    void testDeleteRiskAssessment_Success() {
+        UUID testId = UUID.randomUUID();
+        RiskAssessmentModel riskAssessment = allRiskAssessments.get(0);
+
+        when(riskAssessmentRepository.findById(testId)).thenReturn(Optional.of(riskAssessment));
+        doNothing().when(riskAssessmentRepository).deleteById(testId);
+
+        riskAssessmentService.deleteRiskAssessment(testId);
+
+        verify(riskAssessmentRepository, times(1)).findById(testId);
+        verify(riskAssessmentRepository, times(1)).deleteById(testId);
+    }
+
+    @Test
+    void testDeleteRiskAssessment_NotFound() {
+        UUID testId = UUID.randomUUID();
+
+        when(riskAssessmentRepository.findById(testId)).thenReturn(Optional.empty());
+
+        assertThrows(RiskAssessmentNotFoundException.class, () -> {
+            riskAssessmentService.deleteRiskAssessment(testId);
+        });
+
+        verify(riskAssessmentRepository, times(1)).findById(testId);
+        verify(riskAssessmentRepository, never()).deleteById(testId);
     }
 
 }
