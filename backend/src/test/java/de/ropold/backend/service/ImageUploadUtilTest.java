@@ -2,6 +2,8 @@ package de.ropold.backend.service;
 
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -40,15 +42,40 @@ class ImageUploadUtilTest {
         assertEquals("existingUrl", result);
     }
 
-    @Test
-    void cleanupOldImageIfNeeded_deletesImage_whenImageShouldBeDeleted() {
-        imageUploadUtil.cleanupOldImageIfNeeded("oldUrl", "newUrl");
-        verify(cloudinaryService, times(1)).deleteImage("oldUrl");
+    @ParameterizedTest
+    @CsvSource({
+            "oldUrl, newUrl",
+            "oldUrl, ",
+            "oldUrl, ''"
+    })
+    void cleanupOldImageIfNeeded_deletesImage(String oldUrl, String newUrl) {
+        imageUploadUtil.cleanupOldImageIfNeeded(oldUrl, newUrl);
+        verify(cloudinaryService, times(1)).deleteImage(oldUrl);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "sameUrl, sameUrl",
+            ", newUrl",
+            "'', newUrl"
+    })
+    void cleanupOldImageIfNeeded_doesNothing(String oldUrl, String newUrl) {
+        imageUploadUtil.cleanupOldImageIfNeeded(oldUrl, newUrl);
+        verify(cloudinaryService, never()).deleteImage(any());
     }
 
     @Test
-    void cleanupOldImageIfNeeded_doesNothing_whenNoCleanupNeeded() {
-        imageUploadUtil.cleanupOldImageIfNeeded("sameUrl", "sameUrl");
-        verify(cloudinaryService, never()).deleteImage(any());
+    void determineImageUrl_returnsNull_whenNoImageAndFrontendUrlNull() throws IOException {
+        String result = imageUploadUtil.determineImageUrl(null, null, "existingUrl");
+        assertNull(result);
+    }
+
+    @Test
+    void determineImageUrl_returnsNull_whenEmptyImageAndFrontendUrlBlank() throws IOException {
+        MultipartFile image = mock(MultipartFile.class);
+        when(image.isEmpty()).thenReturn(true);
+
+        String result = imageUploadUtil.determineImageUrl(image, "", "existingUrl");
+        assertNull(result);
     }
 }

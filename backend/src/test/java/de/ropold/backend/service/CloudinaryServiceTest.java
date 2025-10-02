@@ -35,8 +35,11 @@ class CloudinaryServiceTest {
 
     @BeforeEach
     void setUp() {
-        MockitoAnnotations.openMocks(this);
-        when(cloudinary.uploader()).thenReturn(uploader);
+        try (var ignored = MockitoAnnotations.openMocks(this)) {
+            when(cloudinary.uploader()).thenReturn(uploader);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Test
@@ -44,7 +47,10 @@ class CloudinaryServiceTest {
         MultipartFile mockImage = mock(MultipartFile.class);
         when(mockImage.getOriginalFilename()).thenReturn("image.jpg");
         doAnswer(invocation -> {
-            ((File) invocation.getArgument(0)).createNewFile();
+            File file = invocation.getArgument(0);
+            if (!file.createNewFile()) {
+                throw new IOException("Failed to create file");
+            }
             return null;
         }).when(mockImage).transferTo(any(File.class));
 
@@ -74,6 +80,16 @@ class CloudinaryServiceTest {
         cloudinaryService.deleteImage(imageUrl);
 
         verify(cloudinary.uploader(), times(1)).destroy(publicId, Collections.emptyMap());
+    }
+
+    @Test
+    void deleteImage_ThrowsIOException_ThrowsRuntimeException() throws IOException {
+        String imageUrl = "https://example.com/image.jpg";
+        String publicId = "image";
+        when(cloudinary.uploader().destroy(publicId, Collections.emptyMap())).thenThrow(new IOException("Delete failed"));
+
+        RuntimeException exception = assertThrows(RuntimeException.class, () -> cloudinaryService.deleteImage(imageUrl));
+        assertEquals("Error deleting image from Cloudinary: " + publicId, exception.getMessage());
     }
 
 }
