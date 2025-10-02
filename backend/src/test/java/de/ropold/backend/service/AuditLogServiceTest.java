@@ -145,4 +145,56 @@ class AuditLogServiceTest {
         verify(auditLogRepository, never()).deleteById(testId);
     }
 
+    @Test
+    void testGetAllAuditLogs_WithNullUser() {
+        AuditLogModel auditLogWithNullUser = new AuditLogModel(
+                UUID.randomUUID(),
+                "companies",
+                UUID.randomUUID(),
+                "DELETE",
+                null,
+                null,
+                null,
+                null,
+                "system",
+                "127.0.0.1",
+                null
+        );
+
+        when(auditLogRepository.findAll()).thenReturn(List.of(auditLogWithNullUser));
+
+        List<AuditLogResponse> result = auditLogService.getAllAuditLogs();
+
+        assertEquals(1, result.size());
+        assertNull(result.getFirst().user());
+        assertEquals("system", result.getFirst().username());
+    }
+
+    @Test
+    void testGetAuditLogById_WithNullUser() {
+        UUID testId = UUID.randomUUID();
+        AuditLogModel auditLogWithNullUser = new AuditLogModel(
+                testId,
+                "companies",
+                UUID.randomUUID(),
+                "DELETE",
+                null,
+                null,
+                null,
+                null,
+                "system",
+                "127.0.0.1",
+                null
+        );
+
+        when(auditLogRepository.findById(testId)).thenReturn(Optional.of(auditLogWithNullUser));
+
+        AuditLogResponse result = auditLogService.getAuditLogById(testId);
+
+        assertNotNull(result);
+        assertNull(result.user());
+        assertEquals("system", result.username());
+        verify(auditLogRepository, times(1)).findById(testId);
+    }
+
 }
