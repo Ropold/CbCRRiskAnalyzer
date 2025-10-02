@@ -264,4 +264,21 @@ class CompanyControllerIntegrationTest {
 
         Assertions.assertTrue(companyRepository.existsById(company.getId()));
     }
+
+    @Test
+    void testUpdateCompany_Unauthenticated_ShouldReturnForbidden() throws Exception {
+        CompanyModel company = companyRepository.findAll().getFirst();
+
+        mockMvc.perform(MockMvcRequestBuilders.multipart("/api/companies/" + company.getId())
+                        .file(new MockMultipartFile("companyModel", "", "application/json", """
+                        {
+                          "name": "Updated Company"
+                        }
+                    """.getBytes()))
+                        .with(request -> {
+                            request.setMethod("PUT");
+                            return request;
+                        }))
+                .andExpect(status().isForbidden());
+    }
 }

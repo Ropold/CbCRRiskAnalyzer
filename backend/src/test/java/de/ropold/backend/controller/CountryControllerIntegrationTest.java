@@ -265,5 +265,30 @@ class CountryControllerIntegrationTest {
         Assertions.assertTrue(exists);
     }
 
+    @Test
+    void testUpdateCountry_unauthenticated_shouldReturnUnauthorized() throws Exception {
+        CountryModel existingCountry = countryRepository.findAll().getFirst();
+
+        String updatedCountryJson = """
+                {
+                    "countryCode": "DE",
+                    "countryName": "Germany",
+                    "region": "Europe",
+                    "jurisdictionType": "COUNTRY",
+                    "taxHaven": true,
+                    "expectedTaxRate": 35.00,
+                    "statutoryTaxRate": 34.50,
+                    "isEuMember": true,
+                    "isOecdMember": true,
+                    "blacklistStatus": "EU_GREYLIST"
+                }
+                """;
+
+        mockMvc.perform(put("/api/countries/" + existingCountry.getId())
+                        .contentType(APPLICATION_JSON)
+                        .content(updatedCountryJson))
+                .andExpect(status().isUnauthorized());
+    }
+
 
 }

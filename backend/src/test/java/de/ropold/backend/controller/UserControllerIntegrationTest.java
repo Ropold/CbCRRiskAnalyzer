@@ -2,7 +2,6 @@ package de.ropold.backend.controller;
 
 import de.ropold.backend.model.UserModel;
 import de.ropold.backend.repository.UserRepository;
-import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -144,6 +143,70 @@ class UserControllerIntegrationTest {
     void testSetPreferredLanguage_unauthenticated() throws Exception {
         mockMvc.perform(post("/api/users/me/language/en"))
                 .andExpect(status().isUnauthorized());
+    }
+
+    @Test
+    void testGetUserDetails_unauthenticated() throws Exception {
+        mockMvc.perform(get("/api/users/me/details"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.message").value("User not authenticated"));
+    }
+
+    @Test
+    void testGetUserDetails_withUserWithNullName() throws Exception {
+        OAuth2User mockUser = mock(OAuth2User.class);
+        when(mockUser.getAttribute("id")).thenReturn("githubId1");
+        when(mockUser.getAttribute("login")).thenReturn("userName1");
+        when(mockUser.getAttribute("name")).thenReturn(null);  // null name should fallback to username
+        when(mockUser.getAttribute("avatar_url")).thenReturn("https://avatars.githubusercontent.com/u/123456");
+        when(mockUser.getAttribute("html_url")).thenReturn("https://github.com/userName1");
+
+        OAuth2AuthenticationToken authToken = new OAuth2AuthenticationToken(
+                mockUser,
+                List.of(new SimpleGrantedAuthority("OIDC_USER")),
+                "github"
+        );
+
+        mockMvc.perform(get("/api/users/me/details")
+                        .with(authentication(authToken)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.githubId").value("githubId1"));
+    }
+
+    @Test
+    void testGetUserDetails_withException() throws Exception {
+        OAuth2User mockUser = mock(OAuth2User.class);
+        when(mockUser.getAttribute("id")).thenThrow(new RuntimeException("Test exception"));
+
+        OAuth2AuthenticationToken authToken = new OAuth2AuthenticationToken(
+                mockUser,
+                List.of(new SimpleGrantedAuthority("OIDC_USER")),
+                "github"
+        );
+
+        mockMvc.perform(get("/api/users/me/details")
+                        .with(authentication(authToken)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.error").value("User data temporarily unavailable, please refresh"));
+    }
+
+    @Test
+    void testSetPreferredLanguage_withNullGithubId() throws Exception {
+        OAuth2User mockOAuth2User = mock(OAuth2User.class);
+        when(mockOAuth2User.getAttribute("id")).thenReturn(null);
+
+        OAuth2AuthenticationToken authToken = new OAuth2AuthenticationToken(
+                mockOAuth2User,
+                List.of(new SimpleGrantedAuthority("OIDC_USER")),
+                "github"
+        );
+
+        SecurityContextHolder.getContext().setAuthentication(authToken);
+
+        mockMvc.perform(post("/api/users/me/language/en"))
+                .andExpect(status().isInternalServerError())
+                .andExpect(jsonPath("$.code").value("INTERNAL_ERROR"))
+                .andExpect(jsonPath("$.message").value("GitHub ID not found"));
     }
 
 }
