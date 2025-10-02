@@ -164,9 +164,7 @@ class RiskAssessmentServiceTest {
 
         when(riskAssessmentRepository.findById(testId)).thenReturn(Optional.empty());
 
-        assertThrows(RiskAssessmentNotFoundException.class, () -> {
-            riskAssessmentService.getRiskAssessmentById(testId);
-        });
+        assertThrows(RiskAssessmentNotFoundException.class, () -> riskAssessmentService.getRiskAssessmentById(testId));
 
         verify(riskAssessmentRepository, times(1)).findById(testId);
     }
@@ -218,9 +216,7 @@ class RiskAssessmentServiceTest {
 
         when(riskAssessmentRepository.findById(testId)).thenReturn(Optional.empty());
 
-        assertThrows(RiskAssessmentNotFoundException.class, () -> {
-            riskAssessmentService.deleteRiskAssessment(testId);
-        });
+        assertThrows(RiskAssessmentNotFoundException.class, () -> riskAssessmentService.deleteRiskAssessment(testId));
 
         verify(riskAssessmentRepository, times(1)).findById(testId);
         verify(riskAssessmentRepository, never()).deleteById(testId);

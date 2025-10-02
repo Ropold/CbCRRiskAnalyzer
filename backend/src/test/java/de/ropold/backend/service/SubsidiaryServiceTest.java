@@ -137,9 +137,7 @@ class SubsidiaryServiceTest {
 
         when(subsidiaryRepository.findById(testId)).thenReturn(Optional.empty());
 
-        assertThrows(SubsidiaryNotFoundException.class, () -> {
-            subsidiaryService.getSubsidiaryById(testId);
-        });
+        assertThrows(SubsidiaryNotFoundException.class, () -> subsidiaryService.getSubsidiaryById(testId));
 
         verify(subsidiaryRepository, times(1)).findById(testId);
     }
@@ -192,9 +190,7 @@ class SubsidiaryServiceTest {
 
         when(subsidiaryRepository.findById(testId)).thenReturn(Optional.empty());
 
-        assertThrows(SubsidiaryNotFoundException.class, () -> {
-            subsidiaryService.deleteSubsidiary(testId);
-        });
+        assertThrows(SubsidiaryNotFoundException.class, () -> subsidiaryService.deleteSubsidiary(testId));
 
         verify(subsidiaryRepository, times(1)).findById(testId);
         verify(subsidiaryRepository, never()).deleteById(testId);

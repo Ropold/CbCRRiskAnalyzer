@@ -86,9 +86,7 @@ class AuditLogServiceTest {
 
         when(auditLogRepository.findById(testId)).thenReturn(Optional.empty());
 
-        assertThrows(AuditLogNotFoundException.class, () -> {
-            auditLogService.getAuditLogById(testId);
-        });
+        assertThrows(AuditLogNotFoundException.class, () -> auditLogService.getAuditLogById(testId));
 
         verify(auditLogRepository, times(1)).findById(testId);
     }
@@ -141,9 +139,7 @@ class AuditLogServiceTest {
 
         when(auditLogRepository.findById(testId)).thenReturn(Optional.empty());
 
-        assertThrows(AuditLogNotFoundException.class, () -> {
-            auditLogService.deleteAuditLog(testId);
-        });
+        assertThrows(AuditLogNotFoundException.class, () -> auditLogService.deleteAuditLog(testId));
 
         verify(auditLogRepository, times(1)).findById(testId);
         verify(auditLogRepository, never()).deleteById(testId);
