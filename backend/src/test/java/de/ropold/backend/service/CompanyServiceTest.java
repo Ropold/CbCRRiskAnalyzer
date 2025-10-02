@@ -14,8 +14,7 @@ class CompanyServiceTest {
 
     CompanyRepository companyRepository = mock(CompanyRepository.class);
     CloudinaryService cloudinaryService = mock(CloudinaryService.class);
-    ImageUploadUtil imageUploadUtil = mock(ImageUploadUtil.class);
-    CompanyService companyService = new CompanyService(companyRepository, cloudinaryService, imageUploadUtil);
+    CompanyService companyService = new CompanyService(companyRepository, cloudinaryService);
 
     List<CompanyModel> allCompanies;
 
@@ -135,11 +134,11 @@ class CompanyServiceTest {
                 null
         );
 
-        when(companyRepository.findById(existingCompany.getId())).thenReturn(java.util.Optional.of(existingCompany));
         when(companyRepository.save(updatedCompany)).thenReturn(updatedCompany);
 
-        CompanyModel result = companyService.addCompany(updatedCompany);
+        CompanyModel result = companyService.updateCompany(updatedCompany);
         assertEquals(updatedCompany, result);
+        verify(companyRepository, times(1)).save(updatedCompany);
     }
 
     @Test

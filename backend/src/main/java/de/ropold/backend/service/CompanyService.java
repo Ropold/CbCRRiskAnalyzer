@@ -15,7 +15,6 @@ public class CompanyService {
 
     private final CompanyRepository companyRepository;
     private final CloudinaryService cloudinaryService;
-    private final ImageUploadUtil imageUploadUtil;
 
     public List<CompanyModel> getAllCompanies() {
         return companyRepository.findAll();
@@ -27,6 +26,10 @@ public class CompanyService {
     }
 
     public CompanyModel addCompany(CompanyModel companyModel) {
+        return companyRepository.save(companyModel);
+    }
+
+    public CompanyModel updateCompany(CompanyModel companyModel) {
         return companyRepository.save(companyModel);
     }
 

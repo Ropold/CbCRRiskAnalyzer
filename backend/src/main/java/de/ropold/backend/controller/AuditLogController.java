@@ -1,8 +1,9 @@
 package de.ropold.backend.controller;
 
+import de.ropold.backend.dto.AuditLogResponse;
 import de.ropold.backend.exception.notfoundexceptions.AccessDeniedException;
-import de.ropold.backend.model.CountryModel;
-import de.ropold.backend.service.CountryService;
+import de.ropold.backend.model.AuditLogModel;
+import de.ropold.backend.service.AuditLogService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -13,56 +14,54 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/countries")
+@RequestMapping("/api/audit-logs")
 @RequiredArgsConstructor
-public class CountryController {
+public class AuditLogController {
 
-    private final CountryService countryService;
+    private final AuditLogService auditLogService;
 
     @GetMapping
-    public List<CountryModel> getAllCountries() {
-        return countryService.getAllCountries();
+    public List<AuditLogResponse> getAllAuditLogs() {
+        return auditLogService.getAllAuditLogs();
     }
 
     @GetMapping("/{id}")
-    public CountryModel getCountryById(@PathVariable UUID id) {
-        return countryService.getCountryById(id);
+    public AuditLogResponse getAuditLogById(@PathVariable UUID id) {
+        return auditLogService.getAuditLogById(id);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public CountryModel addCountry(
-            @RequestBody CountryModel countryModel,
+    public AuditLogResponse addAuditLog(
+            @RequestBody AuditLogModel auditLogModel,
             @AuthenticationPrincipal OAuth2User authentication) {
-
         if(authentication == null){
             throw new AccessDeniedException("User not authenticated");
         }
-
-        return countryService.addCountry(countryModel);
+        AuditLogModel saved = auditLogService.addAuditLog(auditLogModel);
+        return auditLogService.getAuditLogById(saved.getId());
     }
 
     @PutMapping("/{id}")
-    public CountryModel updateCountry(
+    public AuditLogResponse updateAuditLog(
             @PathVariable UUID id,
-            @RequestBody CountryModel countryModel,
+            @RequestBody AuditLogModel auditLogModel,
             @AuthenticationPrincipal OAuth2User authentication){
-
         if(authentication == null){
             throw new AccessDeniedException("User not authenticated");
         }
-
-        countryService.getCountryById(id); // Validates that country exists
-        countryModel.setId(id);
-        return countryService.updateCountry(countryModel);
+        auditLogService.getAuditLogById(id);
+        auditLogModel.setId(id);
+        AuditLogModel updated = auditLogService.updateAuditLog(auditLogModel);
+        return auditLogService.getAuditLogById(updated.getId());
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteCountry(@PathVariable UUID id, @AuthenticationPrincipal OAuth2User authentication) {
+    public void deleteAuditLog(@PathVariable UUID id, @AuthenticationPrincipal OAuth2User authentication) {
         if (authentication == null) {
             throw new AccessDeniedException("User not authenticated");
         }
-        countryService.deleteCountry(id);
+        auditLogService.deleteAuditLog(id);
     }
 }

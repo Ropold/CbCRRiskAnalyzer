@@ -19,8 +19,13 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler({
-            UserNotFoundException.class,
+            AuditLogNotFoundException.class,
+            CbcrNotFoundException.class,
             CompanyNotFoundException.class,
+            CountryNotFoundException.class,
+            RiskAssessmentNotFoundException.class,
+            SubsidiaryNotFoundException.class,
+            UserNotFoundException.class
     })
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ErrorResponse handleNotFoundException(RuntimeException e) {
