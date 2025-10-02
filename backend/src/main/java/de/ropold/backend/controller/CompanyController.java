@@ -103,7 +103,7 @@ public class CompanyController {
                 existingCompany.getUpdatedAt()
         );
 
-        return companyService.addCompany(updatedCompany);
+        return companyService.updateCompany(updatedCompany);
     }
 
     @DeleteMapping("/{id}")

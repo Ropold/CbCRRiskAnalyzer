@@ -29,6 +29,10 @@ public class CompanyService {
         return companyRepository.save(companyModel);
     }
 
+    public CompanyModel updateCompany(CompanyModel companyModel) {
+        return companyRepository.save(companyModel);
+    }
+
     public void deleteCompany(UUID id) {
         CompanyModel companyModel = companyRepository.findById(id)
                 .orElseThrow(() -> new CompanyNotFoundException("Company not found with id: " + id));
