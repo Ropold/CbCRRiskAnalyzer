@@ -16,9 +16,7 @@ import static org.mockito.Mockito.*;
 class CountryServiceTest {
 
     CountryRepository countryRepository = mock(CountryRepository.class);
-    CloudinaryService cloudinaryService = mock(CloudinaryService.class);
-    ImageUploadUtil imageUploadUtil = mock(ImageUploadUtil.class);
-    CountryService countryService = new CountryService(cloudinaryService, countryRepository, imageUploadUtil);
+    CountryService countryService = new CountryService(countryRepository);
 
     List<CountryModel> allCountries;
 

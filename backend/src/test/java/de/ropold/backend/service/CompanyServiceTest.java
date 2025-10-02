@@ -14,8 +14,7 @@ class CompanyServiceTest {
 
     CompanyRepository companyRepository = mock(CompanyRepository.class);
     CloudinaryService cloudinaryService = mock(CloudinaryService.class);
-    ImageUploadUtil imageUploadUtil = mock(ImageUploadUtil.class);
-    CompanyService companyService = new CompanyService(companyRepository, cloudinaryService, imageUploadUtil);
+    CompanyService companyService = new CompanyService(companyRepository, cloudinaryService);
 
     List<CompanyModel> allCompanies;
 
