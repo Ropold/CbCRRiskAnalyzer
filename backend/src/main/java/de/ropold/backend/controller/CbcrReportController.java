@@ -1,5 +1,6 @@
 package de.ropold.backend.controller;
 
+import de.ropold.backend.dto.CbcrReportResponse;
 import de.ropold.backend.exception.notfoundexceptions.AccessDeniedException;
 import de.ropold.backend.model.CbcrReportModel;
 import de.ropold.backend.service.CbcrReportService;
@@ -20,12 +21,12 @@ public class CbcrReportController {
     private final CbcrReportService cbcrReportService;
 
     @GetMapping
-    public List<CbcrReportModel> getAllCbcrReports() {
+    public List<CbcrReportResponse> getAllCbcrReports() {
         return cbcrReportService.getAllCbcrReports();
     }
 
     @GetMapping("/{id}")
-    public CbcrReportModel getCbcrReportById(@PathVariable UUID id) {
+    public CbcrReportResponse getCbcrReportById(@PathVariable UUID id) {
         return cbcrReportService.getCbcrReportById(id);
     }
 
