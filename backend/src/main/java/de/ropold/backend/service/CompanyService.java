@@ -15,7 +15,6 @@ public class CompanyService {
 
     private final CompanyRepository companyRepository;
     private final CloudinaryService cloudinaryService;
-    private final ImageUploadUtil imageUploadUtil;
 
     public List<CompanyModel> getAllCompanies() {
         return companyRepository.findAll();
