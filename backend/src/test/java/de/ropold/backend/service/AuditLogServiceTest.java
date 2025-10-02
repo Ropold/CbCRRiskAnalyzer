@@ -197,4 +197,36 @@ class AuditLogServiceTest {
         verify(auditLogRepository, times(1)).findById(testId);
     }
 
+    @Test
+    void testGetAllAuditLogs_WithUser() {
+        de.ropold.backend.model.UserModel user = new de.ropold.backend.model.UserModel();
+        user.setId(UUID.randomUUID());
+        user.setUsername("testUser");
+        user.setName("Test User");
+
+        AuditLogModel auditLogWithUser = new AuditLogModel(
+                UUID.randomUUID(),
+                "companies",
+                UUID.randomUUID(),
+                "UPDATE",
+                "name",
+                "Old Name",
+                "New Name",
+                user,
+                "testUser",
+                "192.168.1.1",
+                null
+        );
+
+        when(auditLogRepository.findAll()).thenReturn(List.of(auditLogWithUser));
+
+        List<AuditLogResponse> result = auditLogService.getAllAuditLogs();
+
+        assertEquals(1, result.size());
+        assertNotNull(result.getFirst().user());
+        assertEquals(user.getId(), result.getFirst().user().id());
+        assertEquals("testUser", result.getFirst().user().username());
+        assertEquals("Test User", result.getFirst().user().name());
+    }
+
 }
