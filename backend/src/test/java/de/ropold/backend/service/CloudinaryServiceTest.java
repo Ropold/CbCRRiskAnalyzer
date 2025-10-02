@@ -48,9 +48,8 @@ class CloudinaryServiceTest {
         when(mockImage.getOriginalFilename()).thenReturn("image.jpg");
         doAnswer(invocation -> {
             File file = invocation.getArgument(0);
-            if (!file.createNewFile()) {
-                throw new IOException("Failed to create file");
-            }
+            //noinspection ResultOfMethodCallIgnored
+            file.createNewFile();
             return null;
         }).when(mockImage).transferTo(any(File.class));
 
