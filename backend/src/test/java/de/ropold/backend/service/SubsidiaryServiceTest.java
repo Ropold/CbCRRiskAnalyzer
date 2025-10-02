@@ -111,14 +111,14 @@ class SubsidiaryServiceTest {
     void testGetAllSubsidiaries() {
         List<SubsidiaryResponse> subsidiaries = subsidiaryService.getAllSubsidiaries();
         assertEquals(2, subsidiaries.size());
-        assertEquals("Subsidiary Germany", subsidiaries.get(0).name());
+        assertEquals("Subsidiary Germany", subsidiaries.getFirst().name());
         assertEquals("Subsidiary USA", subsidiaries.get(1).name());
     }
 
     @Test
     void testGetSubsidiaryById_Success() {
         UUID testId = UUID.randomUUID();
-        SubsidiaryModel subsidiary = allSubsidiaries.get(0);
+        SubsidiaryModel subsidiary = allSubsidiaries.getFirst();
         subsidiary.setId(testId);
 
         when(subsidiaryRepository.findById(testId)).thenReturn(Optional.of(subsidiary));
@@ -146,7 +146,7 @@ class SubsidiaryServiceTest {
 
     @Test
     void testAddSubsidiary() {
-        SubsidiaryModel newSubsidiary = allSubsidiaries.get(0);
+        SubsidiaryModel newSubsidiary = allSubsidiaries.getFirst();
 
         when(subsidiaryRepository.save(any(SubsidiaryModel.class))).thenReturn(newSubsidiary);
 
@@ -160,7 +160,7 @@ class SubsidiaryServiceTest {
 
     @Test
     void testUpdateSubsidiary() {
-        SubsidiaryModel updatedSubsidiary = allSubsidiaries.get(0);
+        SubsidiaryModel updatedSubsidiary = allSubsidiaries.getFirst();
         updatedSubsidiary.setName("Updated Subsidiary");
 
         when(subsidiaryRepository.save(any(SubsidiaryModel.class))).thenReturn(updatedSubsidiary);
@@ -175,7 +175,7 @@ class SubsidiaryServiceTest {
     @Test
     void testDeleteSubsidiary_Success() {
         UUID testId = UUID.randomUUID();
-        SubsidiaryModel subsidiary = allSubsidiaries.get(0);
+        SubsidiaryModel subsidiary = allSubsidiaries.getFirst();
 
         when(subsidiaryRepository.findById(testId)).thenReturn(Optional.of(subsidiary));
         doNothing().when(subsidiaryRepository).deleteById(testId);

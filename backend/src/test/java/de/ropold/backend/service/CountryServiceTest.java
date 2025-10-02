@@ -63,7 +63,7 @@ class CountryServiceTest {
 
         // Assert
         assertEquals(2, result.size());
-        assertEquals("Germany", result.get(0).getCountryName());
+        assertEquals("Germany", result.getFirst().getCountryName());
         assertEquals("United States", result.get(1).getCountryName());
         verify(countryRepository, times(1)).findAll();
     }

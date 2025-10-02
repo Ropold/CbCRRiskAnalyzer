@@ -139,14 +139,14 @@ class RiskAssessmentServiceTest {
         List<RiskAssessmentResponse> result = riskAssessmentService.getAllRiskAssessments();
 
         assertEquals(2, result.size());
-        assertEquals(RiskAssessmentModel.RiskLevel.LOW, result.get(0).overallRiskLevel());
+        assertEquals(RiskAssessmentModel.RiskLevel.LOW, result.getFirst().overallRiskLevel());
         assertEquals(RiskAssessmentModel.RiskLevel.HIGH, result.get(1).overallRiskLevel());
     }
 
     @Test
     void testGetRiskAssessmentById_Success() {
         UUID testId = UUID.randomUUID();
-        RiskAssessmentModel riskAssessment = allRiskAssessments.get(0);
+        RiskAssessmentModel riskAssessment = allRiskAssessments.getFirst();
         riskAssessment.setId(testId);
 
         when(riskAssessmentRepository.findById(testId)).thenReturn(Optional.of(riskAssessment));
@@ -173,7 +173,7 @@ class RiskAssessmentServiceTest {
 
     @Test
     void testAddRiskAssessment() {
-        RiskAssessmentModel newRiskAssessment = allRiskAssessments.get(0);
+        RiskAssessmentModel newRiskAssessment = allRiskAssessments.getFirst();
 
         when(riskAssessmentRepository.save(any(RiskAssessmentModel.class))).thenReturn(newRiskAssessment);
 
@@ -186,7 +186,7 @@ class RiskAssessmentServiceTest {
 
     @Test
     void testUpdateRiskAssessment() {
-        RiskAssessmentModel updatedRiskAssessment = allRiskAssessments.get(0);
+        RiskAssessmentModel updatedRiskAssessment = allRiskAssessments.getFirst();
         updatedRiskAssessment.setOverallRiskLevel(RiskAssessmentModel.RiskLevel.CRITICAL);
 
         when(riskAssessmentRepository.save(any(RiskAssessmentModel.class))).thenReturn(updatedRiskAssessment);
@@ -201,7 +201,7 @@ class RiskAssessmentServiceTest {
     @Test
     void testDeleteRiskAssessment_Success() {
         UUID testId = UUID.randomUUID();
-        RiskAssessmentModel riskAssessment = allRiskAssessments.get(0);
+        RiskAssessmentModel riskAssessment = allRiskAssessments.getFirst();
 
         when(riskAssessmentRepository.findById(testId)).thenReturn(Optional.of(riskAssessment));
         doNothing().when(riskAssessmentRepository).deleteById(testId);

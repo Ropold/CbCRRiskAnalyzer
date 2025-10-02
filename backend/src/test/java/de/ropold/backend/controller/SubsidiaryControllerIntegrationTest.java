@@ -154,7 +154,7 @@ class SubsidiaryControllerIntegrationTest {
     @Test
     void testGetSubsidiaryById_Success() throws Exception {
         List<SubsidiaryModel> subsidiaries = subsidiaryRepository.findAll();
-        UUID testId = subsidiaries.get(0).getId();
+        UUID testId = subsidiaries.getFirst().getId();
 
         mockMvc.perform(get("/api/subsidiaries/{id}", testId))
                 .andExpect(status().isOk())
@@ -185,8 +185,8 @@ class SubsidiaryControllerIntegrationTest {
 
         SecurityContextHolder.getContext().setAuthentication(authToken);
 
-        CompanyModel company = companyRepository.findAll().get(0);
-        CountryModel country = countryRepository.findAll().get(0);
+        CompanyModel company = companyRepository.findAll().getFirst();
+        CountryModel country = countryRepository.findAll().getFirst();
 
         String newSubsidiaryJson = String.format("""
                 {
@@ -210,8 +210,8 @@ class SubsidiaryControllerIntegrationTest {
 
     @Test
     void testAddSubsidiary_Unauthorized() throws Exception {
-        CompanyModel company = companyRepository.findAll().get(0);
-        CountryModel country = countryRepository.findAll().get(0);
+        CompanyModel company = companyRepository.findAll().getFirst();
+        CountryModel country = countryRepository.findAll().getFirst();
 
         String newSubsidiaryJson = String.format("""
                 {
@@ -243,9 +243,9 @@ class SubsidiaryControllerIntegrationTest {
         SecurityContextHolder.getContext().setAuthentication(authToken);
 
         List<SubsidiaryModel> subsidiaries = subsidiaryRepository.findAll();
-        UUID testId = subsidiaries.get(0).getId();
-        CompanyModel company = companyRepository.findAll().get(0);
-        CountryModel country = countryRepository.findAll().get(0);
+        UUID testId = subsidiaries.getFirst().getId();
+        CompanyModel company = companyRepository.findAll().getFirst();
+        CountryModel country = countryRepository.findAll().getFirst();
 
         String updatedSubsidiaryJson = String.format("""
                 {
@@ -270,9 +270,9 @@ class SubsidiaryControllerIntegrationTest {
     @Test
     void testUpdateSubsidiary_Unauthorized() throws Exception {
         List<SubsidiaryModel> subsidiaries = subsidiaryRepository.findAll();
-        UUID testId = subsidiaries.get(0).getId();
-        CompanyModel company = companyRepository.findAll().get(0);
-        CountryModel country = countryRepository.findAll().get(0);
+        UUID testId = subsidiaries.getFirst().getId();
+        CompanyModel company = companyRepository.findAll().getFirst();
+        CountryModel country = countryRepository.findAll().getFirst();
 
         String updatedSubsidiaryJson = String.format("""
                 {
@@ -304,7 +304,7 @@ class SubsidiaryControllerIntegrationTest {
         SecurityContextHolder.getContext().setAuthentication(authToken);
 
         List<SubsidiaryModel> subsidiaries = subsidiaryRepository.findAll();
-        UUID testId = subsidiaries.get(0).getId();
+        UUID testId = subsidiaries.getFirst().getId();
 
         mockMvc.perform(delete("/api/subsidiaries/{id}", testId))
                 .andExpect(status().isNoContent());
@@ -313,7 +313,7 @@ class SubsidiaryControllerIntegrationTest {
     @Test
     void testDeleteSubsidiary_Unauthorized() throws Exception {
         List<SubsidiaryModel> subsidiaries = subsidiaryRepository.findAll();
-        UUID testId = subsidiaries.get(0).getId();
+        UUID testId = subsidiaries.getFirst().getId();
 
         mockMvc.perform(delete("/api/subsidiaries/{id}", testId))
                 .andExpect(status().isForbidden());

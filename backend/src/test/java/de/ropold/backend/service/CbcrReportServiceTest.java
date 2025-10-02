@@ -134,17 +134,17 @@ class CbcrReportServiceTest {
 
         // Assert
         assertEquals(2, result.size());
-        assertEquals("Test Company", result.get(0).company().name());
-        assertEquals("DE", result.get(0).country().countryCode());
-        assertEquals(BigDecimal.valueOf(8000000.00), result.get(0).revenuesTotal());
+        assertEquals("Test Company", result.getFirst().company().name());
+        assertEquals("DE", result.getFirst().country().countryCode());
+        assertEquals(BigDecimal.valueOf(8000000.00), result.getFirst().revenuesTotal());
         assertEquals(BigDecimal.valueOf(12000000.00), result.get(1).revenuesTotal());
     }
 
     @Test
     void testGetCbcrReportById() {
         // Arrange
-        UUID testId = allCbcrReports.get(0).getId();
-        when(cbcrReportRepository.findById(testId)).thenReturn(Optional.of(allCbcrReports.get(0)));
+        UUID testId = allCbcrReports.getFirst().getId();
+        when(cbcrReportRepository.findById(testId)).thenReturn(Optional.of(allCbcrReports.getFirst()));
 
         // Act
         CbcrReportResponse result = cbcrReportService.getCbcrReportById(testId);
@@ -251,7 +251,7 @@ class CbcrReportServiceTest {
     @Test
     void testUpdateCbcrReport() {
         // Arrange
-        CbcrReportModel existingReport = allCbcrReports.get(0);
+        CbcrReportModel existingReport = allCbcrReports.getFirst();
         CbcrReportModel updatedReport = new CbcrReportModel(
                 existingReport.getId(),
                 testCompany,
@@ -297,8 +297,8 @@ class CbcrReportServiceTest {
     @Test
     void testDeleteCbcrReport() {
         // Arrange
-        UUID testId = allCbcrReports.get(0).getId();
-        when(cbcrReportRepository.findById(testId)).thenReturn(Optional.of(allCbcrReports.get(0)));
+        UUID testId = allCbcrReports.getFirst().getId();
+        when(cbcrReportRepository.findById(testId)).thenReturn(Optional.of(allCbcrReports.getFirst()));
         doNothing().when(cbcrReportRepository).deleteById(testId);
 
         // Act

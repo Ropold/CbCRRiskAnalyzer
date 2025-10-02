@@ -60,14 +60,14 @@ class AuditLogServiceTest {
         List<AuditLogResponse> result = auditLogService.getAllAuditLogs();
 
         assertEquals(2, result.size());
-        assertEquals("risk_assessments", result.get(0).tableName());
+        assertEquals("risk_assessments", result.getFirst().tableName());
         assertEquals("cbcr_reports", result.get(1).tableName());
     }
 
     @Test
     void testGetAuditLogById_Success() {
         UUID testId = UUID.randomUUID();
-        AuditLogModel auditLog = allAuditLogs.get(0);
+        AuditLogModel auditLog = allAuditLogs.getFirst();
         auditLog.setId(testId);
 
         when(auditLogRepository.findById(testId)).thenReturn(Optional.of(auditLog));
@@ -95,7 +95,7 @@ class AuditLogServiceTest {
 
     @Test
     void testAddAuditLog() {
-        AuditLogModel newAuditLog = allAuditLogs.get(0);
+        AuditLogModel newAuditLog = allAuditLogs.getFirst();
 
         when(auditLogRepository.save(any(AuditLogModel.class))).thenReturn(newAuditLog);
 
@@ -109,7 +109,7 @@ class AuditLogServiceTest {
 
     @Test
     void testUpdateAuditLog() {
-        AuditLogModel updatedAuditLog = allAuditLogs.get(0);
+        AuditLogModel updatedAuditLog = allAuditLogs.getFirst();
         updatedAuditLog.setAction("DELETE");
 
         when(auditLogRepository.save(any(AuditLogModel.class))).thenReturn(updatedAuditLog);
@@ -124,7 +124,7 @@ class AuditLogServiceTest {
     @Test
     void testDeleteAuditLog_Success() {
         UUID testId = UUID.randomUUID();
-        AuditLogModel auditLog = allAuditLogs.get(0);
+        AuditLogModel auditLog = allAuditLogs.getFirst();
 
         when(auditLogRepository.findById(testId)).thenReturn(Optional.of(auditLog));
         doNothing().when(auditLogRepository).deleteById(testId);
