@@ -9,6 +9,7 @@ import de.ropold.backend.repository.CompanyRepository;
 import de.ropold.backend.repository.CountryRepository;
 import de.ropold.backend.repository.RiskAssessmentRepository;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,6 +18,10 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -201,5 +206,14 @@ class RiskAssessmentControllerIntegrationTest {
         );
 
         riskAssessmentRepository.saveAll(List.of(riskAssessmentModel1, riskAssessmentModel2));
+    }
+
+    @Test
+    void testGetAllRiskAssessments() throws Exception{
+        mockMvc.perform(get("/api/risk-assessments"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.length()").value(2))
+                .andExpect(jsonPath("$[0].overallRiskLevel").value("CRITICAL"))
+                .andExpect(jsonPath("$[1].overallRiskLevel").value("LOW"));
     }
 }
