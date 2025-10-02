@@ -1,5 +1,6 @@
 package de.ropold.backend.controller;
 
+import de.ropold.backend.dto.RiskAssessmentResponse;
 import de.ropold.backend.exception.notfoundexceptions.AccessDeniedException;
 import de.ropold.backend.model.RiskAssessmentModel;
 import de.ropold.backend.service.RiskAssessmentService;
@@ -20,28 +21,29 @@ public class RiskAssessmentController {
     private final RiskAssessmentService riskAssessmentService;
 
     @GetMapping
-    public List<RiskAssessmentModel> getAllRiskAssessments() {
+    public List<RiskAssessmentResponse> getAllRiskAssessments() {
         return riskAssessmentService.getAllRiskAssessments();
     }
 
     @GetMapping("/{id}")
-    public  RiskAssessmentModel getRiskAssessmentById(@PathVariable UUID id) {
+    public RiskAssessmentResponse getRiskAssessmentById(@PathVariable UUID id) {
         return riskAssessmentService.getRiskAssessmentById(id);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public RiskAssessmentModel addRiskAssessment(
+    public RiskAssessmentResponse addRiskAssessment(
             @RequestBody RiskAssessmentModel riskAssessmentModel,
             @AuthenticationPrincipal OAuth2User authentication) {
         if(authentication == null){
             throw new AccessDeniedException("User not authenticated");
         }
-        return riskAssessmentService.addRiskAssessment(riskAssessmentModel);
+        RiskAssessmentModel saved = riskAssessmentService.addRiskAssessment(riskAssessmentModel);
+        return riskAssessmentService.getRiskAssessmentById(saved.getId());
     }
 
     @PutMapping("/{id}")
-    public RiskAssessmentModel updateRiskAssessment(
+    public RiskAssessmentResponse updateRiskAssessment(
             @PathVariable UUID id,
             @RequestBody RiskAssessmentModel riskAssessmentModel,
             @AuthenticationPrincipal OAuth2User authentication){
@@ -50,7 +52,8 @@ public class RiskAssessmentController {
         }
         riskAssessmentService.getRiskAssessmentById(id);
         riskAssessmentModel.setId(id);
-        return riskAssessmentService.updateRiskAssessment(riskAssessmentModel);
+        RiskAssessmentModel updated = riskAssessmentService.updateRiskAssessment(riskAssessmentModel);
+        return riskAssessmentService.getRiskAssessmentById(updated.getId());
     }
 
     @DeleteMapping("/{id}")
