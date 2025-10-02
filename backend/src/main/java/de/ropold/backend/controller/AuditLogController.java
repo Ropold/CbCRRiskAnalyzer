@@ -1,5 +1,6 @@
 package de.ropold.backend.controller;
 
+import de.ropold.backend.dto.AuditLogResponse;
 import de.ropold.backend.exception.notfoundexceptions.AccessDeniedException;
 import de.ropold.backend.model.AuditLogModel;
 import de.ropold.backend.service.AuditLogService;
@@ -20,28 +21,29 @@ public class AuditLogController {
     private final AuditLogService auditLogService;
 
     @GetMapping
-    public List<AuditLogModel> getAllAuditLogs() {
+    public List<AuditLogResponse> getAllAuditLogs() {
         return auditLogService.getAllAuditLogs();
     }
 
     @GetMapping("/{id}")
-    public AuditLogModel getAuditLogById(@PathVariable UUID id) {
+    public AuditLogResponse getAuditLogById(@PathVariable UUID id) {
         return auditLogService.getAuditLogById(id);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public AuditLogModel addAuditLog(
+    public AuditLogResponse addAuditLog(
             @RequestBody AuditLogModel auditLogModel,
             @AuthenticationPrincipal OAuth2User authentication) {
         if(authentication == null){
             throw new AccessDeniedException("User not authenticated");
         }
-        return auditLogService.addAuditLog(auditLogModel);
+        AuditLogModel saved = auditLogService.addAuditLog(auditLogModel);
+        return auditLogService.getAuditLogById(saved.getId());
     }
 
     @PutMapping("/{id}")
-    public AuditLogModel updateAuditLog(
+    public AuditLogResponse updateAuditLog(
             @PathVariable UUID id,
             @RequestBody AuditLogModel auditLogModel,
             @AuthenticationPrincipal OAuth2User authentication){
@@ -50,7 +52,8 @@ public class AuditLogController {
         }
         auditLogService.getAuditLogById(id);
         auditLogModel.setId(id);
-        return auditLogService.updateAuditLog(auditLogModel);
+        AuditLogModel updated = auditLogService.updateAuditLog(auditLogModel);
+        return auditLogService.getAuditLogById(updated.getId());
     }
 
     @DeleteMapping("/{id}")

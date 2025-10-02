@@ -1,5 +1,6 @@
 package de.ropold.backend.controller;
 
+import de.ropold.backend.dto.SubsidiaryResponse;
 import de.ropold.backend.exception.notfoundexceptions.AccessDeniedException;
 import de.ropold.backend.model.SubsidiaryModel;
 import de.ropold.backend.service.SubsidiaryService;
@@ -20,28 +21,29 @@ public class SubsidiaryController {
     private final SubsidiaryService subsidiaryService;
 
     @GetMapping
-    public List<SubsidiaryModel> getAllSubsidiaries() {
+    public List<SubsidiaryResponse> getAllSubsidiaries() {
         return subsidiaryService.getAllSubsidiaries();
     }
 
     @GetMapping("/{id}")
-    public SubsidiaryModel getSubsidiaryById(@PathVariable UUID id) {
+    public SubsidiaryResponse getSubsidiaryById(@PathVariable UUID id) {
         return subsidiaryService.getSubsidiaryById(id);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public SubsidiaryModel addSubsidiary(
+    public SubsidiaryResponse addSubsidiary(
             @RequestBody SubsidiaryModel subsidiaryModel,
             @AuthenticationPrincipal OAuth2User authentication) {
         if(authentication == null){
             throw new AccessDeniedException("User not authenticated");
         }
-        return subsidiaryService.addSubsidiary(subsidiaryModel);
+        SubsidiaryModel saved = subsidiaryService.addSubsidiary(subsidiaryModel);
+        return subsidiaryService.getSubsidiaryById(saved.getId());
     }
 
     @PutMapping("/{id}")
-    public SubsidiaryModel updateSubsidiary(
+    public SubsidiaryResponse updateSubsidiary(
             @PathVariable UUID id,
             @RequestBody SubsidiaryModel subsidiaryModel,
             @AuthenticationPrincipal OAuth2User authentication){
@@ -50,7 +52,8 @@ public class SubsidiaryController {
         }
         subsidiaryService.getSubsidiaryById(id);
         subsidiaryModel.setId(id);
-        return subsidiaryService.updateSubsidiary(subsidiaryModel);
+        SubsidiaryModel updated = subsidiaryService.updateSubsidiary(subsidiaryModel);
+        return subsidiaryService.getSubsidiaryById(updated.getId());
     }
 
     @DeleteMapping("/{id}")
