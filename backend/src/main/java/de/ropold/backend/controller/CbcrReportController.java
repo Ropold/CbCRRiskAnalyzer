@@ -32,17 +32,18 @@ public class CbcrReportController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public CbcrReportModel addCbcrReport(
+    public CbcrReportResponse addCbcrReport(
             @RequestBody CbcrReportModel cbcrReportModel,
             @AuthenticationPrincipal OAuth2User authentication) {
         if(authentication == null){
             throw new AccessDeniedException("User not authenticated");
         }
-        return cbcrReportService.addCbcrReport(cbcrReportModel);
+        CbcrReportModel saved = cbcrReportService.addCbcrReport(cbcrReportModel);
+        return cbcrReportService.getCbcrReportById(saved.getId());
     }
 
     @PutMapping("/{id}")
-    public CbcrReportModel updateCbcrReport(
+    public CbcrReportResponse updateCbcrReport(
             @PathVariable UUID id,
             @RequestBody CbcrReportModel cbcrReportModel,
             @AuthenticationPrincipal OAuth2User authentication){
@@ -51,7 +52,8 @@ public class CbcrReportController {
         }
         cbcrReportService.getCbcrReportById(id);
         cbcrReportModel.setId(id);
-        return cbcrReportService.updateCbcrReport(cbcrReportModel);
+        CbcrReportModel updated = cbcrReportService.updateCbcrReport(cbcrReportModel);
+        return cbcrReportService.getCbcrReportById(updated.getId());
     }
 
     @DeleteMapping("/{id}")
