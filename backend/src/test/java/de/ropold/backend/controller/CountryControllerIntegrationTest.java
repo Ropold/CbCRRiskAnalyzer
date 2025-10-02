@@ -290,5 +290,69 @@ class CountryControllerIntegrationTest {
                 .andExpect(status().isUnauthorized());
     }
 
+    @Test
+    @WithMockUser(username = "test-user", authorities = {"OIDC_USER"})
+    void testAddCountry_withNullAuthentication_shouldThrowAccessDenied() throws Exception {
+        String newCountryJson = """
+                {
+                    "countryCode": "FR",
+                    "countryName": "France",
+                    "region": "Europe",
+                    "jurisdictionType": "COUNTRY",
+                    "taxHaven": false,
+                    "expectedTaxRate": 25.00,
+                    "statutoryTaxRate": 25.00,
+                    "isEuMember": true,
+                    "isOecdMember": true,
+                    "blacklistStatus": "NONE"
+                }
+                """;
+
+        mockMvc.perform(post("/api/countries")
+                        .contentType(APPLICATION_JSON)
+                        .content(newCountryJson))
+                .andExpect(status().isForbidden())
+                .andExpect(jsonPath("$.code").value("ACCESS_DENIED"))
+                .andExpect(jsonPath("$.message").value("User not authenticated"));
+    }
+
+    @Test
+    @WithMockUser(username = "test-user", authorities = {"OIDC_USER"})
+    void testUpdateCountry_withNullAuthentication_shouldThrowAccessDenied() throws Exception {
+        CountryModel existingCountry = countryRepository.findAll().getFirst();
+
+        String updatedCountryJson = """
+                {
+                    "countryCode": "DE",
+                    "countryName": "Germany",
+                    "region": "Europe",
+                    "jurisdictionType": "COUNTRY",
+                    "taxHaven": true,
+                    "expectedTaxRate": 35.00,
+                    "statutoryTaxRate": 34.50,
+                    "isEuMember": true,
+                    "isOecdMember": true,
+                    "blacklistStatus": "EU_GREYLIST"
+                }
+                """;
+
+        mockMvc.perform(put("/api/countries/" + existingCountry.getId())
+                        .contentType(APPLICATION_JSON)
+                        .content(updatedCountryJson))
+                .andExpect(status().isForbidden())
+                .andExpect(jsonPath("$.code").value("ACCESS_DENIED"))
+                .andExpect(jsonPath("$.message").value("User not authenticated"));
+    }
+
+    @Test
+    @WithMockUser(username = "test-user", authorities = {"OIDC_USER"})
+    void testDeleteCountry_withNullAuthentication_shouldThrowAccessDenied() throws Exception {
+        CountryModel existingCountry = countryRepository.findAll().getFirst();
+
+        mockMvc.perform(org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete("/api/countries/" + existingCountry.getId()))
+                .andExpect(status().isForbidden())
+                .andExpect(jsonPath("$.code").value("ACCESS_DENIED"))
+                .andExpect(jsonPath("$.message").value("User not authenticated"));
+    }
 
 }
