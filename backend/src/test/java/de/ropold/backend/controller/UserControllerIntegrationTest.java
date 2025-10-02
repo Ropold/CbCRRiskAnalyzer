@@ -208,5 +208,4 @@ class UserControllerIntegrationTest {
                 .andExpect(jsonPath("$.code").value("INTERNAL_ERROR"))
                 .andExpect(jsonPath("$.message").value("GitHub ID not found"));
     }
-
 }

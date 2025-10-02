@@ -70,9 +70,10 @@ public class UserController {
     }
 
     private UserModel createUserFromAuthentication(OAuth2User authentication) {
-        String githubId = String.valueOf(authentication.getAttribute("id"));
-        String username = authentication.getAttribute("login"); // GitHub Username
-        String name = authentication.getAttribute("name"); // Display Name
+        Object idAttr = authentication.getAttribute("id");
+        String githubId = idAttr != null ? String.valueOf(idAttr) : "";
+        String username = authentication.getAttribute("login");
+        String name = authentication.getAttribute("name");
         String avatarUrl = authentication.getAttribute("avatar_url");
         String githubUrl = authentication.getAttribute("html_url");
 

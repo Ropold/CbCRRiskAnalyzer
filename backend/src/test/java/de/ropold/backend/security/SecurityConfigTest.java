@@ -27,9 +27,16 @@ class SecurityConfigTest {
     @Mock
     private UserRepository userRepository;
 
+    private AutoCloseable closeable;
+
     @BeforeEach
     void setUp() {
-        MockitoAnnotations.openMocks(this);
+        closeable = MockitoAnnotations.openMocks(this);
+    }
+
+    @org.junit.jupiter.api.AfterEach
+    void tearDown() throws Exception {
+        closeable.close();
     }
 
 
@@ -78,5 +85,47 @@ class SecurityConfigTest {
 
         verify(userRepository, never()).save(any());
         assertEquals(mockOAuth2User, result);
+    }
+
+
+    @Test
+    void testOauth2UserService_nullGithubId() {
+        ClientRegistration clientRegistration = ClientRegistration.withRegistrationId("github")
+                .clientId("test-client-id")
+                .clientSecret("test-client-secret")
+                .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
+                .redirectUri("http://localhost/login/oauth2/code/github")
+                .tokenUri("https://github.com/login/oauth/access_token")
+                .authorizationUri("https://github.com/login/oauth/authorize")
+                .userInfoUri("https://api.github.com/user")
+                .userNameAttributeName("login")
+                .clientName("GitHub")
+                .build();
+
+        OAuth2AccessToken accessToken = new OAuth2AccessToken(
+                OAuth2AccessToken.TokenType.BEARER, "mock-token", Instant.now(), Instant.now().plusSeconds(3600)
+        );
+        OAuth2UserRequest userRequest = new OAuth2UserRequest(clientRegistration, accessToken);
+
+        OAuth2User mockOAuth2User = mock(OAuth2User.class);
+        when(mockOAuth2User.getAttribute("id")).thenReturn(null);
+
+        DefaultOAuth2UserService mockUserService = mock(DefaultOAuth2UserService.class);
+        when(mockUserService.loadUser(userRequest)).thenReturn(mockOAuth2User);
+
+        OAuth2UserService<OAuth2UserRequest, OAuth2User> oauth2UserService = new SecurityConfig(userRepository) {
+            @Override
+            public OAuth2UserService<OAuth2UserRequest, OAuth2User> oauth2UserService() {
+                return mockUserService;
+            }
+        }.oauth2UserService();
+
+        try {
+            oauth2UserService.loadUser(userRequest);
+        } catch (IllegalStateException e) {
+            assertEquals("GitHub ID not found in authentication", e.getMessage());
+        }
+
+        verify(userRepository, never()).save(any());
     }
 }
