@@ -3,6 +3,7 @@ package de.ropold.backend.security;
 import de.ropold.backend.model.UserModel;
 import de.ropold.backend.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -27,6 +28,9 @@ import java.time.LocalDateTime;
 @Profile("!test")
 public class SecurityConfig {
 
+    @Value("${app.url}")
+    private String appUrl;
+
     private final UserRepository userRepository;
     private static final String COUNTRY = "/api/countries/**";
     private static final String USER = "/api/users/**";
@@ -47,10 +51,7 @@ public class SecurityConfig {
                 .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.ALWAYS))
                 .exceptionHandling(e -> e
                         .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED)))
-                .oauth2Login(o -> o
-                        .successHandler((request, response, authentication) -> {
-                            response.sendRedirect("http://localhost:5173/");
-                        })
+                .oauth2Login(o -> o.defaultSuccessUrl(appUrl)
                         .userInfoEndpoint(userInfo -> userInfo.userService(oauth2UserService())));
 
         return http.build();
