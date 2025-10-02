@@ -3,8 +3,10 @@ package de.ropold.backend.controller;
 import de.ropold.backend.model.CompanyModel;
 import de.ropold.backend.model.CountryModel;
 import de.ropold.backend.model.SubsidiaryModel;
+import de.ropold.backend.repository.CbcrReportRepository;
 import de.ropold.backend.repository.CompanyRepository;
 import de.ropold.backend.repository.CountryRepository;
+import de.ropold.backend.repository.RiskAssessmentRepository;
 import de.ropold.backend.repository.SubsidiaryRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -45,8 +47,17 @@ class SubsidiaryControllerIntegrationTest {
     @Autowired
     private CountryRepository countryRepository;
 
+    @Autowired
+    private RiskAssessmentRepository riskAssessmentRepository;
+
+    @Autowired
+    private CbcrReportRepository cbcrReportRepository;
+
     @BeforeEach
     void setUp() {
+        // Delete in correct order to respect foreign key constraints
+        riskAssessmentRepository.deleteAll();
+        cbcrReportRepository.deleteAll();
         subsidiaryRepository.deleteAll();
         companyRepository.deleteAll();
         countryRepository.deleteAll();
