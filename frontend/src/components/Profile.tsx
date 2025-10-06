@@ -54,7 +54,7 @@ export default function Profile(props: Readonly<ProfileProps>) {
                     >
                         <h2>Select Language</h2>
                         <div className="popup-language-options">
-                            {["de","en","pl","es","fr","it","cz","pt","hu","nl","gr","ru","tr","ir"].map((language) => (
+                            {["de","en","pl","es","fr", "it", "pt", "ru", "tr", "zh", "ja"].map((language) => (
                                 <button
                                     key={language}
                                     className="language-option-button"

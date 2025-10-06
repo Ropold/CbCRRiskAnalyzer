@@ -44,7 +44,8 @@ export default function Navbar(props: Readonly<NavbarProps>) {
                         <img src={countryKeys} alt="Scanner Logo" className="logo-image" />
                         <h2 className="header-title">CbCR</h2>
                     </div>
-
+                    <button className="button-group-button" onClick={() => navigate("/entity-data")}>Entity-Data</button>
+                    <button className="button-group-button" onClick={() => navigate("/insert")}>Insert</button>
                     <button className="button-group-button" onClick={() => navigate("/profile")}>Profile</button>
                     <button className="button-group-button" onClick={logoutFromGithub}>logout</button>
                 </>

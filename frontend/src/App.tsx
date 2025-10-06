@@ -6,7 +6,7 @@ import ProtectedRoute from "./components/ProtectedRoute.tsx";
 import {useEffect, useState} from "react";
 import NotFound from "./components/NotFound.tsx";
 import axios from "axios";
-import CbCR from "./components/cbcr/CbCR.tsx";
+import Cbcrs from "./components/cbcr/Cbcrs.tsx";
 import {DefaultUser, type UserModel} from "./components/models/UserModel.ts";
 import Profile from "./components/Profile.tsx";
 import type {AuditLogModel} from "./components/models/AuditLogModel.ts";
@@ -14,6 +14,11 @@ import type {CbcrReportModel} from "./components/models/CbcrReportModel.ts";
 import type {CompanyModel} from "./components/models/CompanyModel.ts";
 import type {RiskAssessmentModel} from "./components/models/RiskAssessmentModel.ts";
 import type {SubsidiaryModel} from "./components/models/SubsidiaryModel.ts";
+import EntityData from "./components/entitydata/EntityData.tsx";
+import Insert from "./components/Insert.tsx";
+import CbcrDetails from "./components/cbcr/CbcrDetails.tsx";
+import AddNewCbcr from "./components/cbcr/AddNewCbcr.tsx";
+import EditCbcr from "./components/cbcr/EditCbcr.tsx";
 
 export default function App() {
     const [user, setUser] = useState<string>("anonymousUser");
@@ -120,8 +125,13 @@ export default function App() {
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Welcome />}/>
               <Route element={<ProtectedRoute user={user}/>}>
-                  <Route path="/cbcr" element={<CbCR />} />
-                  <Route path="/profile" element={<Profile language={language} user={user} userDetails={userDetails} setLanguage={setLanguage}/>} />
+                  <Route path="/cbcr" element={<Cbcrs />} />
+                  <Route path="/cbcr/add" element={<AddNewCbcr />} />
+                  <Route path="/cbcr/:id" element={<CbcrDetails />} />
+                  <Route path="/cbcr/:id/edit" element={<EditCbcr />} />
+                  <Route path="/entity-data/*" element={<EntityData />} />
+                  <Route path="/insert" element={<Insert />} />
+                  <Route path="/profile/*" element={<Profile language={language} user={user} userDetails={userDetails} setLanguage={setLanguage}/>} />
               </Route>
       </Routes>
     </>
