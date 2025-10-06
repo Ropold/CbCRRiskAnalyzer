@@ -521,6 +521,9 @@ export const LanguagesImages: Record<string, string> = {
     it: itPic,
     pt: ptPic,
     ru: ruPic,
+    tr: trPic,
+    zh: cnPic,
+    ja: jpPic,
 };
 
 export const countryNameToIsoCode: Record<string, string> = {

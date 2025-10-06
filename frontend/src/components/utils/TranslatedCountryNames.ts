@@ -7,7 +7,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Afghanistan",
         "it": "Afghanistan",
         "pt": "Afeganistão",
-        "ru": "Афганистан"
+        "ru": "Афганистан",
+        "tr": "Afganistan",
+        "zh": "阿富汗",
+        "ja": "アフガニスタン"
     },
     "Aland Islands": {
         "de": "Ålandinseln",
@@ -17,7 +20,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Îles Åland",
         "it": "Isole Åland",
         "pt": "Ilhas de Aland",
-        "ru": "Аландские острова"
+        "ru": "Аландские острова",
+        "tr": "Aland Adaları",
+        "zh": "奥兰群岛",
+        "ja": "オーランド諸島"
     },
     "Albania": {
         "de": "Albanien",
@@ -27,7 +33,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Albanie",
         "it": "Albania",
         "pt": "Albânia",
-        "ru": "Албания"
+        "ru": "Албания",
+        "tr": "Arnavutluk",
+        "zh": "阿尔巴尼亚",
+        "ja": "アルバニア"
     },
     "Algeria": {
         "de": "Algerien",
@@ -37,7 +46,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Algérie",
         "it": "Algeria",
         "pt": "Argélia",
-        "ru": "Алжир"
+        "ru": "Алжир",
+        "tr": "Cezayir",
+        "zh": "阿尔及利亚",
+        "ja": "アルジェリア"
     },
     "American Samoa": {
         "de": "Amerikanisch-Samoa",
@@ -47,7 +59,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Samoa américaines",
         "it": "Samoa Americane",
         "pt": "Samoa Americana",
-        "ru": "Американское Самоа"
+        "ru": "Американское Самоа",
+        "tr": "Amerikan Samoası",
+        "zh": "美属萨摩亚",
+        "ja": "アメリカ領サモア"
     },
     "Andorra": {
         "de": "Andorra",
@@ -57,7 +72,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Andorre",
         "it": "Andorra",
         "pt": "Andorra",
-        "ru": "Андорра"
+        "ru": "Андорра",
+        "tr": "Andorra",
+        "zh": "安道尔",
+        "ja": "アンドラ"
     },
     "Angola": {
         "de": "Angola",
@@ -67,7 +85,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Angola",
         "it": "Angola",
         "pt": "Angola",
-        "ru": "Ангола"
+        "ru": "Ангола",
+        "tr": "Angola",
+        "zh": "安哥拉",
+        "ja": "アンゴラ"
     },
     "Anguilla": {
         "de": "Anguilla",
@@ -77,7 +98,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Anguilla",
         "it": "Anguilla",
         "pt": "Anguilla",
-        "ru": "Ангилья"
+        "ru": "Ангилья",
+        "tr": "Anguilla",
+        "zh": "安圭拉",
+        "ja": "アンギラ"
     },
     "Antarctica": {
         "de": "Antarktis",
@@ -87,7 +111,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Antarctique",
         "it": "Antartide",
         "pt": "Antártida",
-        "ru": "Антарктида"
+        "ru": "Антарктида",
+        "tr": "Antarktika",
+        "zh": "南极洲",
+        "ja": "南極大陸"
     },
     "Antigua and Barbuda": {
         "de": "Antigua und Barbuda",
@@ -97,7 +124,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Antigua-et-Barbuda",
         "it": "Antigua e Barbuda",
         "pt": "Antígua e Barbuda",
-        "ru": "Антигуа и Барбуда"
+        "ru": "Антигуа и Барбуда",
+        "tr": "Antigua ve Barbuda",
+        "zh": "安提瓜和巴布达",
+        "ja": "アンティグア・バーブーダ"
     },
     "Argentina": {
         "de": "Argentinien",
@@ -107,7 +137,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Argentine",
         "it": "Argentina",
         "pt": "Argentina",
-        "ru": "Аргентина"
+        "ru": "Аргентина",
+        "tr": "Arjantin",
+        "zh": "阿根廷",
+        "ja": "アルゼンチン"
     },
     "Armenia": {
         "de": "Armenien",
@@ -117,7 +150,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Arménie",
         "it": "Armenia",
         "pt": "Armênia",
-        "ru": "Армения"
+        "ru": "Армения",
+        "tr": "Ermenistan",
+        "zh": "亚美尼亚",
+        "ja": "アルメニア"
     },
     "Aruba": {
         "de": "Aruba",
@@ -127,7 +163,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Aruba",
         "it": "Aruba",
         "pt": "Aruba",
-        "ru": "Аруба"
+        "ru": "Аруба",
+        "tr": "Aruba",
+        "zh": "阿鲁巴",
+        "ja": "アルバ"
     },
     "Australia": {
         "de": "Australien",
@@ -137,7 +176,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Australie",
         "it": "Australia",
         "pt": "Austrália",
-        "ru": "Австралия"
+        "ru": "Австралия",
+        "tr": "Avustralya",
+        "zh": "澳大利亚",
+        "ja": "オーストラリア"
     },
     "Austria": {
         "de": "Österreich",
@@ -147,7 +189,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Autriche",
         "it": "Austria",
         "pt": "Áustria",
-        "ru": "Австрия"
+        "ru": "Австрия",
+        "tr": "Avusturya",
+        "zh": "奥地利",
+        "ja": "オーストリア"
     },
     "Azerbaijan": {
         "de": "Aserbaidschan",
@@ -157,7 +202,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Azerbaïdjan",
         "it": "Azerbaigian",
         "pt": "Azerbaijão",
-        "ru": "Азербайджан"
+        "ru": "Азербайджан",
+        "tr": "Azerbaycan",
+        "zh": "阿塞拜疆",
+        "ja": "アゼルバイジャン"
     },
     "Bahamas": {
         "de": "Bahamas",
@@ -167,7 +215,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Bahamas",
         "it": "Bahamas",
         "pt": "Bahamas",
-        "ru": "Багамы"
+        "ru": "Багамы",
+        "tr": "Bahamalar",
+        "zh": "巴哈马",
+        "ja": "バハマ"
     },
     "Bahrain": {
         "de": "Bahrain",
@@ -177,7 +228,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Bahreïn",
         "it": "Bahrein",
         "pt": "Bahrein",
-        "ru": "Бахрейн"
+        "ru": "Бахрейн",
+        "tr": "Bahreyn",
+        "zh": "巴林",
+        "ja": "バーレーン"
     },
     "Bangladesh": {
         "de": "Bangladesch",
@@ -187,7 +241,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Bangladesh",
         "it": "Bangladesh",
         "pt": "Bangladesh",
-        "ru": "Бангладеш"
+        "ru": "Бангладеш",
+        "tr": "Bangladeş",
+        "zh": "孟加拉国",
+        "ja": "バングラデシュ"
     },
     "Barbados": {
         "de": "Barbados",
@@ -197,7 +254,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Barbade",
         "it": "Barbados",
         "pt": "Barbados",
-        "ru": "Барбадос"
+        "ru": "Барбадос",
+        "tr": "Barbados",
+        "zh": "巴巴多斯",
+        "ja": "バルバドス"
     },
     "Belarus": {
         "de": "Weißrussland",
@@ -207,7 +267,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Biélorussie",
         "it": "Bielorussia",
         "pt": "Bielorrússia",
-        "ru": "Беларусь"
+        "ru": "Беларусь",
+        "tr": "Belarus",
+        "zh": "白俄罗斯",
+        "ja": "ベラルーシ"
     },
     "Belgium": {
         "de": "Belgien",
@@ -217,7 +280,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Belgique",
         "it": "Belgio",
         "pt": "Bélgica",
-        "ru": "Бельгия"
+        "ru": "Бельгия",
+        "tr": "Belçika",
+        "zh": "比利时",
+        "ja": "ベルギー"
     },
     "Belize": {
         "de": "Belize",
@@ -227,7 +293,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Belize",
         "it": "Belize",
         "pt": "Belize",
-        "ru": "Белиз"
+        "ru": "Белиз",
+        "tr": "Belize",
+        "zh": "伯利兹",
+        "ja": "ベリーズ"
     },
     "Benin": {
         "de": "Benin",
@@ -237,7 +306,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Bénin",
         "it": "Benin",
         "pt": "Benim",
-        "ru": "Бенин"
+        "ru": "Бенин",
+        "tr": "Benin",
+        "zh": "贝宁",
+        "ja": "ベナン"
     },
     "Bermuda": {
         "de": "Bermuda",
@@ -247,7 +319,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Bermudes",
         "it": "Bermuda",
         "pt": "Bermudas",
-        "ru": "Бермуды"
+        "ru": "Бермуды",
+        "tr": "Bermuda",
+        "zh": "百慕大",
+        "ja": "バミューダ"
     },
     "Bhutan": {
         "de": "Bhutan",
@@ -257,7 +332,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Bhoutan",
         "it": "Bhutan",
         "pt": "Butão",
-        "ru": "Бутан"
+        "ru": "Бутан",
+        "tr": "Butan",
+        "zh": "不丹",
+        "ja": "ブータン"
     },
     "Bolivia, Plurinational State of": {
         "de": "Bolivien",
@@ -267,7 +345,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Bolivie",
         "it": "Bolivia",
         "pt": "Bolívia",
-        "ru": "Боливия"
+        "ru": "Боливия",
+        "tr": "Bolivya",
+        "zh": "玻利维亚",
+        "ja": "ボリビア"
     },
     "Bosnia and Herzegovina": {
         "de": "Bosnien und Herzegowina",
@@ -277,7 +358,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Bosnie-Herzégovine",
         "it": "Bosnia ed Erzegovina",
         "pt": "Bósnia e Herzegovina",
-        "ru": "Босния и Герцеговина"
+        "ru": "Босния и Герцеговина",
+        "tr": "Bosna Hersek",
+        "zh": "波斯尼亚和黑塞哥维那",
+        "ja": "ボスニア・ヘルツェゴビナ"
     },
     "Botswana": {
         "de": "Botswana",
@@ -287,7 +371,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Botswana",
         "it": "Botswana",
         "pt": "Botsuana",
-        "ru": "Ботсвана"
+        "ru": "Ботсвана",
+        "tr": "Botsvana",
+        "zh": "博茨瓦纳",
+        "ja": "ボツワナ"
     },
     "Bouvet Island": {
         "de": "Bouvetinsel",
@@ -297,7 +384,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Île Bouvet",
         "it": "Isola Bouvet",
         "pt": "Ilha Bouvet",
-        "ru": "Остров Буве"
+        "ru": "Остров Буве",
+        "tr": "Bouvet Adası",
+        "zh": "布韦岛",
+        "ja": "ブーベ島"
     },
     "Brazil": {
         "de": "Brasilien",
@@ -307,7 +397,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Brésil",
         "it": "Brasile",
         "pt": "Brasil",
-        "ru": "Бразилия"
+        "ru": "Бразилия",
+        "tr": "Brezilya",
+        "zh": "巴西",
+        "ja": "ブラジル"
     },
     "British Indian Ocean Territory": {
         "de": "Britisches Territorium im Indischen Ozean",
@@ -317,7 +410,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Territoire britannique de l'océan Indien",
         "it": "Territorio britannico dell'Oceano Indiano",
         "pt": "Território Britânico do Oceano Índico",
-        "ru": "Британская территория в Индийском океане"
+        "ru": "Британская территория в Индийском океане",
+        "tr": "Britanya Hint Okyanusu Toprakları",
+        "zh": "英属印度洋领地",
+        "ja": "イギリス領インド洋地域"
     },
     "Brunei Darussalam": {
         "de": "Brunei Darussalam",
@@ -327,7 +423,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Brunei Darussalam",
         "it": "Brunei Darussalam",
         "pt": "Brunei",
-        "ru": "Бруней-Даруссалам"
+        "ru": "Бруней-Даруссалам",
+        "tr": "Brunei",
+        "zh": "文莱达鲁萨兰国",
+        "ja": "ブルネイ・ダルサラーム"
     },
     "Bulgaria": {
         "de": "Bulgarien",
@@ -337,7 +436,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Bulgarie",
         "it": "Bulgaria",
         "pt": "Bulgária",
-        "ru": "Болгария"
+        "ru": "Болгария",
+        "tr": "Bulgaristan",
+        "zh": "保加利亚",
+        "ja": "ブルガリア"
     },
     "Burkina Faso": {
         "de": "Burkina Faso",
@@ -347,7 +449,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Burkina Faso",
         "it": "Burkina Faso",
         "pt": "Burkina Faso",
-        "ru": "Буркина-Фасо"
+        "ru": "Буркина-Фасо",
+        "tr": "Burkina Faso",
+        "zh": "布基纳法索",
+        "ja": "ブルキナファソ"
     },
     "Burundi": {
         "de": "Burundi",
@@ -357,7 +462,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Burundi",
         "it": "Burundi",
         "pt": "Burundi",
-        "ru": "Бурунди"
+        "ru": "Бурунди",
+        "tr": "Burundi",
+        "zh": "布隆迪",
+        "ja": "ブルンジ"
     },
     "Cabo Verde": {
         "de": "Kap Verde",
@@ -367,7 +475,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Cap-Vert",
         "it": "Capo Verde",
         "pt": "Cabo Verde",
-        "ru": "Кабо-Верде"
+        "ru": "Кабо-Верде",
+        "tr": "Yeşil Burun Adaları",
+        "zh": "佛得角",
+        "ja": "カーボベルデ"
     },
     "Cambodia": {
         "de": "Kambodscha",
@@ -377,7 +488,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Cambodge",
         "it": "Cambogia",
         "pt": "Camboja",
-        "ru": "Камбоджа"
+        "ru": "Камбоджа",
+        "tr": "Kamboçya",
+        "zh": "柬埔寨",
+        "ja": "カンボジア"
     },
     "Cameroon": {
         "de": "Kamerun",
@@ -387,7 +501,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Cameroun",
         "it": "Camerun",
         "pt": "Camarões",
-        "ru": "Камерун"
+        "ru": "Камерун",
+        "tr": "Kamerun",
+        "zh": "喀麦隆",
+        "ja": "カメルーン"
     },
     "Canada": {
         "de": "Kanada",
@@ -397,7 +514,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Canada",
         "it": "Canada",
         "pt": "Canadá",
-        "ru": "Канада"
+        "ru": "Канада",
+        "tr": "Kanada",
+        "zh": "加拿大",
+        "ja": "カナダ"
     },
     "Caribbean Netherlands": {
         "de": "Karibische Niederlande",
@@ -407,7 +527,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Pays-Bas caribéens",
         "it": "Paesi Bassi caraibici",
         "pt": "Países Baixos Caribenhos",
-        "ru": "Карибские Нидерланды"
+        "ru": "Карибские Нидерланды",
+        "tr": "Karayip Hollanda",
+        "zh": "加勒比荷兰",
+        "ja": "カリブ海オランダ"
     },
     "Cayman Islands": {
         "de": "Kaimaninseln",
@@ -417,7 +540,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Îles Caïmans",
         "it": "Isole Cayman",
         "pt": "Ilhas Cayman",
-        "ru": "Каймановы острова"
+        "ru": "Каймановы острова",
+        "tr": "Cayman Adaları",
+        "zh": "开曼群岛",
+        "ja": "ケイマン諸島"
     },
     "Central African Republic": {
         "de": "Zentralafrikanische Republik",
@@ -427,7 +553,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "République centrafricaine",
         "it": "Repubblica Centrafricana",
         "pt": "República Centro-Africana",
-        "ru": "Центральноафриканская Республика"
+        "ru": "Центральноафриканская Республика",
+        "tr": "Orta Afrika Cumhuriyeti",
+        "zh": "中非共和国",
+        "ja": "中央アフリカ共和国"
     },
     "Chad": {
         "de": "Tschad",
@@ -437,7 +566,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Tchad",
         "it": "Ciad",
         "pt": "Chade",
-        "ru": "Чад"
+        "ru": "Чад",
+        "tr": "Çad",
+        "zh": "乍得",
+        "ja": "チャド"
     },
     "Chile": {
         "de": "Chile",
@@ -447,7 +579,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Chili",
         "it": "Cile",
         "pt": "Chile",
-        "ru": "Чили"
+        "ru": "Чили",
+        "tr": "Şili",
+        "zh": "智利",
+        "ja": "チリ"
     },
     "China (People's Republic of China)": {
         "de": "China",
@@ -457,7 +592,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Chine",
         "it": "Cina",
         "pt": "China",
-        "ru": "Китай"
+        "ru": "Китай",
+        "tr": "Çin",
+        "zh": "中国",
+        "ja": "中国"
     },
     "Christmas Island": {
         "de": "Weihnachtsinsel",
@@ -467,7 +605,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Île Christmas",
         "it": "Isola di Natale",
         "pt": "Ilha do Natal",
-        "ru": "Остров Рождества"
+        "ru": "Остров Рождества",
+        "tr": "Christmas Adası",
+        "zh": "圣诞岛",
+        "ja": "クリスマス島"
     },
     "Cocos (Keeling) Islands": {
         "de": "Kokosinseln",
@@ -477,7 +618,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Îles Cocos (Keeling)",
         "it": "Isole Cocos (Keeling)",
         "pt": "Ilhas Cocos (Keeling)",
-        "ru": "Кокосовые острова"
+        "ru": "Кокосовые острова",
+        "tr": "Cocos (Keeling) Adaları",
+        "zh": "科科斯（基林）群岛",
+        "ja": "ココス（キーリング）諸島"
     },
     "Colombia": {
         "de": "Kolumbien",
@@ -487,7 +631,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Colombie",
         "it": "Colombia",
         "pt": "Colômbia",
-        "ru": "Колумбия"
+        "ru": "Колумбия",
+        "tr": "Kolombiya",
+        "zh": "哥伦比亚",
+        "ja": "コロンビア"
     },
     "Comoros": {
         "de": "Komoren",
@@ -497,7 +644,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Comores",
         "it": "Comore",
         "pt": "Comores",
-        "ru": "Коморские острова"
+        "ru": "Коморские острова",
+        "tr": "Komorlar",
+        "zh": "科摩罗",
+        "ja": "コモロ"
     },
     "Congo, the Democratic Republic of the": {
         "de": "Kongo",
@@ -507,7 +657,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Congo",
         "it": "Congo",
         "pt": "Congo",
-        "ru": "Конго"
+        "ru": "Конго",
+        "tr": "Kongo",
+        "zh": "刚果（金）",
+        "ja": "コンゴ民主共和国"
     },
     "Cook Islands": {
         "de": "Cookinseln",
@@ -517,7 +670,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Îles Cook",
         "it": "Isole Cook",
         "pt": "Ilhas Cook",
-        "ru": "Острова Кука"
+        "ru": "Острова Кука",
+        "tr": "Cook Adaları",
+        "zh": "库克群岛",
+        "ja": "クック諸島"
     },
     "Costa Rica": {
         "de": "Costa Rica",
@@ -527,7 +683,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Costa Rica",
         "it": "Costa Rica",
         "pt": "Costa Rica",
-        "ru": "Коста-Рика"
+        "ru": "Коста-Рика",
+        "tr": "Kosta Rika",
+        "zh": "哥斯达黎加",
+        "ja": "コスタリカ"
     },
     "Cote d'Ivoire":{
         "de": "Elfenbeinküste",
@@ -537,7 +696,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Côte d'Ivoire",
         "it": "Costa d'Avorio",
         "pt": "Costa do Marfim",
-        "ru": "Кот-д'Ивуар"
+        "ru": "Кот-д'Ивуар",
+        "tr": "Fildişi Sahili",
+        "zh": "科特迪瓦",
+        "ja": "コートジボワール"
     },
     "Croatia": {
         "de": "Kroatien",
@@ -547,7 +709,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Croatie",
         "it": "Croazia",
         "pt": "Croácia",
-        "ru": "Хорватия"
+        "ru": "Хорватия",
+        "tr": "Hırvatistan",
+        "zh": "克罗地亚",
+        "ja": "クロアチア"
     },
     "Cuba": {
         "de": "Kuba",
@@ -557,7 +722,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Cuba",
         "it": "Cuba",
         "pt": "Cuba",
-        "ru": "Куба"
+        "ru": "Куба",
+        "tr": "Küba",
+        "zh": "古巴",
+        "ja": "キューバ"
     },
     "Curacao": {
         "de": "Curaçao",
@@ -567,7 +735,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Curaçao",
         "it": "Curaçao",
         "pt": "Curaçao",
-        "ru": "Кюрасао"
+        "ru": "Кюрасао",
+        "tr": "Curaçao",
+        "zh": "库拉索",
+        "ja": "キュラソー"
     },
     "Cyprus": {
         "de": "Zypern",
@@ -577,7 +748,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Chypre",
         "it": "Cipro",
         "pt": "Chipre",
-        "ru": "Кипр"
+        "ru": "Кипр",
+        "tr": "Kıbrıs",
+        "zh": "塞浦路斯",
+        "ja": "キプロス"
     },
     "Czech Republic": {
         "de": "Tschechien",
@@ -587,7 +761,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Tchéquie",
         "it": "Cechia",
         "pt": "Chéquia",
-        "ru": "Чехия"
+        "ru": "Чехия",
+        "tr": "Çekya",
+        "zh": "捷克",
+        "ja": "チェコ"
     },
     "Denmark": {
         "de": "Dänemark",
@@ -597,7 +774,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Danemark",
         "it": "Danimarca",
         "pt": "Dinamarca",
-        "ru": "Дания"
+        "ru": "Дания",
+        "tr": "Danimarka",
+        "zh": "丹麦",
+        "ja": "デンマーク"
     },
     "Djibouti": {
         "de": "Dschibuti",
@@ -607,7 +787,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Djibouti",
         "it": "Gibuti",
         "pt": "Djibuti",
-        "ru": "Джибути"
+        "ru": "Джибути",
+        "tr": "Cibuti",
+        "zh": "吉布提",
+        "ja": "ジブチ"
     },
     "Dominica": {
         "de": "Dominica",
@@ -617,7 +800,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Dominique",
         "it": "Dominica",
         "pt": "Dominica",
-        "ru": "Доминика"
+        "ru": "Доминика",
+        "tr": "Dominika",
+        "zh": "多米尼加",
+        "ja": "ドミニカ"
     },
     "Dominican Republic": {
         "de": "Dominikanische Republik",
@@ -627,7 +813,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "République dominicaine",
         "it": "Repubblica Dominicana",
         "pt": "República Dominicana",
-        "ru": "Доминиканская Республика"
+        "ru": "Доминиканская Республика",
+        "tr": "Dominik Cumhuriyeti",
+        "zh": "多米尼加共和国",
+        "ja": "ドミニカ共和国"
     },
     "Ecuador": {
         "de": "Ecuador",
@@ -637,7 +826,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Équateur",
         "it": "Ecuador",
         "pt": "Equador",
-        "ru": "Эквадор"
+        "ru": "Эквадор",
+        "tr": "Ekvador",
+        "zh": "厄瓜多尔",
+        "ja": "エクアドル"
     },
     "Egypt": {
         "de": "Ägypten",
@@ -647,7 +839,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Égypte",
         "it": "Egitto",
         "pt": "Egito",
-        "ru": "Египет"
+        "ru": "Египет",
+        "tr": "Mısır",
+        "zh": "埃及",
+        "ja": "エジプト"
     },
     "El Salvador": {
         "de": "El Salvador",
@@ -657,7 +852,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Salvador",
         "it": "El Salvador",
         "pt": "El Salvador",
-        "ru": "Сальвадор"
+        "ru": "Сальвадор",
+        "tr": "El Salvador",
+        "zh": "萨尔瓦多",
+        "ja": "エルサルバドル"
     },
     "England": {
         "de": "England",
@@ -667,7 +865,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Angleterre",
         "it": "Inghilterra",
         "pt": "Inglaterra",
-        "ru": "Англия"
+        "ru": "Англия",
+        "tr": "İngiltere",
+        "zh": "英格兰",
+        "ja": "イングランド"
     },
     "Equatorial Guinea": {
         "de": "Äquatorialguinea",
@@ -677,7 +878,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Guinée équatoriale",
         "it": "Guinea Equatoriale",
         "pt": "Guiné Equatorial",
-        "ru": "Экваториальная Гвинея"
+        "ru": "Экваториальная Гвинея",
+        "tr": "Ekvator Ginesi",
+        "zh": "赤道几内亚",
+        "ja": "赤道ギニア"
     },
     "Eritrea": {
         "de": "Eritrea",
@@ -687,7 +891,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Érythrée",
         "it": "Eritrea",
         "pt": "Eritreia",
-        "ru": "Эритрея"
+        "ru": "Эритрея",
+        "tr": "Eritre",
+        "zh": "厄立特里亚",
+        "ja": "エリトリア"
     },
     "Estonia": {
         "de": "Estland",
@@ -697,7 +904,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Estonie",
         "it": "Estonia",
         "pt": "Estônia",
-        "ru": "Эстония"
+        "ru": "Эстония",
+        "tr": "Estonya",
+        "zh": "爱沙尼亚",
+        "ja": "エストニア"
     },
     "Eswatini": {
         "de": "Eswatini",
@@ -707,7 +917,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Eswatini",
         "it": "Eswatini",
         "pt": "Eswatini",
-        "ru": "Эсватини"
+        "ru": "Эсватини",
+        "tr": "Eswatini",
+        "zh": "斯威士兰",
+        "ja": "エスワティニ"
     },
     "Ethiopia": {
         "de": "Äthiopien",
@@ -717,7 +930,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Éthiopie",
         "it": "Etiopia",
         "pt": "Etiópia",
-        "ru": "Эфиопия"
+        "ru": "Эфиопия",
+        "tr": "Etiyopya",
+        "zh": "埃塞俄比亚",
+        "ja": "エチオピア"
     },
     "Europe": {
         "de": "Europa",
@@ -727,7 +943,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Europe",
         "it": "Europa",
         "pt": "Europa",
-        "ru": "Европа"
+        "ru": "Европа",
+        "tr": "Avrupa",
+        "zh": "欧洲",
+        "ja": "ヨーロッパ"
     },
     "Falkland Islands (Malvinas)": {
         "de": "Falklandinseln",
@@ -737,7 +956,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Îles Malouines",
         "it": "Isole Falkland",
         "pt": "Ilhas Malvinas",
-        "ru": "Фолклендские острова"
+        "ru": "Фолклендские острова",
+        "tr": "Falkland Adaları",
+        "zh": "福克兰群岛",
+        "ja": "フォークランド（マルビナス）諸島"
     },
     "Faroe Islands": {
         "de": "Färöer",
@@ -747,7 +969,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Îles Féroé",
         "it": "Isole Faroe",
         "pt": "Ilhas Faroé",
-        "ru": "Фарерские острова"
+        "ru": "Фарерские острова",
+        "tr": "Faroe Adaları",
+        "zh": "法罗群岛",
+        "ja": "フェロー諸島"
     },
     "Fiji": {
         "de": "Fidschi",
@@ -757,7 +982,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Fidji",
         "it": "Figi",
         "pt": "Fiji",
-        "ru": "Фиджи"
+        "ru": "Фиджи",
+        "tr": "Fiji",
+        "zh": "斐济",
+        "ja": "フィジー"
     },
     "Finland": {
         "de": "Finnland",
@@ -777,7 +1005,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "France",
         "it": "Francia",
         "pt": "França",
-        "ru": "Франция"
+        "ru": "Франция",
+        "tr": "Fransa",
+        "zh": "法国",
+        "ja": "フランス"
     },
     "French Guiana": {
         "de": "Französisch-Guayana",
@@ -787,7 +1018,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Guyane française",
         "it": "Guyana francese",
         "pt": "Guiana Francesa",
-        "ru": "Французская Гвиана"
+        "ru": "Французская Гвиана",
+        "tr": "Fransız Guyanası",
+        "zh": "法属圭亚那",
+        "ja": "フランス領ギアナ"
     },
     "French Polynesia": {
         "de": "Französisch-Polynesien",
@@ -797,7 +1031,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Polynésie française",
         "it": "Polinesia francese",
         "pt": "Polinésia Francesa",
-        "ru": "Французская Полинезия"
+        "ru": "Французская Полинезия",
+        "tr": "Fransız Polinezyası",
+        "zh": "法属波利尼西亚",
+        "ja": "フランス領ポリネシア"
     },
     "French Southern Territories": {
         "de": "Französische Süd- und Antarktisgebiete",
@@ -807,7 +1044,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Terres australes françaises",
         "it": "Territori Francesi del Sud",
         "pt": "Territórios Franceses do Sul",
-        "ru": "Французские Южные территории"
+        "ru": "Французские Южные территории",
+        "tr": "Fransız Güney ve Antarktika Toprakları",
+        "zh": "法属南部领地",
+        "ja": "フランス領南方・南極地域"
     },
     "Gabon": {
         "de": "Gabun",
@@ -817,7 +1057,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Gabon",
         "it": "Gabon",
         "pt": "Gabão",
-        "ru": "Габон"
+        "ru": "Габон",
+        "tr": "Gabon",
+        "zh": "加蓬",
+        "ja": "ガボン"
     },
     "Gambia": {
         "de": "Gambia",
@@ -827,7 +1070,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Gambie",
         "it": "Gambia",
         "pt": "Gâmbia",
-        "ru": "Гамбия"
+        "ru": "Гамбия",
+        "tr": "Gambiya",
+        "zh": "冈比亚",
+        "ja": "ガンビア"
     },
     "Georgia": {
         "de": "Georgien",
@@ -837,7 +1083,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Géorgie",
         "it": "Georgia",
         "pt": "Geórgia",
-        "ru": "Грузия"
+        "ru": "Грузия",
+        "tr": "Gürcistan",
+        "zh": "格鲁吉亚",
+        "ja": "ジョージア"
     },
     "Germany": {
         "de": "Deutschland",
@@ -847,7 +1096,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Allemagne",
         "it": "Germania",
         "pt": "Alemanha",
-        "ru": "Германия"
+        "ru": "Германия",
+        "tr": "Almanya",
+        "zh": "德国",
+        "ja": "ドイツ"
     },
     "Ghana": {
         "de": "Ghana",
@@ -857,7 +1109,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Ghana",
         "it": "Ghana",
         "pt": "Gana",
-        "ru": "Гана"
+        "ru": "Гана",
+        "tr": "Gana",
+        "zh": "加纳",
+        "ja": "ガーナ"
     },
     "Gibraltar": {
         "de": "Gibraltar",
@@ -867,7 +1122,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Gibraltar",
         "it": "Gibilterra",
         "pt": "Gibraltar",
-        "ru": "Гибралтар"
+        "ru": "Гибралтар",
+        "tr": "Cebelitarık",
+        "zh": "直布罗陀",
+        "ja": "ジブラルタル"
     },
     "Greece": {
         "de": "Griechenland",
@@ -877,7 +1135,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Grèce",
         "it": "Grecia",
         "pt": "Grécia",
-        "ru": "Греция"
+        "ru": "Греция",
+        "tr": "Yunanistan",
+        "zh": "希腊",
+        "ja": "ギリシャ"
     },
     "Greenland": {
         "de": "Grönland",
@@ -887,7 +1148,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Groenland",
         "it": "Groenlandia",
         "pt": "Gronelândia",
-        "ru": "Гренландия"
+        "ru": "Гренландия",
+        "tr": "Grönland",
+        "zh": "格陵兰",
+        "ja": "グリーンランド"
     },
     "Grenada": {
         "de": "Grenada",
@@ -897,7 +1161,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Grenade",
         "it": "Grenada",
         "pt": "Granada",
-        "ru": "Гренада"
+        "ru": "Гренада",
+        "tr": "Grenada",
+        "zh": "格林纳达",
+        "ja": "グレナダ"
     },
     "Guadeloupe": {
         "de": "Guadeloupe",
@@ -907,7 +1174,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Guadeloupe",
         "it": "Guadalupa",
         "pt": "Guadalupe",
-        "ru": "Гваделупа"
+        "ru": "Гваделупа",
+        "tr": "Guadeloupe",
+        "zh": "瓜德罗普",
+        "ja": "グアドループ"
     },
     "Guam": {
         "de": "Guam",
@@ -917,7 +1187,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Guam",
         "it": "Guam",
         "pt": "Guam",
-        "ru": "Гуам"
+        "ru": "Гуам",
+        "tr": "Guam",
+        "zh": "关岛",
+        "ja": "グアム"
     },
     "Guatemala": {
         "de": "Guatemala",
@@ -927,7 +1200,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Guatemala",
         "it": "Guatemala",
         "pt": "Guatemala",
-        "ru": "Гватемала"
+        "ru": "Гватемала",
+        "tr": "Guatemala",
+        "zh": "危地马拉",
+        "ja": "グアテマラ"
     },
     "Guernsey": {
         "de": "Guernsey",
@@ -937,7 +1213,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Guernesey",
         "it": "Guernsey",
         "pt": "Guernsey",
-        "ru": "Гернси"
+        "ru": "Гернси",
+        "tr": "Guernsey",
+        "zh": "根西岛",
+        "ja": "ガーンジー"
     },
     "Guinea": {
         "de": "Guinea",
@@ -947,7 +1226,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Guinée",
         "it": "Guinea",
         "pt": "Guiné",
-        "ru": "Гвинея"
+        "ru": "Гвинея",
+        "tr": "Gine",
+        "zh": "几内亚",
+        "ja": "ギニア"
     },
     "Guinea-Bissau": {
         "de": "Guinea-Bissau",
@@ -957,7 +1239,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Guinée-Bissau",
         "it": "Guinea-Bissau",
         "pt": "Guiné-Bissau",
-        "ru": "Гвинея-Бисау"
+        "ru": "Гвинея-Бисау",
+        "tr": "Gine-Bissau",
+        "zh": "几内亚比绍",
+        "ja": "ギニアビサウ"
     },
     "Guyana": {
         "de": "Guyana",
@@ -967,7 +1252,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Guyane",
         "it": "Guyana",
         "pt": "Guiana",
-        "ru": "Гайана"
+        "ru": "Гайана",
+        "tr": "Guyana",
+        "zh": "圭亚那",
+        "ja": "ガイアナ"
     },
     "Haiti": {
         "de": "Haiti",
@@ -977,7 +1265,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Haïti",
         "it": "Haiti",
         "pt": "Haiti",
-        "ru": "Гаити"
+        "ru": "Гаити",
+        "tr": "Haiti",
+        "zh": "海地",
+        "ja": "ハイチ"
     },
     "Heard Island and McDonald Islands": {
         "de": "Heard- und McDonaldinseln",
@@ -987,7 +1278,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Île Heard et îles McDonald",
         "it": "Isole Heard e McDonald",
         "pt": "Ilha Heard e Ilhas McDonald",
-        "ru": "Остров Херд и острова Макдональд"
+        "ru": "Остров Херд и острова Макдональд",
+        "tr": "Heard Adası ve McDonald Adaları",
+        "zh": "赫德岛和麦克唐纳群岛",
+        "ja": "ハード島とマクドナルド諸島"
     },
     "Holy See (Vatican City State)": {
         "de": "Vatikanstadt",
@@ -997,7 +1291,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Saint-Siège",
         "it": "Città del Vaticano",
         "pt": "Vaticano",
-        "ru": "Ватикан"
+        "ru": "Ватикан",
+        "tr": "Vatikan",
+        "zh": "梵蒂冈",
+        "ja": "バチカン市国"
     },
     "Honduras": {
         "de": "Honduras",
@@ -1007,7 +1304,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Honduras",
         "it": "Honduras",
         "pt": "Honduras",
-        "ru": "Гондурас"
+        "ru": "Гондурас",
+        "tr": "Honduras",
+        "zh": "洪都拉斯",
+        "ja": "ホンジュラス"
     },
     "Hong Kong": {
         "de": "Hongkong",
@@ -1017,7 +1317,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Hong Kong",
         "it": "Hong Kong",
         "pt": "Hong Kong",
-        "ru": "Гонконг"
+        "ru": "Гонконг",
+        "tr": "Hong Kong",
+        "zh": "香港",
+        "ja": "香港"
     },
     "Hungary": {
         "de": "Ungarn",
@@ -1027,7 +1330,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Hongrie",
         "it": "Ungheria",
         "pt": "Hungria",
-        "ru": "Венгрия"
+        "ru": "Венгрия",
+        "tr": "Macaristan",
+        "zh": "匈牙利",
+        "ja": "ハンガリー"
     },
     "Iceland": {
         "de": "Island",
@@ -1037,7 +1343,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Islande",
         "it": "Islanda",
         "pt": "Islândia",
-        "ru": "Исландия"
+        "ru": "Исландия",
+        "tr": "İzlanda",
+        "zh": "冰岛",
+        "ja": "アイスランド"
     },
     "India": {
         "de": "Indien",
@@ -1047,7 +1356,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Inde",
         "it": "India",
         "pt": "Índia",
-        "ru": "Индия"
+        "ru": "Индия",
+        "tr": "Hindistan",
+        "zh": "印度",
+        "ja": "インド"
     },
     "Indonesia": {
         "de": "Indonesien",
@@ -1057,7 +1369,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Indonésie",
         "it": "Indonesia",
         "pt": "Indonésia",
-        "ru": "Индонезия"
+        "ru": "Индонезия",
+        "tr": "Endonezya",
+        "zh": "印度尼西亚",
+        "ja": "インドネシア"
     },
     "Iran, Islamic Republic of": {
         "de": "Iran",
@@ -1067,7 +1382,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Iran",
         "it": "Iran",
         "pt": "Irão",
-        "ru": "Иран"
+        "ru": "Иран",
+        "tr": "İran",
+        "zh": "伊朗",
+        "ja": "イラン"
     },
     "Iraq": {
         "de": "Irak",
@@ -1077,7 +1395,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Irak",
         "it": "Iraq",
         "pt": "Iraque",
-        "ru": "Ирак"
+        "ru": "Ирак",
+        "tr": "Irak",
+        "zh": "伊拉克",
+        "ja": "イラク"
     },
     "Ireland": {
         "de": "Irland",
@@ -1087,7 +1408,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Irlande",
         "it": "Irlanda",
         "pt": "Irlanda",
-        "ru": "Ирландия"
+        "ru": "Ирландия",
+        "tr": "İrlanda",
+        "zh": "爱尔兰",
+        "ja": "アイルランド"
     },
     "Isle of Man": {
         "de": "Insel Man",
@@ -1097,7 +1421,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Île de Man",
         "it": "Isola di Man",
         "pt": "Ilha de Man",
-        "ru": "Остров Мэн"
+        "ru": "Остров Мэн",
+        "tr": "Man Adası",
+        "zh": "马恩岛",
+        "ja": "マン島"
     },
     "Israel": {
         "de": "Israel",
@@ -1107,7 +1434,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Israël",
         "it": "Israele",
         "pt": "Israel",
-        "ru": "Израиль"
+        "ru": "Израиль",
+        "tr": "İsrail",
+        "zh": "以色列",
+        "ja": "イスラエル"
     },
     "Italy": {
         "de": "Italien",
@@ -1117,7 +1447,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Italie",
         "it": "Italia",
         "pt": "Itália",
-        "ru": "Италия"
+        "ru": "Италия",
+        "tr": "İtalya",
+        "zh": "意大利",
+        "ja": "イタリア"
     },
     "Jamaica": {
         "de": "Jamaika",
@@ -1127,7 +1460,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Jamaïque",
         "it": "Giamaica",
         "pt": "Jamaica",
-        "ru": "Ямайка"
+        "ru": "Ямайка",
+        "tr": "Jamaika",
+        "zh": "牙买加",
+        "ja": "ジャマイカ"
     },
     "Japan": {
         "de": "Japan",
@@ -1137,7 +1473,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Japon",
         "it": "Giappone",
         "pt": "Japão",
-        "ru": "Япония"
+        "ru": "Япония",
+        "tr": "Japonya",
+        "zh": "日本",
+        "ja": "日本"
     },
     "Jersey": {
         "de": "Jersey",
@@ -1147,7 +1486,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Jersey",
         "it": "Jersey",
         "pt": "Jersey",
-        "ru": "Джерси"
+        "ru": "Джерси",
+        "tr": "Jersey",
+        "zh": "泽西岛",
+        "ja": "ジャージー"
     },
     "Jordan": {
         "de": "Jordanien",
@@ -1157,7 +1499,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Jordanie",
         "it": "Giordania",
         "pt": "Jordânia",
-        "ru": "Иордания"
+        "ru": "Иордания",
+        "tr": "Ürdün",
+        "zh": "约旦",
+        "ja": "ヨルダン"
     },
     "Kazakhstan": {
         "de": "Kasachstan",
@@ -1167,7 +1512,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Kazakhstan",
         "it": "Kazakistan",
         "pt": "Cazaquistão",
-        "ru": "Казахстан"
+        "ru": "Казахстан",
+        "tr": "Kazakistan",
+        "zh": "哈萨克斯坦",
+        "ja": "カザフスタン"
     },
     "Kenya": {
         "de": "Kenia",
@@ -1177,7 +1525,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Kenya",
         "it": "Kenya",
         "pt": "Quénia",
-        "ru": "Кения"
+        "ru": "Кения",
+        "tr": "Kenya",
+        "zh": "肯尼亚",
+        "ja": "ケニア"
     },
     "Kiribati": {
         "de": "Kiribati",
@@ -1187,7 +1538,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Kiribati",
         "it": "Kiribati",
         "pt": "Quiribáti",
-        "ru": "Кирибати"
+        "ru": "Кирибати",
+        "tr": "Kiribati",
+        "zh": "基里巴斯",
+        "ja": "キリバス"
     },
     "Korea, Democratic People's Republic of": {
         "de": "Nordkorea",
@@ -1197,7 +1551,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Corée du Nord",
         "it": "Corea del Nord",
         "pt": "Coreia do Norte",
-        "ru": "Северная Корея"
+        "ru": "Северная Корея",
+        "tr": "Kuzey Kore",
+        "zh": "朝鲜",
+        "ja": "北朝鮮"
     },
     "Korea, Republic of": {
         "de": "Südkorea",
@@ -1207,7 +1564,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Corée du Sud",
         "it": "Corea del Sud",
         "pt": "Coreia do Sul",
-        "ru": "Южная Корея"
+        "ru": "Южная Корея",
+        "tr": "Güney Kore",
+        "zh": "韩国",
+        "ja": "大韓民国"
     },
     "Kosovo": {
         "de": "Kosovo",
@@ -1217,7 +1577,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Kosovo",
         "it": "Kosovo",
         "pt": "Kosovo",
-        "ru": "Косово"
+        "ru": "Косово",
+        "tr": "Kosova",
+        "zh": "科索沃",
+        "ja": "コソボ"
     },
     "Kuwait": {
         "de": "Kuwait",
@@ -1227,7 +1590,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Koweït",
         "it": "Kuwait",
         "pt": "Kuwait",
-        "ru": "Кувейт"
+        "ru": "Кувейт",
+        "tr": "Kuveyt",
+        "zh": "科威特",
+        "ja": "クウェート"
     },
     "Kyrgyzstan": {
         "de": "Kirgisistan",
@@ -1237,7 +1603,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Kirghizistan",
         "it": "Kirghizistan",
         "pt": "Quirguistão",
-        "ru": "Киргизия"
+        "ru": "Киргизия",
+        "tr": "Kırgızistan",
+        "zh": "吉尔吉斯斯坦",
+        "ja": "キルギス"
     },
     "Laos (Lao People's Democratic Republic)": {
         "de": "Laos",
@@ -1247,7 +1616,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Laos",
         "it": "Laos",
         "pt": "Laos",
-        "ru": "Лаос"
+        "ru": "Лаос",
+        "tr": "Laos",
+        "zh": "老挝",
+        "ja": "ラオス"
     },
     "Latvia": {
         "de": "Lettland",
@@ -1257,7 +1629,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Lettonie",
         "it": "Lettonia",
         "pt": "Letônia",
-        "ru": "Латвия"
+        "ru": "Латвия",
+        "tr": "Letonya",
+        "zh": "拉脱维亚",
+        "ja": "ラトビア"
     },
     "Lebanon": {
         "de": "Libanon",
@@ -1267,7 +1642,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Liban",
         "it": "Libano",
         "pt": "Líbano",
-        "ru": "Ливан"
+        "ru": "Ливан",
+        "tr": "Lübnan",
+        "zh": "黎巴嫩",
+        "ja": "レバノン"
     },
     "Lesotho": {
         "de": "Lesotho",
@@ -1287,7 +1665,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Libéria",
         "it": "Liberia",
         "pt": "Libéria",
-        "ru": "Либерия"
+        "ru": "Либерия",
+        "tr": "Liberya",
+        "zh": "利比里亚",
+        "ja": "リベリア"
     },
     "Libya": {
         "de": "Libyen",
@@ -1297,7 +1678,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Libye",
         "it": "Libia",
         "pt": "Líbia",
-        "ru": "Ливия"
+        "ru": "Ливия",
+        "tr": "Libya",
+        "zh": "利比亚",
+        "ja": "リビア"
     },
     "Liechtenstein": {
         "de": "Liechtenstein",
@@ -1307,7 +1691,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Liechtenstein",
         "it": "Liechtenstein",
         "pt": "Liechtenstein",
-        "ru": "Лихтенштейн"
+        "ru": "Лихтенштейн",
+        "tr": "Lihtenştayn",
+        "zh": "列支敦士登",
+        "ja": "リヒテンシュタイン"
     },
     "Lithuania": {
         "de": "Litauen",
@@ -1317,7 +1704,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Lituanie",
         "it": "Lituania",
         "pt": "Lituânia",
-        "ru": "Литва"
+        "ru": "Литва",
+        "tr": "Litvanya",
+        "zh": "立陶宛",
+        "ja": "リトアニア"
     },
     "Luxembourg": {
         "de": "Luxemburg",
@@ -1327,7 +1717,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Luxembourg",
         "it": "Lussemburgo",
         "pt": "Luxemburgo",
-        "ru": "Люксембург"
+        "ru": "Люксембург",
+        "tr": "Lüksemburg",
+        "zh": "卢森堡",
+        "ja": "ルクセンブルク"
     },
     "Macao": {
         "de": "Macao",
@@ -1337,7 +1730,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Macao",
         "it": "Macao",
         "pt": "Macau",
-        "ru": "Макао"
+        "ru": "Макао",
+        "tr": "Macao",
+        "zh": "澳门",
+        "ja": "マカオ"
     },
     "Madagascar": {
         "de": "Madagaskar",
@@ -1347,7 +1743,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Madagascar",
         "it": "Madagascar",
         "pt": "Madagáscar",
-        "ru": "Мадагаскар"
+        "ru": "Мадагаскар",
+        "tr": "Madagaskar",
+        "zh": "马达加斯加",
+        "ja": "マダガスカル"
     },
     "Malawi": {
         "de": "Malawi",
@@ -1357,7 +1756,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Malawi",
         "it": "Malawi",
         "pt": "Malawi",
-        "ru": "Малави"
+        "ru": "Малави",
+        "tr": "Malavi",
+        "zh": "马拉维",
+        "ja": "マラウイ"
     },
     "Malaysia": {
         "de": "Malaysia",
@@ -1367,7 +1769,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Malaisie",
         "it": "Malesia",
         "pt": "Malásia",
-        "ru": "Малайзия"
+        "ru": "Малайзия",
+        "tr": "Malezya",
+        "zh": "马来西亚",
+        "ja": "マレーシア"
     },
     "Maldives": {
         "de": "Malediven",
@@ -1377,7 +1782,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Maldives",
         "it": "Maldive",
         "pt": "Maldivas",
-        "ru": "Мальдивы"
+        "ru": "Мальдивы",
+        "tr": "Maldivler",
+        "zh": "马尔代夫",
+        "ja": "モルディブ"
     },
     "Mali": {
         "de": "Mali",
@@ -1387,7 +1795,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Mali",
         "it": "Mali",
         "pt": "Mali",
-        "ru": "Мали"
+        "ru": "Мали",
+        "tr": "Mali",
+        "zh": "马里",
+        "ja": "マリ"
     },
     "Malta": {
         "de": "Malta",
@@ -1397,7 +1808,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Malte",
         "it": "Malta",
         "pt": "Malta",
-        "ru": "Мальта"
+        "ru": "Мальта",
+        "tr": "Malta",
+        "zh": "马耳他",
+        "ja": "マルタ"
     },
     "Marshall Islands": {
         "de": "Marshallinseln",
@@ -1407,7 +1821,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Îles Marshall",
         "it": "Isole Marshall",
         "pt": "Ilhas Marshall",
-        "ru": "Маршалловы Острова"
+        "ru": "Маршалловы Острова",
+        "tr": "Marshall Adaları",
+        "zh": "马绍尔群岛",
+        "ja": "マーシャル諸島"
     },
     "Martinique": {
         "de": "Martinique",
@@ -1417,7 +1834,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Martinique",
         "it": "Martinica",
         "pt": "Martinica",
-        "ru": "Мартиника"
+        "ru": "Мартиника",
+        "tr": "Martinik",
+        "zh": "马提尼克",
+        "ja": "マルティニーク"
     },
     "Mauritania": {
         "de": "Mauretanien",
@@ -1427,7 +1847,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Mauritanie",
         "it": "Mauritania",
         "pt": "Mauritânia",
-        "ru": "Мавритания"
+        "ru": "Мавритания",
+        "tr": "Moritanya",
+        "zh": "毛里塔尼亚",
+        "ja": "モーリタニア"
     },
     "Mauritius": {
         "de": "Mauritius",
@@ -1437,7 +1860,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Maurice",
         "it": "Mauritius",
         "pt": "Maurícia",
-        "ru": "Маврикий"
+        "ru": "Маврикий",
+        "tr": "Mauritius",
+        "zh": "毛里求斯",
+        "ja": "モーリシャス"
     },
     "Mayotte": {
         "de": "Mayotte",
@@ -1447,7 +1873,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Mayotte",
         "it": "Mayotte",
         "pt": "Mayotte",
-        "ru": "Майотта"
+        "ru": "Майотта",
+        "tr": "Mayotte",
+        "zh": "马约特",
+        "ja": "マヨット"
     },
     "Mexico": {
         "de": "Mexiko",
@@ -1457,7 +1886,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Mexique",
         "it": "Messico",
         "pt": "México",
-        "ru": "Мексика"
+        "ru": "Мексика",
+        "tr": "Meksika",
+        "zh": "墨西哥",
+        "ja": "メキシコ"
     },
     "Micronesia, Federated States of": {
         "de": "Mikronesien",
@@ -1467,7 +1899,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Micronésie",
         "it": "Micronesia",
         "pt": "Micronésia",
-        "ru": "Микронезия"
+        "ru": "Микронезия",
+        "tr": "Mikronezya",
+        "zh": "密克罗尼西亚",
+        "ja": "ミクロネシア"
     },
     "Moldova, Republic of": {
         "de": "Moldau",
@@ -1477,7 +1912,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Moldavie",
         "it": "Moldavia",
         "pt": "Moldávia",
-        "ru": "Молдова"
+        "ru": "Молдова",
+        "tr": "Moldova",
+        "zh": "摩尔多瓦",
+        "ja": "モルドバ"
     },
     "Monaco": {
         "de": "Monaco",
@@ -1487,7 +1925,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Monaco",
         "it": "Monaco",
         "pt": "Mónaco",
-        "ru": "Монако"
+        "ru": "Монако",
+        "tr": "Monako",
+        "zh": "摩纳哥",
+        "ja": "モナコ"
     },
     "Mongolia": {
         "de": "Mongolei",
@@ -1497,7 +1938,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Mongolie",
         "it": "Mongolia",
         "pt": "Mongólia",
-        "ru": "Монголия"
+        "ru": "Монголия",
+        "tr": "Moğolistan",
+        "zh": "蒙古",
+        "ja": "モンゴル"
     },
     "Montenegro": {
         "de": "Montenegro",
@@ -1507,7 +1951,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Monténégro",
         "it": "Montenegro",
         "pt": "Montenegro",
-        "ru": "Черногория"
+        "ru": "Черногория",
+        "tr": "Karadağ",
+        "zh": "黑山",
+        "ja": "モンテネグロ"
     },
     "Montserrat": {
         "de": "Montserrat",
@@ -1517,7 +1964,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Montserrat",
         "it": "Montserrat",
         "pt": "Montserrat",
-        "ru": "Монтсеррат"
+        "ru": "Монтсеррат",
+        "tr": "Montserrat",
+        "zh": "蒙特塞拉特",
+        "ja": "モントセラト"
     },
     "Morocco": {
         "de": "Marokko",
@@ -1527,7 +1977,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Maroc",
         "it": "Marocco",
         "pt": "Marrocos",
-        "ru": "Марокко"
+        "ru": "Марокко",
+        "tr": "Fas",
+        "zh": "摩洛哥",
+        "ja": "モロッコ"
     },
     "Mozambique": {
         "de": "Mosambik",
@@ -1537,7 +1990,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Mozambique",
         "it": "Mozambico",
         "pt": "Moçambique",
-        "ru": "Мозамбик"
+        "ru": "Мозамбик",
+        "tr": "Mozambik",
+        "zh": "莫桑比克",
+        "ja": "モザンビーク"
     },
     "Myanmar": {
         "de": "Myanmar",
@@ -1547,7 +2003,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Myanmar",
         "it": "Myanmar",
         "pt": "Mianmar",
-        "ru": "Мьянма"
+        "ru": "Мьянма",
+        "tr": "Myanmar",
+        "zh": "缅甸",
+        "ja": "ミャンマー"
     },
     "Namibia": {
         "de": "Namibia",
@@ -1557,7 +2016,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Namibie",
         "it": "Namibia",
         "pt": "Namíbia",
-        "ru": "Намибия"
+        "ru": "Намибия",
+        "tr": "Namibya",
+        "zh": "纳米比亚",
+        "ja": "ナミビア"
     },
     "Nauru": {
         "de": "Nauru",
@@ -1567,7 +2029,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Nauru",
         "it": "Nauru",
         "pt": "Nauru",
-        "ru": "Науру"
+        "ru": "Науру",
+        "tr": "Nauru",
+        "zh": "瑙鲁",
+        "ja": "ナウル"
     },
     "Nepal": {
         "de": "Nepal",
@@ -1577,7 +2042,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Népal",
         "it": "Nepal",
         "pt": "Nepal",
-        "ru": "Непал"
+        "ru": "Непал",
+        "tr": "Nepal",
+        "zh": "尼泊尔",
+        "ja": "ネパール"
     },
     "Netherlands": {
         "de": "Niederlande",
@@ -1587,7 +2055,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Pays-Bas",
         "it": "Paesi Bassi",
         "pt": "Países Baixos",
-        "ru": "Нидерланды"
+        "ru": "Нидерланды",
+        "tr": "Hollanda",
+        "zh": "荷兰",
+        "ja": "オランダ"
     },
     "New Caledonia": {
         "de": "Neukaledonien",
@@ -1597,7 +2068,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Nouvelle-Calédonie",
         "it": "Nuova Caledonia",
         "pt": "Nova Caledônia",
-        "ru": "Новая Каледония"
+        "ru": "Новая Каледония",
+        "tr": "Yeni Kaledonya",
+        "zh": "新喀里多尼亚",
+        "ja": "ニューカレドニア"
     },
     "New Zealand": {
         "de": "Neuseeland",
@@ -1607,7 +2081,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Nouvelle-Zélande",
         "it": "Nuova Zelanda",
         "pt": "Nova Zelândia",
-        "ru": "Новая Зеландия"
+        "ru": "Новая Зеландия",
+        "tr": "Yeni Zelanda",
+        "zh": "新西兰",
+        "ja": "ニュージーランド"
     },
     "Nicaragua": {
         "de": "Nicaragua",
@@ -1617,7 +2094,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Nicaragua",
         "it": "Nicaragua",
         "pt": "Nicarágua",
-        "ru": "Никарагуа"
+        "ru": "Никарагуа",
+        "tr": "Nikaragua",
+        "zh": "尼加拉瓜",
+        "ja": "ニカラグア"
     },
     "Niger": {
         "de": "Niger",
@@ -1627,7 +2107,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Niger",
         "it": "Niger",
         "pt": "Níger",
-        "ru": "Нигер"
+        "ru": "Нигер",
+        "tr": "Nijer",
+        "zh": "尼日尔",
+        "ja": "ニジェール"
     },
     "Nigeria": {
         "de": "Nigeria",
@@ -1637,7 +2120,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Nigéria",
         "it": "Nigeria",
         "pt": "Nigéria",
-        "ru": "Нигерия"
+        "ru": "Нигерия",
+        "tr": "Nijerya",
+        "zh": "尼日利亚",
+        "ja": "ナイジェリア"
     },
     "Niue": {
         "de": "Niue",
@@ -1647,7 +2133,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Niue",
         "it": "Niue",
         "pt": "Niue",
-        "ru": "Ниуэ"
+        "ru": "Ниуэ",
+        "tr": "Niue",
+        "zh": "纽埃",
+        "ja": "ニウエ"
     },
     "Norfolk Island": {
         "de": "Norfolkinsel",
@@ -1657,7 +2146,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Île Norfolk",
         "it": "Isola Norfolk",
         "pt": "Ilha Norfolk",
-        "ru": "Остров Норфолк"
+        "ru": "Остров Норфолк",
+        "tr": "Norfolk Adası",
+        "zh": "诺福克岛",
+        "ja": "ノーフォーク島"
     },
     "North Macedonia": {
         "de": "Nordmazedonien",
@@ -1667,7 +2159,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Macédoine du Nord",
         "it": "Macedonia del Nord",
         "pt": "Macedônia do Norte",
-        "ru": "Северная Македония"
+        "ru": "Северная Македония",
+        "tr": "Kuzey Makedonya",
+        "zh": "北马其顿",
+        "ja": "北マケドニア"
     },
     "Northern Ireland": {
         "de": "Nordirland",
@@ -1677,7 +2172,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Irlande du Nord",
         "it": "Irlanda del Nord",
         "pt": "Irlanda do Norte",
-        "ru": "Северная Ирландия"
+        "ru": "Северная Ирландия",
+        "tr": "Kuzey İrlanda",
+        "zh": "北爱尔兰",
+        "ja": "北アイルランド"
     },
     "Northern Mariana Islands": {
         "de": "Nördliche Marianen",
@@ -1687,7 +2185,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Îles Mariannes du Nord",
         "it": "Isole Marianne Settentrionali",
         "pt": "Ilhas Marianas do Norte",
-        "ru": "Северные Марианские острова"
+        "ru": "Северные Марианские острова",
+        "tr": "Kuzey Mariana Adaları",
+        "zh": "北马里亚纳群岛",
+        "ja": "北マリアナ諸島"
     },
     "Norway": {
         "de": "Norwegen",
@@ -1697,7 +2198,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Norvège",
         "it": "Norvegia",
         "pt": "Noruega",
-        "ru": "Норвегия"
+        "ru": "Норвегия",
+        "tr": "Norveç",
+        "zh": "挪威",
+        "ja": "ノルウェー"
     },
     "Oman": {
         "de": "Oman",
@@ -1707,7 +2211,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Oman",
         "it": "Oman",
         "pt": "Omã",
-        "ru": "Оман"
+        "ru": "Оман",
+        "tr": "Umman",
+        "zh": "阿曼",
+        "ja": "オマーン"
     },
     "Pakistan": {
         "de": "Pakistan",
@@ -1717,7 +2224,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Pakistan",
         "it": "Pakistan",
         "pt": "Paquistão",
-        "ru": "Пакистан"
+        "ru": "Пакистан",
+        "tr": "Pakistan",
+        "zh": "巴基斯坦",
+        "ja": "パキスタン"
     },
     "Palau": {
         "de": "Palau",
@@ -1727,7 +2237,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Palaos",
         "it": "Palau",
         "pt": "Palau",
-        "ru": "Палау"
+        "ru": "Палау",
+        "tr": "Palau",
+        "zh": "帕劳",
+        "ja": "パラオ"
     },
     "Palestine": {
         "de": "Palästina",
@@ -1737,7 +2250,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Palestine",
         "it": "Palestina",
         "pt": "Palestina",
-        "ru": "Палестина"
+        "ru": "Палестина",
+        "tr": "Filistin",
+        "zh": "巴勒斯坦",
+        "ja": "パレスチナ"
     },
     "Panama": {
         "de": "Panama",
@@ -1747,7 +2263,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Panama",
         "it": "Panama",
         "pt": "Panamá",
-        "ru": "Панама"
+        "ru": "Панама",
+        "tr": "Panama",
+        "zh": "巴拿马",
+        "ja": "パナマ"
     },
     "Papua New Guinea": {
         "de": "Papua-Neuguinea",
@@ -1757,7 +2276,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Papouasie-Nouvelle-Guinée",
         "it": "Papua Nuova Guinea",
         "pt": "Papua-Nova Guiné",
-        "ru": "Папуа — Новая Гвинея"
+        "ru": "Папуа — Новая Гвинея",
+        "tr": "Papua Yeni Gine",
+        "zh": "巴布亚新几内亚",
+        "ja": "パプアニューギニア"
     },
     "Paraguay": {
         "de": "Paraguay",
@@ -1767,7 +2289,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Paraguay",
         "it": "Paraguay",
         "pt": "Paraguai",
-        "ru": "Парагвай"
+        "ru": "Парагвай",
+        "tr": "Paraguay",
+        "zh": "巴拉圭",
+        "ja": "パラグアイ"
     },
     "Peru": {
         "de": "Peru",
@@ -1777,7 +2302,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Pérou",
         "it": "Perù",
         "pt": "Peru",
-        "ru": "Перу"
+        "ru": "Перу",
+        "tr": "Peru",
+        "zh": "秘鲁",
+        "ja": "ペルー"
     },
     "Philippines": {
         "de": "Philippinen",
@@ -1787,7 +2315,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Philippines",
         "it": "Filippine",
         "pt": "Filipinas",
-        "ru": "Филиппины"
+        "ru": "Филиппины",
+        "tr": "Filipinler",
+        "zh": "菲律宾",
+        "ja": "フィリピン"
     },
     "Pitcairn": {
         "de": "Pitcairninseln",
@@ -1797,7 +2328,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Îles Pitcairn",
         "it": "Isole Pitcairn",
         "pt": "Ilhas Pitcairn",
-        "ru": "Питкэрн"
+        "ru": "Питкэрн",
+        "tr": "Pitcairn Adaları",
+        "zh": "皮特凯恩群岛",
+        "ja": "ピトケアン"
     },
     "Poland": {
         "de": "Polen",
@@ -1807,7 +2341,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Pologne",
         "it": "Polonia",
         "pt": "Polónia",
-        "ru": "Польша"
+        "ru": "Польша",
+        "tr": "Polonya",
+        "zh": "波兰",
+        "ja": "ポーランド"
     },
     "Portugal": {
         "de": "Portugal",
@@ -1817,7 +2354,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Portugal",
         "it": "Portogallo",
         "pt": "Portugal",
-        "ru": "Португалия"
+        "ru": "Португалия",
+        "tr": "Portekiz",
+        "zh": "葡萄牙",
+        "ja": "ポルトガル"
     },
     "Puerto Rico": {
         "de": "Puerto Rico",
@@ -1827,7 +2367,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Porto Rico",
         "it": "Porto Rico",
         "pt": "Porto Rico",
-        "ru": "Пуэрто-Рико"
+        "ru": "Пуэрто-Рико",
+        "tr": "Porto Riko",
+        "zh": "波多黎各",
+        "ja": "プエルトリコ"
     },
     "Qatar": {
         "de": "Katar",
@@ -1837,7 +2380,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Qatar",
         "it": "Qatar",
         "pt": "Catar",
-        "ru": "Катар"
+        "ru": "Катар",
+        "tr": "Katar",
+        "zh": "卡塔尔",
+        "ja": "カタール"
     },
     "Reunion": {
         "de": "Réunion",
@@ -1847,7 +2393,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "La Réunion",
         "it": "Riunione",
         "pt": "Reunião",
-        "ru": "Реюньон"
+        "ru": "Реюньон",
+        "tr": "Réunion",
+        "zh": "留尼汪",
+        "ja": "レユニオン"
     },
     "Romania": {
         "de": "Rumänien",
@@ -1857,7 +2406,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Roumanie",
         "it": "Romania",
         "pt": "Roménia",
-        "ru": "Румыния"
+        "ru": "Румыния",
+        "tr": "Romanya",
+        "zh": "罗马尼亚",
+        "ja": "ルーマニア"
     },
     "Russian Federation": {
         "de": "Russland",
@@ -1867,7 +2419,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Russie",
         "it": "Russia",
         "pt": "Rússia",
-        "ru": "Россия"
+        "ru": "Россия",
+        "tr": "Rusya",
+        "zh": "俄罗斯",
+        "ja": "ロシア"
     },
     "Rwanda": {
         "de": "Ruanda",
@@ -1877,7 +2432,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Rwanda",
         "it": "Ruanda",
         "pt": "Ruanda",
-        "ru": "Руанда"
+        "ru": "Руанда",
+        "tr": "Ruanda",
+        "zh": "卢旺达",
+        "ja": "ルワンダ"
     },
     "Saint Barthelemy": {
         "de": "Saint-Barthélemy",
@@ -1887,7 +2445,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Saint-Barthélemy",
         "it": "Saint-Barthélemy",
         "pt": "São Bartolomeu",
-        "ru": "Сен-Бартелеми"
+        "ru": "Сен-Бартелеми",
+        "tr": "Saint Barthelemy",
+        "zh": "圣巴泰勒米",
+        "ja": "サン・バルテルミー"
     },
     "Saint Helena, Ascension and Tristan da Cunha": {
         "de": "St. Helena, Ascension und Tristan da Cunha",
@@ -1897,7 +2458,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Sainte-Hélène, Ascension et Tristan da Cunha",
         "it": "Sant'Elena, Ascensione e Tristan da Cunha",
         "pt": "Santa Helena, Ascensão e Tristão da Cunha",
-        "ru": "Острова Святой Елены, Вознесения и Тристан-да-Кунья"
+        "ru": "Острова Святой Елены, Вознесения и Тристан-да-Кунья",
+        "tr": "Saint Helena, Ascension ve Tristan da Cunha",
+        "zh": "圣赫勒拿、阿森松和特里斯坦-达库尼亚",
+        "ja": "セントヘレナ・アセンションおよびトリスタンダクーニャ"
     },
     "Saint Kitts and Nevis": {
         "de": "St. Kitts und Nevis",
@@ -1907,7 +2471,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Saint-Christophe-et-Niévès",
         "it": "Saint Kitts e Nevis",
         "pt": "São Cristóvão e Nevis",
-        "ru": "Сент-Китс и Невис"
+        "ru": "Сент-Китс и Невис",
+        "tr": "Saint Kitts ve Nevis",
+        "zh": "圣基茨和尼维斯",
+        "ja": "セントクリストファー・ネイビス"
     },
     "Saint Lucia": {
         "de": "St. Lucia",
@@ -1917,7 +2484,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Sainte-Lucie",
         "it": "Santa Lucia",
         "pt": "Santa Lúcia",
-        "ru": "Сент-Люсия"
+        "ru": "Сент-Люсия",
+        "tr": "Saint Lucia",
+        "zh": "圣卢西亚",
+        "ja": "セントルシア"
     },
     "Saint Martin": {
         "de": "Saint-Martin",
@@ -1927,7 +2497,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Saint-Martin",
         "it": "Saint-Martin",
         "pt": "São Martinho",
-        "ru": "Сен-Мартен"
+        "ru": "Сен-Мартен",
+        "tr": "Saint Martin",
+        "zh": "圣马丁",
+        "ja": "サン・マルタン"
     },
     "Saint Pierre and Miquelon": {
         "de": "Saint-Pierre und Miquelon",
@@ -1937,7 +2510,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Saint-Pierre-et-Miquelon",
         "it": "Saint-Pierre e Miquelon",
         "pt": "São Pedro e Miquelão",
-        "ru": "Сен-Пьер и Микелон"
+        "ru": "Сен-Пьер и Микелон",
+        "tr": "Saint Pierre ve Miquelon",
+        "zh": "圣皮埃尔和密克隆",
+        "ja": "サンピエール島・ミクロン島"
     },
     "Saint Vincent and the Grenadines": {
         "de": "St. Vincent und die Grenadinen",
@@ -1947,7 +2523,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Saint-Vincent-et-les-Grenadines",
         "it": "Saint Vincent e Grenadine",
         "pt": "São Vicente e Granadinas",
-        "ru": "Сент-Винсент и Гренадины"
+        "ru": "Сент-Винсент и Гренадины",
+        "tr": "Saint Vincent ve Grenadinler",
+        "zh": "圣文森特和格林纳丁斯",
+        "ja": "セントビンセントおよびグレナディーン諸島"
     },
     "Samoa": {
         "de": "Samoa",
@@ -1957,7 +2536,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Samoa",
         "it": "Samoa",
         "pt": "Samoa",
-        "ru": "Самоа"
+        "ru": "Самоа",
+        "tr": "Samoa",
+        "zh": "萨摩亚",
+        "ja": "サモア"
     },
     "San Marino": {
         "de": "San Marino",
@@ -1967,7 +2549,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Saint-Marin",
         "it": "San Marino",
         "pt": "São Marinho",
-        "ru": "Сан-Марино"
+        "ru": "Сан-Марино",
+        "tr": "San Marino",
+        "zh": "圣马力诺",
+        "ja": "サンマリノ"
     },
     "Sao Tome and Principe": {
         "de": "São Tomé und Príncipe",
@@ -1977,7 +2562,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Sao Tomé-et-Principe",
         "it": "São Tomé e Príncipe",
         "pt": "São Tomé e Príncipe",
-        "ru": "Сан-Томе и Принсипи"
+        "ru": "Сан-Томе и Принсипи",
+        "tr": "São Tomé ve Príncipe",
+        "zh": "圣多美和普林西比",
+        "ja": "サントメ・プリンシペ"
     },
     "Saudi Arabia": {
         "de": "Saudi-Arabien",
@@ -1987,7 +2575,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Arabie saoudite",
         "it": "Arabia Saudita",
         "pt": "Arábia Saudita",
-        "ru": "Саудовская Аравия"
+        "ru": "Саудовская Аравия",
+        "tr": "Suudi Arabistan",
+        "zh": "沙特阿拉伯",
+        "ja": "サウジアラビア"
     },
     "Scotland": {
         "de": "Schottland",
@@ -1997,7 +2588,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Écosse",
         "it": "Scozia",
         "pt": "Escócia",
-        "ru": "Шотландия"
+        "ru": "Шотландия",
+        "tr": "İskoçya",
+        "zh": "苏格兰",
+        "ja": "スコットランド"
     },
     "Senegal": {
         "de": "Senegal",
@@ -2007,7 +2601,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Sénégal",
         "it": "Senegal",
         "pt": "Senegal",
-        "ru": "Сенегал"
+        "ru": "Сенегал",
+        "tr": "Senegal",
+        "zh": "塞内加尔",
+        "ja": "セネガル"
     },
     "Serbia": {
         "de": "Serbien",
@@ -2017,7 +2614,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Serbie",
         "it": "Serbia",
         "pt": "Sérvia",
-        "ru": "Сербия"
+        "ru": "Сербия",
+        "tr": "Sırbistan",
+        "zh": "塞尔维亚",
+        "ja": "セルビア"
     },
     "Seychelles": {
         "de": "Seychellen",
@@ -2027,7 +2627,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Seychelles",
         "it": "Seychelles",
         "pt": "Seicheles",
-        "ru": "Сейшельские Острова"
+        "ru": "Сейшельские Острова",
+        "tr": "Seyşeller",
+        "zh": "塞舌尔",
+        "ja": "セーシェル"
     },
     "Sierra Leone": {
         "de": "Sierra Leone",
@@ -2037,7 +2640,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Sierra Leone",
         "it": "Sierra Leone",
         "pt": "Serra Leoa",
-        "ru": "Сьерра-Леоне"
+        "ru": "Сьерра-Леоне",
+        "tr": "Sierra Leone",
+        "zh": "塞拉利昂",
+        "ja": "シエラレオネ"
     },
     "Singapore": {
         "de": "Singapur",
@@ -2047,7 +2653,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Singapour",
         "it": "Singapore",
         "pt": "Singapura",
-        "ru": "Сингапур"
+        "ru": "Сингапур",
+        "tr": "Singapur",
+        "zh": "新加坡",
+        "ja": "シンガポール"
     },
     "Sint Maarten (Dutch part)": {
         "de": "Sint Maarten (niederländischer Teil)",
@@ -2057,7 +2666,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Saint-Martin (partie néerlandaise)",
         "it": "Sint Maarten (parte olandese)",
         "pt": "São Martinho (parte holandesa)",
-        "ru": "Синт-Мартен (нидерландская часть)"
+        "ru": "Синт-Мартен (нидерландская часть)",
+        "tr": "Sint Maarten (Hollanda kısmı)",
+        "zh": "荷属圣马丁",
+        "ja": "シント・マールテン（オランダ領）"
     },
     "Slovakia": {
         "de": "Slowakei",
@@ -2067,7 +2679,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Slovaquie",
         "it": "Slovacchia",
         "pt": "Eslováquia",
-        "ru": "Словакия"
+        "ru": "Словакия",
+        "tr": "Slovakya",
+        "zh": "斯洛伐克",
+        "ja": "スロバキア"
     },
     "Slovenia": {
         "de": "Slowenien",
@@ -2077,7 +2692,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Slovénie",
         "it": "Slovenia",
         "pt": "Eslovénia",
-        "ru": "Словения"
+        "ru": "Словения",
+        "tr": "Slovenya",
+        "zh": "斯洛文尼亚",
+        "ja": "スロベニア"
     },
     "Solomon Islands": {
         "de": "Salomonen",
@@ -2087,7 +2705,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Îles Salomon",
         "it": "Isole Salomone",
         "pt": "Ilhas Salomão",
-        "ru": "Соломоновы Острова"
+        "ru": "Соломоновы Острова",
+        "tr": "Solomon Adaları",
+        "zh": "所罗门群岛",
+        "ja": "ソロモン諸島"
     },
     "Somalia": {
         "de": "Somalia",
@@ -2097,7 +2718,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Somalie",
         "it": "Somalia",
         "pt": "Somália",
-        "ru": "Сомали"
+        "ru": "Сомали",
+        "tr": "Somali",
+        "zh": "索马里",
+        "ja": "ソマリア"
     },
     "South Africa": {
         "de": "Südafrika",
@@ -2107,7 +2731,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Afrique du Sud",
         "it": "Sudafrica",
         "pt": "África do Sul",
-        "ru": "Южная Африка"
+        "ru": "Южная Африка",
+        "tr": "Güney Afrika",
+        "zh": "南非",
+        "ja": "南アフリカ"
     },
     "South Georgia and the South Sandwich Islands": {
         "de": "Südgeorgien und die Südlichen Sandwichinseln",
@@ -2117,7 +2744,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Géorgie du Sud-et-les îles Sandwich du Sud",
         "it": "Georgia del Sud e Isole Sandwich Australi",
         "pt": "Geórgia do Sul e Ilhas Sandwich do Sul",
-        "ru": "Южная Георгия и Южные Сандвичевы острова"
+        "ru": "Южная Георгия и Южные Сандвичевы острова",
+        "tr": "Güney Georgia ve Güney Sandwich Adaları",
+        "zh": "南乔治亚岛和南桑威奇群岛",
+        "ja": "サウスジョージア・サウスサンドウィッチ諸島"
     },
     "South Sudan": {
         "de": "Südsudan",
@@ -2127,7 +2757,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Soudan du Sud",
         "it": "Sud Sudan",
         "pt": "Sudão do Sul",
-        "ru": "Южный Судан"
+        "ru": "Южный Судан",
+        "tr": "Güney Sudan",
+        "zh": "南苏丹",
+        "ja": "南スーダン"
     },
     "Spain": {
         "de": "Spanien",
@@ -2137,7 +2770,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Espagne",
         "it": "Spagna",
         "pt": "Espanha",
-        "ru": "Испания"
+        "ru": "Испания",
+        "tr": "İspanya",
+        "zh": "西班牙",
+        "ja": "スペイン"
     },
     "Sri Lanka": {
         "de": "Sri Lanka",
@@ -2147,7 +2783,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Sri Lanka",
         "it": "Sri Lanka",
         "pt": "Sri Lanka",
-        "ru": "Шри-Ланка"
+        "ru": "Шри-Ланка",
+        "tr": "Sri Lanka",
+        "zh": "斯里兰卡",
+        "ja": "スリランカ"
     },
     "Sudan": {
         "de": "Sudan",
@@ -2157,7 +2796,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Soudan",
         "it": "Sudan",
         "pt": "Sudão",
-        "ru": "Судан"
+        "ru": "Судан",
+        "tr": "Sudan",
+        "zh": "苏丹",
+        "ja": "スーダン"
     },
     "Suriname": {
         "de": "Suriname",
@@ -2167,7 +2809,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Suriname",
         "it": "Suriname",
         "pt": "Suriname",
-        "ru": "Суринам"
+        "ru": "Суринам",
+        "tr": "Surinam",
+        "zh": "苏里南",
+        "ja": "スリナム"
     },
     "Svalbard and Jan Mayen Islands": {
         "de": "Svalbard und Jan Mayen",
@@ -2177,7 +2822,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Svalbard et Île Jan Mayen",
         "it": "Svalbard e Jan Mayen",
         "pt": "Ilhas Svalbard e Jan Mayen",
-        "ru": "Шпицберген и Ян-Майен"
+        "ru": "Шпицберген и Ян-Майен",
+        "tr": "Svalbard ve Jan Mayen Adaları",
+        "zh": "斯瓦尔巴群岛和扬马延岛",
+        "ja": "スバールバル諸島およびヤンマイエン島"
     },
     "Swaziland": {
         "de": "Swasiland",
@@ -2187,7 +2835,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Swaziland",
         "it": "Swaziland",
         "pt": "Suazilândia",
-        "ru": "Свазиленд"
+        "ru": "Свазиленд",
+        "tr": "Svaziland",
+        "zh": "斯威士兰",
+        "ja": "スワジランド"
     },
     "Sweden": {
         "de": "Schweden",
@@ -2197,7 +2848,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Suède",
         "it": "Svezia",
         "pt": "Suécia",
-        "ru": "Швеция"
+        "ru": "Швеция",
+        "tr": "İsveç",
+        "zh": "瑞典",
+        "ja": "スウェーデン"
     },
     "Switzerland": {
         "de": "Schweiz",
@@ -2207,7 +2861,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Suisse",
         "it": "Svizzera",
         "pt": "Suíça",
-        "ru": "Швейцария"
+        "ru": "Швейцария",
+        "tr": "İsviçre",
+        "zh": "瑞士",
+        "ja": "スイス"
     },
     "Syrian Arab Republic": {
         "de": "Syrien",
@@ -2217,7 +2874,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Syrie",
         "it": "Siria",
         "pt": "Síria",
-        "ru": "Сирия"
+        "ru": "Сирия",
+        "tr": "Suriye",
+        "zh": "叙利亚",
+        "ja": "シリア"
     },
     "Taiwan (Republic of China)": {
         "de": "Taiwan",
@@ -2227,7 +2887,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Taïwan",
         "it": "Taiwan",
         "pt": "Taiwan",
-        "ru": "Тайвань"
+        "ru": "Тайвань",
+        "tr": "Tayvan",
+        "zh": "台湾",
+        "ja": "台湾"
     },
     "Tajikistan": {
         "de": "Tadschikistan",
@@ -2237,7 +2900,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Tadjikistan",
         "it": "Tagikistan",
         "pt": "Tajiquistão",
-        "ru": "Таджикистан"
+        "ru": "Таджикистан",
+        "tr": "Tacikistan",
+        "zh": "塔吉克斯坦",
+        "ja": "タジキスタン"
     },
     "Tanzania, United Republic of": {
         "de": "Tansania",
@@ -2247,7 +2913,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Tanzanie",
         "it": "Tanzania",
         "pt": "Tanzânia",
-        "ru": "Танзания"
+        "ru": "Танзания",
+        "tr": "Tanzanya",
+        "zh": "坦桑尼亚",
+        "ja": "タンザニア"
     },
     "Thailand": {
         "de": "Thailand",
@@ -2257,7 +2926,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Thaïlande",
         "it": "Thailandia",
         "pt": "Tailândia",
-        "ru": "Таиланд"
+        "ru": "Таиланд",
+        "tr": "Tayland",
+        "zh": "泰国",
+        "ja": "タイ"
     },
     "Timor-Leste": {
         "de": "Osttimor",
@@ -2267,7 +2939,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Timor oriental",
         "it": "Timor Est",
         "pt": "Timor-Leste",
-        "ru": "Восточный Тимор"
+        "ru": "Восточный Тимор",
+        "tr": "Doğu Timor",
+        "zh": "东帝汶",
+        "ja": "東ティモール"
     },
     "Togo": {
         "de": "Togo",
@@ -2277,7 +2952,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Togo",
         "it": "Togo",
         "pt": "Togo",
-        "ru": "Того"
+        "ru": "Того",
+        "tr": "Togo",
+        "zh": "多哥",
+        "ja": "トーゴ"
     },
     "Tokelau": {
         "de": "Tokelau",
@@ -2287,7 +2965,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Tokelau",
         "it": "Tokelau",
         "pt": "Toquelau",
-        "ru": "Токелау"
+        "ru": "Токелау",
+        "tr": "Tokelau",
+        "zh": "托克劳",
+        "ja": "トケラウ"
     },
     "Tonga": {
         "de": "Tonga",
@@ -2297,7 +2978,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Tonga",
         "it": "Tonga",
         "pt": "Tonga",
-        "ru": "Тонга"
+        "ru": "Тонга",
+        "tr": "Tonga",
+        "zh": "汤加",
+        "ja": "トンガ"
     },
     "Trinidad and Tobago": {
         "de": "Trinidad und Tobago",
@@ -2307,7 +2991,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Trinité-et-Tobago",
         "it": "Trinidad e Tobago",
         "pt": "Trindade e Tobago",
-        "ru": "Тринидад и Тобаго"
+        "ru": "Тринидад и Тобаго",
+        "tr": "Trinidad ve Tobago",
+        "zh": "特立尼达和多巴哥",
+        "ja": "トリニダード・トバゴ"
     },
     "Tunisia": {
         "de": "Tunesien",
@@ -2317,7 +3004,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Tunisie",
         "it": "Tunisia",
         "pt": "Tunísia",
-        "ru": "Тунис"
+        "ru": "Тунис",
+        "tr": "Tunus",
+        "zh": "突尼斯",
+        "ja": "チュニジア"
     },
     "Turkey": {
         "de": "Türkei",
@@ -2327,7 +3017,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Turquie",
         "it": "Turchia",
         "pt": "Turquia",
-        "ru": "Турция"
+        "ru": "Турция",
+        "tr": "Türkiye",
+        "zh": "土耳其",
+        "ja": "トルコ"
     },
     "Turkmenistan": {
         "de": "Turkmenistan",
@@ -2337,7 +3030,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Turkménistan",
         "it": "Turkmenistan",
         "pt": "Turquemenistão",
-        "ru": "Туркмения"
+        "ru": "Туркмения",
+        "tr": "Türkmenistan",
+        "zh": "土库曼斯坦",
+        "ja": "トルクメニスタン"
     },
     "Turks and Caicos Islands": {
         "de": "Turks- und Caicosinseln",
@@ -2347,7 +3043,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Îles Turques-et-Caïques",
         "it": "Isole Turks e Caicos",
         "pt": "Ilhas Turcas e Caicos",
-        "ru": "Теркс и Кайкос"
+        "ru": "Теркс и Кайкос",
+        "tr": "Turks ve Caicos Adaları",
+        "zh": "特克斯和凯科斯群岛",
+        "ja": "タークス・カイコス諸島"
     },
     "Tuvalu": {
         "de": "Tuvalu",
@@ -2357,7 +3056,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Tuvalu",
         "it": "Tuvalu",
         "pt": "Tuvalu",
-        "ru": "Тувалу"
+        "ru": "Тувалу",
+        "tr": "Tuvalu",
+        "zh": "图瓦卢",
+        "ja": "ツバル"
     },
     "Uganda": {
         "de": "Uganda",
@@ -2367,7 +3069,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Ouganda",
         "it": "Uganda",
         "pt": "Uganda",
-        "ru": "Уганда"
+        "ru": "Уганда",
+        "tr": "Uganda",
+        "zh": "乌干达",
+        "ja": "ウガンダ"
     },
     "Ukraine": {
         "de": "Ukraine",
@@ -2377,7 +3082,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Ukraine",
         "it": "Ucraina",
         "pt": "Ucrânia",
-        "ru": "Украина"
+        "ru": "Украина",
+        "tr": "Ukrayna",
+        "zh": "乌克兰",
+        "ja": "ウクライナ"
     },
     "United Arab Emirates": {
         "de": "Vereinigte Arabische Emirate",
@@ -2387,7 +3095,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Émirats arabes unis",
         "it": "Emirati Arabi Uniti",
         "pt": "Emirados Árabes Unidos",
-        "ru": "Объединённые Арабские Эмираты"
+        "ru": "Объединённые Арабские Эмираты",
+        "tr": "Birleşik Arap Emirlikleri",
+        "zh": "阿拉伯联合酋长国",
+        "ja": "アラブ首長国連邦"
     },
     "United Kingdom": {
         "de": "Vereinigtes Königreich",
@@ -2397,7 +3108,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Royaume-Uni",
         "it": "Regno Unito",
         "pt": "Reino Unido",
-        "ru": "Великобритания"
+        "ru": "Великобритания",
+        "tr": "Birleşik Krallık",
+        "zh": "英国",
+        "ja": "イギリス"
     },
     "United States": {
         "de": "USA",
@@ -2407,7 +3121,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "États-Unis",
         "it": "USA",
         "pt": "EUA",
-        "ru": "США"
+        "ru": "США",
+        "tr": "ABD",
+        "zh": "美国",
+        "ja": "アメリカ合衆国"
     },
     "Uruguay": {
         "de": "Uruguay",
@@ -2417,7 +3134,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Uruguay",
         "it": "Uruguay",
         "pt": "Uruguai",
-        "ru": "Уругвай"
+        "ru": "Уругвай",
+        "tr": "Uruguay",
+        "zh": "乌拉圭",
+        "ja": "ウルグアイ"
     },
     "US Minor Outlying Islands": {
         "de": "Amerikanische Überseeinseln",
@@ -2427,7 +3147,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Îles mineures éloignées des États-Unis",
         "it": "Isole minori esterne degli Stati Uniti",
         "pt": "Ilhas Menores Distantes dos EUA",
-        "ru": "Внешние малые острова США"
+        "ru": "Внешние малые острова США",
+        "tr": "ABD Küçük Dış Adaları",
+        "zh": "美国本土外小岛屿",
+        "ja": "アメリカ合衆国領有小離島"
     },
     "Uzbekistan": {
         "de": "Usbekistan",
@@ -2437,7 +3160,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Ouzbékistan",
         "it": "Uzbekistan",
         "pt": "Uzbequistão",
-        "ru": "Узбекистан"
+        "ru": "Узбекистан",
+        "tr": "Özbekistan",
+        "zh": "乌兹别克斯坦",
+        "ja": "ウズベキスタン"
     },
     "Vanuatu": {
         "de": "Vanuatu",
@@ -2447,7 +3173,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Vanuatu",
         "it": "Vanuatu",
         "pt": "Vanuatu",
-        "ru": "Вануату"
+        "ru": "Вануату",
+        "tr": "Vanuatu",
+        "zh": "瓦努阿图",
+        "ja": "バヌアツ"
     },
     "Venezuela, Bolivarian Republic of": {
         "de": "Venezuela",
@@ -2457,7 +3186,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Venezuela",
         "it": "Venezuela",
         "pt": "Venezuela",
-        "ru": "Венесуэла"
+        "ru": "Венесуэла",
+        "tr": "Venezuela",
+        "zh": "委内瑞拉",
+        "ja": "ベネズエラ"
     },
     "Vietnam": {
         "de": "Vietnam",
@@ -2467,7 +3199,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Viêt Nam",
         "it": "Vietnam",
         "pt": "Vietname",
-        "ru": "Вьетнам"
+        "ru": "Вьетнам",
+        "tr": "Vietnam",
+        "zh": "越南",
+        "ja": "ベトナム"
     },
     "Virgin Islands, British": {
         "de": "Britische Jungferninseln",
@@ -2477,7 +3212,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Îles Vierges britanniques",
         "it": "Isole Vergini Britanniche",
         "pt": "Ilhas Virgens Britânicas",
-        "ru": "Британские Виргинские острова"
+        "ru": "Британские Виргинские острова",
+        "tr": "Britanya Virjin Adaları",
+        "zh": "英属维尔京群岛",
+        "ja": "イギリス領ヴァージン諸島"
     },
     "Virgin Islands, U.S.": {
         "de": "Amerikanische Jungferninseln",
@@ -2487,7 +3225,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Îles Vierges des États-Unis",
         "it": "Isole Vergini Americane",
         "pt": "Ilhas Virgens Americanas",
-        "ru": "Виргинские острова (США)"
+        "ru": "Виргинские острова (США)",
+        "tr": "ABD Virjin Adaları",
+        "zh": "美属维尔京群岛",
+        "ja": "アメリカ領ヴァージン諸島"
     },
     "Wales": {
         "de": "Wales",
@@ -2497,7 +3238,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Pays de Galles",
         "it": "Galles",
         "pt": "País de Gales",
-        "ru": "Уэльс"
+        "ru": "Уэльс",
+        "tr": "Galler",
+        "zh": "威尔士",
+        "ja": "ウェールズ"
     },
     "Wallis and Futuna Islands": {
         "de": "Wallis und Futuna",
@@ -2507,7 +3251,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Wallis-et-Futuna",
         "it": "Wallis e Futuna",
         "pt": "Wallis e Futuna",
-        "ru": "Уоллис и Футуна"
+        "ru": "Уоллис и Футуна",
+        "tr": "Wallis ve Futuna Adaları",
+        "zh": "瓦利斯和富图纳群岛",
+        "ja": "ウォリス・フツナ"
     },
     "Western Sahara": {
         "de": "Westsahara",
@@ -2517,7 +3264,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Sahara occidental",
         "it": "Sahara Occidentale",
         "pt": "Saara Ocidental",
-        "ru": "Западная Сахара"
+        "ru": "Западная Сахара",
+        "tr": "Batı Sahra",
+        "zh": "西撒哈拉",
+        "ja": "西サハラ"
     },
     "Yemen": {
         "de": "Jemen",
@@ -2527,7 +3277,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Yémen",
         "it": "Yemen",
         "pt": "Iémen",
-        "ru": "Йемен"
+        "ru": "Йемен",
+        "tr": "Yemen",
+        "zh": "也门",
+        "ja": "イエメン"
     },
     "Zambia": {
         "de": "Sambia",
@@ -2537,7 +3290,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Zambie",
         "it": "Zambia",
         "pt": "Zâmbia",
-        "ru": "Замбия"
+        "ru": "Замбия",
+        "tr": "Zambiya",
+        "zh": "赞比亚",
+        "ja": "ザンビア"
     },
     "Zimbabwe": {
         "de": "Simbabwe",
@@ -2547,7 +3303,10 @@ export const translatedCountryNames: Record<string, Record<string, string>> = {
         "fr": "Zimbabwe",
         "it": "Zimbabwe",
         "pt": "Zimbábue",
-        "ru": "Зимбабве"
+        "ru": "Зимбабве",
+        "tr": "Zimbabve",
+        "zh": "津巴布韦",
+        "ja": "ジンバブエ"
     }
 
 };

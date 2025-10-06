@@ -1,73 +1,131 @@
+import React from "react";
 import type {UserModel} from "./models/UserModel.ts";
 import "./styles/Profile.css"
+import "./styles/Popup.css"
+import axios from "axios";
+import {LanguagesImages} from "./utils/FlagImages.ts";
+import {translatedInfo} from "./utils/TranslatedInfo.ts";
 
 type ProfileProps = {
+    language: string;
     user: string;
     userDetails: UserModel | null;
+    setLanguage: React.Dispatch<React.SetStateAction<string>>
 }
 
+function setPreferredLanguage(languageIso: string) {
+    axios.post(`/api/users/me/language/${languageIso}`)
+        .then(() => {
+            console.log("Language updated successfully");
+        })
+        .catch((error) => {
+            console.error("Error updating language:", error);
+        });
+}
 
 export default function Profile(props: Readonly<ProfileProps>) {
-    if (!props.userDetails) {
-        return (
-            <div className="profile-container">
-                <h2>Profile Page</h2>
-                <p>Loading user details...</p>
-            </div>
-        );
-    }
+
+    const [showLanguagePopup, setShowLanguagePopup] = React.useState(false);
 
     return (
-        <div className="profile-container">
-            <div className="profile-header">
-                <img
-                    src={props.userDetails.avatarUrl}
-                    alt={`${props.userDetails.name}'s avatar`}
-                    className="profile-avatar"
-                />
-                <div className="profile-info">
-                    <h1 className="profile-name">{props.userDetails.name}</h1>
-                    <p className="profile-username">@{props.userDetails.username}</p>
-                    <p className="profile-role">{props.userDetails.role}</p>
+        <>
+            <h2>Profile</h2>
+            <div className="change-language-container">
+                <p className="margin-right-5">Change Language:</p>
+                <div
+                    className="clickable-header"
+                    onClick={() => setShowLanguagePopup(true)}
+                >
+                    <h2 className="header-title">
+                        {translatedInfo["Language"][props.language] ?? props.language}
+                    </h2>
+                    <img src={LanguagesImages[props.language]} alt="Language Logo" className="logo-image" />
                 </div>
             </div>
 
-            <div className="profile-details">
-                <div className="profile-section">
-                    <h3>Account Information</h3>
-                    <div className="profile-field">
-                        <p className="field-label">GitHub ID:</p>
-                        <p className="field-value">{props.userDetails.githubId}</p>
-                    </div>
-                    <div className="profile-field">
-                        <p className="field-label">Preferred Language:</p>
-                        <p className="field-value">{props.userDetails.preferredLanguage}</p>
-                    </div>
-                    <div className="profile-field">
-                        <p className="field-label">Member since:</p>
-                        <p className="field-value">
-                            {new Date(props.userDetails.createdAt).toLocaleDateString()}
-                        </p>
-                    </div>
-                    <div className="profile-field">
-                        <p className="field-label">Last login:</p>
-                        <p className="field-value">
-                            {new Date(props.userDetails.lastLoginAt).toLocaleString()}
-                        </p>
-                    </div>
-                </div>
-
-                <div className="profile-actions">
-                    <a
-                        href={props.userDetails.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="github-link"
+            {showLanguagePopup && (
+                <div
+                    className="popup-overlay"
+                    onClick={() => setShowLanguagePopup(false)}
+                >
+                    <div
+                        className="popup-content"
+                        onClick={(e) => e.stopPropagation()}
                     >
-                        View GitHub Profile
-                    </a>
+                        <h2>Select Language</h2>
+                        <div className="popup-language-options">
+                            {["de","en","pl","es","fr","it","cz","pt","hu","nl","gr","ru","tr","ir"].map((language) => (
+                                <button
+                                    key={language}
+                                    className="language-option-button"
+                                    onClick={() => {
+                                        props.setLanguage(language);
+                                        setPreferredLanguage(language);
+                                        setShowLanguagePopup(false);
+                                    }}
+                                >
+                                    <img
+                                        src={LanguagesImages[language]}
+                                        alt={language}
+                                        className="language-flag"
+                                    />
+                                    {translatedInfo["Language"][language]}
+                                </button>
+                            ))}
+                        </div>
+                        <button
+                            className="popup-cancel margin-top-20"
+                            onClick={() => setShowLanguagePopup(false)}
+                        >
+                            Cancel
+                        </button>
+                    </div>
                 </div>
-            </div>
-        </div>
+            )}
+
+            <>
+                {props.userDetails ? (
+                    <div>
+                        <p><strong>SQL-ID:</strong> {props.userDetails.id}</p>
+                        <p><strong>GitHub ID:</strong> {props.userDetails.githubId}</p>
+                        <p><strong>Username:</strong> {props.userDetails.username}</p>
+                        <p><strong>Name:</strong> {props.userDetails.name}</p>
+                        <p><strong>Role:</strong> {props.userDetails.role}</p>
+                        {props.userDetails.avatarUrl && (
+                            <div>
+                                <p><strong>Avatar:</strong></p>
+                                <img
+                                    className="profile-container-img"
+                                    src={props.userDetails.avatarUrl}
+                                    alt={props.userDetails.username}
+                                />
+                            </div>
+                        )}
+                        {props.userDetails.githubUrl && (
+                            <p>
+                                <strong>GitHub Profile:</strong>{" "}
+                                <a href={props.userDetails.githubUrl} target="_blank" rel="noopener noreferrer">
+                                    {props.userDetails.githubUrl}
+                                </a>
+                            </p>
+                        )}
+                        <p>
+                            <strong>Created At:</strong>{" "}
+                            {props.userDetails.createdAt
+                                ? new Date(props.userDetails.createdAt).toLocaleString()
+                                : "—"}
+                        </p>
+                        <p>
+                            <strong>Last Login At:</strong>{" "}
+                            {props.userDetails.lastLoginAt
+                                ? new Date(props.userDetails.lastLoginAt).toLocaleString()
+                                : "—"}
+                        </p>
+                    </div>
+                ) : (
+                    <p>Loading...</p>
+                )}
+            </>
+        </>
     );
 }

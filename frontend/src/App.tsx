@@ -6,7 +6,7 @@ import ProtectedRoute from "./components/ProtectedRoute.tsx";
 import {useEffect, useState} from "react";
 import NotFound from "./components/NotFound.tsx";
 import axios from "axios";
-import CbCR from "./components/CbCR.tsx";
+import CbCR from "./components/cbcr/CbCR.tsx";
 import {DefaultUser, type UserModel} from "./components/models/UserModel.ts";
 import Profile from "./components/Profile.tsx";
 import type {AuditLogModel} from "./components/models/AuditLogModel.ts";
@@ -121,7 +121,7 @@ export default function App() {
           <Route path="/" element={<Welcome />}/>
               <Route element={<ProtectedRoute user={user}/>}>
                   <Route path="/cbcr" element={<CbCR />} />
-                  <Route path="/profile" element={<Profile user={user} userDetails={userDetails} />} />
+                  <Route path="/profile" element={<Profile language={language} user={user} userDetails={userDetails} setLanguage={setLanguage}/>} />
               </Route>
       </Routes>
     </>
