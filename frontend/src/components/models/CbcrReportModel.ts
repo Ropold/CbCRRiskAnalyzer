@@ -21,7 +21,7 @@ export type CbcrReportModel = {
     commentReference?: string;
     taxExplanation?: string;
     dataSource: string;
-    auditStatus: 'DRAFT' | 'IN_REVIEW' | 'SUBMITTED' | 'FINALIZED';
+    auditStatus: 'DRAFT' | 'IN_REVIEW' | 'SUBMITTED' | 'PUBLISHED' | 'FINALIZED';
     businessActivities?: string;
     createdAt: string;
     updatedAt: string;
