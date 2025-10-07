@@ -38,7 +38,7 @@ export default function Navbar(props: Readonly<NavbarProps>) {
                     <div
                         className="clickable-header padding-left-5"
                         onClick={() => {
-                            navigate("/cbcr");
+                            navigate("/cbcr-reports");
                         }}
                     >
                         <img src={countryKeys} alt="Scanner Logo" className="logo-image" />

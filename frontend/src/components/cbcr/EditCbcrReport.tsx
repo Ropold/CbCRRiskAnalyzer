@@ -1,5 +1,5 @@
 
-export default function EditCbcr(){
+export default function EditCbcrReport(){
     return(
         <div>
             <h2>Edit Cbcr</h2>
