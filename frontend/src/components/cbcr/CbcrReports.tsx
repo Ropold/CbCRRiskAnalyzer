@@ -1,34 +1,36 @@
-import type {CbcrReportModel} from "../models/CbcrReportModel.ts";
 import {useNavigate} from "react-router-dom";
 import {useAutoScrollToTop} from "../utils/ComponentsFunctions.ts";
 import {useEffect, useState} from "react";
 import SearchBar from "../SearchBar.tsx";
 import CbcrReportCard from "./CbcrReportCard.tsx";
 import "../styles/CbcrReports.css"
+import type {CbcrReportResponse} from "../dto/CbcrReportResponse.ts";
 
 type CbcrReportsProps = {
     language: string;
-    cbcrReports: CbcrReportModel[];
+    cbcrReports: CbcrReportResponse[];
 }
 
 export default function CbcrReports(props: Readonly<CbcrReportsProps>) {
     useAutoScrollToTop();
     const [searchQuery, setSearchQuery] = useState<string>("");
-    const [filteredCbcrReports, setFilteredCbcrReports] = useState<CbcrReportModel[]>([]);
+    const [filteredCbcrReports, setFilteredCbcrReports] = useState<CbcrReportResponse[]>([]);
 
     const navigate = useNavigate();
 
-    function filterCbcrReports(cbcrReports: CbcrReportModel[], query: string): CbcrReportModel[] {
+    function filterCbcrReports(cbcrReports: CbcrReportResponse[], query: string): CbcrReportResponse[] {
         if (!cbcrReports) return [];
 
         const searchQuery = query.toLowerCase();
 
         return cbcrReports.filter(report => {
             const id = report.id?.toLowerCase() || "";
-            const companyId = report.companyId?.toLowerCase() || "";
+            const companyName = report.company?.name?.toLowerCase() || "";
+            const companyIndustry = report.company?.industry?.toLowerCase() || "";
             const reportingYear = report.reportingYear?.toString() || "";
             const fiscalYearEnd = report.fiscalYearEnd?.toLowerCase() || "";
-            const countryId = report.countryId?.toLowerCase() || "";
+            const countryName = report.country?.countryName?.toLowerCase() || "";
+            const countryCode = report.country?.countryCode?.toLowerCase() || "";
             const revenuesUnrelatedParty = report.revenuesUnrelatedParty?.toString() || "";
             const revenuesRelatedParty = report.revenuesRelatedParty?.toString() || "";
             const revenuesTotal = report.revenuesTotal?.toString() || "";
@@ -53,10 +55,12 @@ export default function CbcrReports(props: Readonly<CbcrReportsProps>) {
 
             return (
                 id.includes(searchQuery) ||
-                companyId.includes(searchQuery) ||
+                companyName.includes(searchQuery) ||
+                companyIndustry.includes(searchQuery) ||
                 reportingYear.includes(searchQuery) ||
                 fiscalYearEnd.includes(searchQuery) ||
-                countryId.includes(searchQuery) ||
+                countryName.includes(searchQuery) ||
+                countryCode.includes(searchQuery) ||
                 revenuesUnrelatedParty.includes(searchQuery) ||
                 revenuesRelatedParty.includes(searchQuery) ||
                 revenuesTotal.includes(searchQuery) ||
@@ -99,7 +103,7 @@ export default function CbcrReports(props: Readonly<CbcrReportsProps>) {
             />
 
             <div className="customer-card-container">
-                {filteredCbcrReports.map((report: CbcrReportModel) => (
+                {filteredCbcrReports.map((report: CbcrReportResponse) => (
                     <CbcrReportCard
                         key={report.id}
                         cbcrReport={report}

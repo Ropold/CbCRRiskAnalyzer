@@ -1,5 +1,6 @@
 import {useEffect} from "react";
 import {useLocation} from "react-router-dom";
+import type {CompanyBasicInfo, CountryBasicInfo} from "../dto/CbcrReportResponse.ts";
 
 export function onFileChange(
     e: React.ChangeEvent<HTMLInputElement>,
@@ -28,3 +29,11 @@ export const useAutoScrollToTop = () => {
     const location = useLocation();
     useEffect(() => window.scroll(0, 0), [location]);
 };
+
+export function getCompanyName(company: CompanyBasicInfo | undefined): string {
+    return company?.name || "—";
+}
+
+export function getCountryName(country: CountryBasicInfo | undefined): string {
+    return country?.countryName || "—";
+}

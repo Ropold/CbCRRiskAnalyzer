@@ -19,6 +19,7 @@ import Insert from "./components/Insert.tsx";
 import CbcrReportDetails from "./components/cbcr/CbcrReportDetails.tsx";
 import AddNewCbcrReport from "./components/cbcr/AddNewCbcrReport.tsx";
 import EditCbcrReport from "./components/cbcr/EditCbcrReport.tsx";
+import type {CbcrReportResponse} from "./components/dto/CbcrReportResponse.ts";
 
 export default function App() {
     const [user, setUser] = useState<string>("anonymousUser");
@@ -26,7 +27,7 @@ export default function App() {
     const [language, setLanguage] = useState<string>("de");
 
     const [auditLogs, setAuditLogs] = useState<AuditLogModel[]>([]);
-    const [cbcrReports, setCbcrReports] = useState<CbcrReportModel[]>([]);
+    const [cbcrReportsResponse, setCbcrReportsResponse] = useState<CbcrReportResponse[]>([]);
     const [companies, setCompanies] = useState<CompanyModel[]>([]);
     const [riskAssessments, setRiskAssessments] = useState<RiskAssessmentModel[]>([]);
     const [subsidiaries, setSubsidiaries] = useState<SubsidiaryModel[]>([]);
@@ -66,7 +67,7 @@ export default function App() {
     function getAllCbcrReports() {
         axios.get("/api/cbcr-reports")
             .then((response) => {
-                setCbcrReports(response.data as CbcrReportModel[]);
+                setCbcrReportsResponse(response.data as CbcrReportResponse[]);
             })
             .catch((error) => {
                 console.error("Error fetching CbCR reports:", error);
@@ -125,7 +126,7 @@ export default function App() {
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Welcome />}/>
               <Route element={<ProtectedRoute user={user}/>}>
-                  <Route path="/cbcr-reports" element={<CbcrReports language={language} cbcrReports={cbcrReports} />} />
+                  <Route path="/cbcr-reports" element={<CbcrReports language={language} cbcrReports={cbcrReportsResponse} />} />
                   <Route path="/cbcr-reports/add" element={<AddNewCbcrReport />} />
                   <Route path="/cbcr-reports/:id" element={<CbcrReportDetails language={language} />} />
                   <Route path="/cbcr-reports/:id/edit" element={<EditCbcrReport />} />

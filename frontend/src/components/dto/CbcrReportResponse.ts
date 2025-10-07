@@ -11,6 +11,21 @@ export type CountryBasicInfo = {
     countryName: string;
 }
 
+export type UserBasicInfo = {
+    id: string;
+    username: string;
+    name: string;
+}
+
+export type CbcrReportBasicInfo = {
+    id: string;
+    company: CompanyBasicInfo;
+    reportingYear: number;
+    country: CountryBasicInfo;
+    revenuesTotal?: number;
+    profitBeforeTax?: number;
+}
+
 export type CbcrReportResponse = {
     id: string;
     company: CompanyBasicInfo;

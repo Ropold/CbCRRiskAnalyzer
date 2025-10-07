@@ -1,8 +1,8 @@
-import type {CbcrReportModel} from "../models/CbcrReportModel.ts";
 import {useNavigate} from "react-router-dom";
+import type {CbcrReportResponse} from "../dto/CbcrReportResponse.ts";
 
 type CbcrReportCardProps = {
-    cbcrReport: CbcrReportModel;
+    cbcrReport: CbcrReportResponse;
     language: string;
 }
 
