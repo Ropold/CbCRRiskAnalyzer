@@ -106,7 +106,7 @@ export default function CbcrReports(props: Readonly<CbcrReportsProps>) {
                 {filteredCbcrReports.map((report: CbcrReportResponse) => (
                     <CbcrReportCard
                         key={report.id}
-                        cbcrReport={report}
+                        CbcrReportResponse={report}
                         language={props.language}
                     />
                 ))}

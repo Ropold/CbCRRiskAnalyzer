@@ -154,8 +154,8 @@ export default function App() {
               <Route element={<ProtectedRoute user={user}/>}>
                   <Route path="/cbcr-reports" element={<CbcrReports language={language} cbcrReports={cbcrReportsResponse} />} />
                   <Route path="/cbcr-reports/add" element={<AddNewCbcrReport />} />
-                  <Route path="/cbcr-reports/:id" element={<CbcrReportDetails language={language} handleCbcrReportUpdate={handleCbcrReportUpdate} handleCbcrReportDelete={handleCbcrReportDelete} companies={companies} countries={countries}/>} />
-                  <Route path="/cbcr-reports/:id/edit" element={<EditCbcrReport />} />
+                  <Route path="/cbcr-reports/:id" element={<CbcrReportDetails language={language} handleCbcrReportDelete={handleCbcrReportDelete} />} />
+                  <Route path="/cbcr-reports/:id/edit" element={<EditCbcrReport language={language} handleCbcrReportUpdate={handleCbcrReportUpdate} companies={companies} countries={countries}/>} />
                   <Route path="/entity-data/*" element={<EntityData />} />
                   <Route path="/insert" element={<Insert />} />
                   <Route path="/profile/*" element={<Profile language={language} user={user} userDetails={userDetails} setLanguage={setLanguage}/>} />
