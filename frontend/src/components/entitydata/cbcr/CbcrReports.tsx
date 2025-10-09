@@ -1,10 +1,9 @@
-import {useNavigate} from "react-router-dom";
-import {useAutoScrollToTop} from "../utils/ComponentsFunctions.ts";
+import {useAutoScrollToTop} from "../../utils/ComponentsFunctions.ts";
 import {useEffect, useState} from "react";
-import SearchBar from "../SearchBar.tsx";
+import SearchBar from "../../SearchBar.tsx";
 import CbcrReportCard from "./CbcrReportCard.tsx";
-import "../styles/CbcrReports.css"
-import type {CbcrReportResponse} from "../dto/CbcrReportResponse.ts";
+import "../../styles/CbcrReports.css"
+import type {CbcrReportResponse} from "../../dto/CbcrReportResponse.ts";
 
 type CbcrReportsProps = {
     language: string;
@@ -15,8 +14,6 @@ export default function CbcrReports(props: Readonly<CbcrReportsProps>) {
     useAutoScrollToTop();
     const [searchQuery, setSearchQuery] = useState<string>("");
     const [filteredCbcrReports, setFilteredCbcrReports] = useState<CbcrReportResponse[]>([]);
-
-    const navigate = useNavigate();
 
     function filterCbcrReports(cbcrReports: CbcrReportResponse[], query: string): CbcrReportResponse[] {
         if (!cbcrReports) return [];
@@ -90,13 +87,8 @@ export default function CbcrReports(props: Readonly<CbcrReportsProps>) {
         setFilteredCbcrReports(filterCbcrReports(props.cbcrReports, searchQuery));
     }, [searchQuery, props.cbcrReports]);
 
-
-
     return (
         <>
-            <div className="add-new-button">
-                <button className="button-blue" onClick={()=> navigate("add")}>add new CbCR Report</button>
-            </div>
             <SearchBar
                 searchQuery={searchQuery}
                 setSearchQuery={setSearchQuery}

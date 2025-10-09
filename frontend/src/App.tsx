@@ -6,7 +6,7 @@ import ProtectedRoute from "./components/ProtectedRoute.tsx";
 import {useEffect, useState} from "react";
 import NotFound from "./components/NotFound.tsx";
 import axios from "axios";
-import CbcrReports from "./components/cbcr/CbcrReports.tsx";
+import CbcrReports from "./components/entitydata/cbcr/CbcrReports.tsx";
 import {DefaultUser, type UserModel} from "./components/models/UserModel.ts";
 import Profile from "./components/Profile.tsx";
 import type {AuditLogModel} from "./components/models/AuditLogModel.ts";
@@ -15,11 +15,15 @@ import type {RiskAssessmentModel} from "./components/models/RiskAssessmentModel.
 import type {SubsidiaryModel} from "./components/models/SubsidiaryModel.ts";
 import EntityData from "./components/entitydata/EntityData.tsx";
 import Insert from "./components/Insert.tsx";
-import CbcrReportDetails from "./components/cbcr/CbcrReportDetails.tsx";
-import AddNewCbcrReport from "./components/cbcr/AddNewCbcrReport.tsx";
-import EditCbcrReport from "./components/cbcr/EditCbcrReport.tsx";
+import CbcrReportDetails from "./components/entitydata/cbcr/CbcrReportDetails.tsx";
+import AddNewCbcrReport from "./components/entitydata/cbcr/AddNewCbcrReport.tsx";
+import EditCbcrReport from "./components/entitydata/cbcr/EditCbcrReport.tsx";
 import type {CbcrReportResponse} from "./components/dto/CbcrReportResponse.ts";
 import type {CountryModel} from "./components/models/CountryModel.ts";
+import AddNewCompany from "./components/company/AddNewCompany.tsx";
+import AddNewCountry from "./components/entitydata/country/AddNewCountry.tsx";
+import AddNewRiskAssessment from "./components/entitydata/riskassessment/AddNewRiskAssessment.tsx";
+import AddNewSubsidiary from "./components/entitydata/subsidiary/AddNewSubsidiary.tsx";
 
 export default function App() {
     const [user, setUser] = useState<string>("anonymousUser");
@@ -153,12 +157,16 @@ export default function App() {
           <Route path="/" element={<Welcome />}/>
               <Route element={<ProtectedRoute user={user}/>}>
                   <Route path="/cbcr-reports" element={<CbcrReports language={language} cbcrReports={cbcrReportsResponse} />} />
-                  <Route path="/cbcr-reports/add" element={<AddNewCbcrReport />} />
                   <Route path="/cbcr-reports/:id" element={<CbcrReportDetails language={language} handleCbcrReportDelete={handleCbcrReportDelete} />} />
                   <Route path="/cbcr-reports/:id/edit" element={<EditCbcrReport language={language} handleCbcrReportUpdate={handleCbcrReportUpdate} companies={companies} countries={countries}/>} />
                   <Route path="/entity-data/*" element={<EntityData />} />
                   <Route path="/insert" element={<Insert />} />
-                  <Route path="/profile/*" element={<Profile language={language} user={user} userDetails={userDetails} setLanguage={setLanguage}/>} />
+                  <Route path="/insert/add-new-company" element={<AddNewCompany />} />
+                  <Route path="/insert/add-new-cbcr-report" element={<AddNewCbcrReport />} />
+                  <Route path="/insert/add-new-country" element={<AddNewCountry />} />
+                  <Route path="/insert/add-new-risk-assessment" element={<AddNewRiskAssessment />} />
+                  <Route path="/insert/add-new-subsidiary" element={<AddNewSubsidiary />} />
+                  <Route path="/profile" element={<Profile language={language} user={user} userDetails={userDetails} setLanguage={setLanguage}/>} />
               </Route>
       </Routes>
     </>

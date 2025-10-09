@@ -1,6 +1,6 @@
-import type {CbcrReportResponse} from "../dto/CbcrReportResponse.ts";
-import type {CompanyModel} from "../models/CompanyModel.ts";
-import type {CountryModel} from "../models/CountryModel.ts";
+import type {CbcrReportResponse} from "../../dto/CbcrReportResponse.ts";
+import type {CompanyModel} from "../../models/CompanyModel.ts";
+import type {CountryModel} from "../../models/CountryModel.ts";
 
 type EditCbcrReportProps = {
     language: string;

@@ -1,8 +1,8 @@
-import type {CbcrReportResponse} from "../dto/CbcrReportResponse.ts";
+import type {CbcrReportResponse} from "../../dto/CbcrReportResponse.ts";
 import {useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
-import "../styles/Details.css"
+import "../../styles/Details.css"
 
 type CbcrReportDetailsProps = {
     language: string;
