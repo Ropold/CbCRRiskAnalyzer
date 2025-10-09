@@ -37,3 +37,17 @@ export function getCompanyName(company: CompanyBasicInfo | undefined): string {
 export function getCountryName(country: CountryBasicInfo | undefined): string {
     return country?.countryName || "—";
 }
+
+export function renderImagePreview(
+    image: File | null,
+    existingImageUrl: string | undefined,
+    imageDeleted: boolean
+) {
+    if (image) {
+        return (<img src={URL.createObjectURL(image)} alt="image-preview" className="image-preview" />);
+    }
+    if (existingImageUrl && !imageDeleted) {
+        return (<img src={existingImageUrl} alt="existing-image" className="image-preview" />);
+    }
+    return null;
+}
