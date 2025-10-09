@@ -1,4 +1,4 @@
-import {useAutoScrollToTop} from "../../utils/ComponentsFunctions.ts";
+import {useAutoScrollToTop} from "../../utils/ComponentsFunctions.tsx";
 import {useEffect, useState} from "react";
 import SearchBar from "../../SearchBar.tsx";
 import CbcrReportCard from "./CbcrReportCard.tsx";

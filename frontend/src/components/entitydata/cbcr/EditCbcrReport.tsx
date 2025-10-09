@@ -51,10 +51,10 @@ export default function EditCbcrReport(props: Readonly<EditCbcrReportProps>){
             .then((response) => {
                 const data = response.data;
                 setCbcrReport(data);
-                setCompanyId(data.companyId);
+                setCompanyId(data.company.id);
                 setReportingYear(data.reportingYear);
                 setFiscalYearEnd(data.fiscalYearEnd);
-                setCountryId(data.countryId);
+                setCountryId(data.country.id);
                 setRevenuesUnrelatedParty(data.revenuesUnrelatedParty);
                 setRevenuesRelatedParty(data.revenuesRelatedParty);
                 setRevenuesTotal(data.revenuesTotal);
@@ -82,11 +82,20 @@ export default function EditCbcrReport(props: Readonly<EditCbcrReportProps>){
         e.preventDefault();
         if(!cbcrReport || cbcrReport === defaultCbcrReport) return;
 
+        // Find the selected company and country objects
+        const selectedCompany = props.companies.find(c => c.id === companyId);
+        const selectedCountry = props.countries.find(c => c.id === countryId);
+
+        if (!selectedCompany || !selectedCountry) {
+            console.error("Company or Country not found");
+            return;
+        }
+
         const updatedCbcrReport = {
-            companyId,
+            company: selectedCompany,
             reportingYear,
             fiscalYearEnd,
-            countryId,
+            country: selectedCountry,
             revenuesUnrelatedParty,
             revenuesRelatedParty,
             revenuesTotal,
@@ -177,7 +186,6 @@ export default function EditCbcrReport(props: Readonly<EditCbcrReportProps>){
                 businessActivities={businessActivities}
                 setBusinessActivities={setBusinessActivities}
             />
-
         </div>
     )
 }
