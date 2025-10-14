@@ -67,7 +67,12 @@ public class SubsidiaryModel {
         BRANCH,
         PERMANENT_ESTABLISHMENT,
         JOINT_VENTURE,
-        PARTNERSHIP
+        PARTNERSHIP,
+        SERVICE_COMPANY,
+        HOLDING_COMPANY,
+        OPERATING_COMPANY,
+        PARENT_COMPANY,
+        REINSURANCE_COMPANY
     }
 
     public enum MainBusinessActivity {
@@ -83,6 +88,20 @@ public class SubsidiaryModel {
         INSURANCE,
         HOLDING_SHARES_OR_OTHER_EQUITY_INSTRUMENTS,
         DORMANT,
-        OTHER
+        OTHER,
+        MANUFACTURING,
+        OIL_AND_GAS_MARKETING,
+        IT_SERVICES,
+        SALES_AND_SERVICES,
+        ASSET_MANAGEMENT,
+        HOLDING,
+        OIL_AND_GAS_PRODUCTION,
+        ENERGY_TRADING,
+        GAS_AND_POWER,
+        INVESTMENT_MANAGEMENT,
+        OIL_AND_GAS_TRADING,
+        OIL_AND_GAS_EXPLORATION,
+        REINSURANCE,
+        TREASURY_SERVICES
     }
 }

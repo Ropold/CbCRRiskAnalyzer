@@ -1,0 +1,18 @@
+.details-container{
+    background-color: transparent;
+}
+
+.details-container h3 {
+    color: #007bff;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.details-image{
+    max-width: 300px;
+    max-height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+}

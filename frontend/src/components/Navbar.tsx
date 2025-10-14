@@ -9,14 +9,14 @@ type NavbarProps = {
     getUser: () => void;
 }
 
-export default function Navbar(props: Readonly<NavbarProps>) {
-
-    const navigate = useNavigate();
-
     function loginWithGithub() {
         const host = window.location.host === "localhost:5173" ? "http://localhost:8080" : window.location.origin;
         window.open(host + "/oauth2/authorization/github", "_self");
     }
+
+export default function Navbar(props: Readonly<NavbarProps>) {
+
+    const navigate = useNavigate();
 
     function logoutFromGithub() {
         axios
@@ -38,13 +38,14 @@ export default function Navbar(props: Readonly<NavbarProps>) {
                     <div
                         className="clickable-header padding-left-5"
                         onClick={() => {
-                            navigate("/cbcr");
+                            navigate("/cbcr-reports");
                         }}
                     >
                         <img src={countryKeys} alt="Scanner Logo" className="logo-image" />
                         <h2 className="header-title">CbCR</h2>
                     </div>
-
+                    <button className="button-group-button" onClick={() => navigate("/entity-data")}>Entity-Data</button>
+                    <button className="button-group-button" onClick={() => navigate("/insert")}>Insert</button>
                     <button className="button-group-button" onClick={() => navigate("/profile")}>Profile</button>
                     <button className="button-group-button" onClick={logoutFromGithub}>logout</button>
                 </>

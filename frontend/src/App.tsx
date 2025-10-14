@@ -6,13 +6,36 @@ import ProtectedRoute from "./components/ProtectedRoute.tsx";
 import {useEffect, useState} from "react";
 import NotFound from "./components/NotFound.tsx";
 import axios from "axios";
-import CbCR from "./components/CbCR.tsx";
+import CbcrReports from "./components/entitydata/cbcr/CbcrReports.tsx";
 import {DefaultUser, type UserModel} from "./components/models/UserModel.ts";
 import Profile from "./components/Profile.tsx";
+import type {AuditLogModel} from "./components/models/AuditLogModel.ts";
+import type {CompanyModel} from "./components/models/CompanyModel.ts";
+import type {RiskAssessmentModel} from "./components/models/RiskAssessmentModel.ts";
+import type {SubsidiaryModel} from "./components/models/SubsidiaryModel.ts";
+import EntityData from "./components/entitydata/EntityData.tsx";
+import Insert from "./components/Insert.tsx";
+import CbcrReportDetails from "./components/entitydata/cbcr/CbcrReportDetails.tsx";
+import AddNewCbcrReport from "./components/entitydata/cbcr/AddNewCbcrReport.tsx";
+import EditCbcrReport from "./components/entitydata/cbcr/EditCbcrReport.tsx";
+import type {CbcrReportResponse} from "./components/dto/CbcrReportResponse.ts";
+import type {CountryModel} from "./components/models/CountryModel.ts";
+import AddNewCompany from "./components/company/AddNewCompany.tsx";
+import AddNewCountry from "./components/entitydata/country/AddNewCountry.tsx";
+import AddNewRiskAssessment from "./components/entitydata/riskassessment/AddNewRiskAssessment.tsx";
+import AddNewSubsidiary from "./components/entitydata/subsidiary/AddNewSubsidiary.tsx";
 
 export default function App() {
     const [user, setUser] = useState<string>("anonymousUser");
     const [userDetails, setUserDetails] = useState<UserModel | null>(DefaultUser);
+    const [language, setLanguage] = useState<string>("de");
+
+    const [auditLogs, setAuditLogs] = useState<AuditLogModel[]>([]);
+    const [cbcrReportsResponse, setCbcrReportsResponse] = useState<CbcrReportResponse[]>([]);
+    const [companies, setCompanies] = useState<CompanyModel[]>([]);
+    const [riskAssessments, setRiskAssessments] = useState<RiskAssessmentModel[]>([]);
+    const [subsidiaries, setSubsidiaries] = useState<SubsidiaryModel[]>([]);
+    const [countries, setCountries]= useState<CountryModel[]>([]);
 
     function getUser() {
         axios.get("/api/users/me")
@@ -36,15 +59,99 @@ export default function App() {
             });
     }
 
+    function getAllAuditLogs() {
+        axios.get("/api/audit-logs")
+            .then((response) => {
+                setAuditLogs(response.data as AuditLogModel[]);
+            })
+            .catch((error) => {
+                console.error("Error fetching audit logs:", error);
+            });
+    }
+
+    function getAllCbcrReports() {
+        axios.get("/api/cbcr-reports")
+            .then((response) => {
+                setCbcrReportsResponse(response.data as CbcrReportResponse[]);
+            })
+            .catch((error) => {
+                console.error("Error fetching CbCR reports:", error);
+            });
+    }
+
+    function getAllCompanies() {
+        axios.get("/api/companies")
+            .then((response) => {
+                setCompanies(response.data as CompanyModel[]);
+            })
+            .catch((error) => {
+                console.error("Error fetching companies:", error);
+            });
+    }
+
+    function getAllRiskAssessments() {
+        axios.get("/api/risk-assessments")
+            .then((response) => {
+                setRiskAssessments(response.data as RiskAssessmentModel[]);
+            })
+            .catch((error) => {
+                console.error("Error fetching risk assessments:", error);
+            });
+    }
+
+    function getAllSubsidiaries() {
+        axios.get("/api/subsidiaries")
+            .then((response) => {
+                setSubsidiaries(response.data as SubsidiaryModel[]);
+            })
+            .catch((error) => {
+                console.error("Error fetching subsidiaries:", error);
+            });
+    }
+
+    function getAllCountries() {
+        axios.get("/api/countries")
+            .then((response) => {
+                setCountries(response.data as CountryModel[]);
+            })
+            .catch((error) => {
+                console.error("Error fetching countries:", error);
+            });
+    }
+
     useEffect(() => {
         getUser();
     }, []);
 
     useEffect(() => {
         if(user !== "anonymousUser"){
+            getAllAuditLogs();
+            getAllCbcrReports();
+            getAllCompanies();
+            getAllRiskAssessments();
+            getAllSubsidiaries();
+            getAllCountries();
             getUserDetails();
         }
     }, [user]);
+
+    function handleNewCbcrReportSubmit(newReport: CbcrReportResponse) {
+        setCbcrReportsResponse((prevReports) => [...prevReports, newReport]);
+    }
+
+    function handleCbcrReportUpdate(updatedReport: CbcrReportResponse) {
+        setCbcrReportsResponse((prevReports) =>
+            prevReports.map((report) =>
+                report.id === updatedReport.id ? updatedReport : report
+            )
+        );
+    }
+
+    function handleCbcrReportDelete(deletedReportId: string) {
+        setCbcrReportsResponse((prevReports) =>
+            prevReports.filter((report) => report.id !== deletedReportId)
+        );
+    }
 
   return (
     <>
@@ -53,8 +160,17 @@ export default function App() {
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Welcome />}/>
               <Route element={<ProtectedRoute user={user}/>}>
-                  <Route path="/cbcr" element={<CbCR />} />
-                  <Route path="/profile" element={<Profile user={user} userDetails={userDetails} />} />
+                  <Route path="/cbcr-reports" element={<CbcrReports language={language} cbcrReports={cbcrReportsResponse} />} />
+                  <Route path="/cbcr-reports/:id" element={<CbcrReportDetails language={language} handleCbcrReportDelete={handleCbcrReportDelete} />} />
+                  <Route path="/cbcr-reports/:id/edit" element={<EditCbcrReport language={language} handleCbcrReportUpdate={handleCbcrReportUpdate} companies={companies} countries={countries}/>} />
+                  <Route path="/entity-data/*" element={<EntityData />} />
+                  <Route path="/insert" element={<Insert />} />
+                  <Route path="/insert/add-new-company" element={<AddNewCompany />} />
+                  <Route path="/insert/add-new-cbcr-report" element={<AddNewCbcrReport language={language} handleNewCbcrReportSubmit={handleNewCbcrReportSubmit} companies={companies} countries={countries}/>} />
+                  <Route path="/insert/add-new-country" element={<AddNewCountry />} />
+                  <Route path="/insert/add-new-risk-assessment" element={<AddNewRiskAssessment />} />
+                  <Route path="/insert/add-new-subsidiary" element={<AddNewSubsidiary />} />
+                  <Route path="/profile" element={<Profile language={language} user={user} userDetails={userDetails} setLanguage={setLanguage}/>} />
               </Route>
       </Routes>
     </>

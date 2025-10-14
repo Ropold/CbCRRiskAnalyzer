@@ -109,6 +109,7 @@ public class CbcrReportModel {
         DRAFT,
         IN_REVIEW,
         SUBMITTED,
+        PUBLISHED,
         FINALIZED
     }
 }
