@@ -1,7 +1,7 @@
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import "./styles/Navbar.css";
-import countryKeys from "../assets/country-keys.jpg";
+import companyLogo from "../assets/company-logo.png";
 import "./styles/Buttons.css";
 
 type NavbarProps = {
@@ -38,11 +38,11 @@ export default function Navbar(props: Readonly<NavbarProps>) {
                     <div
                         className="clickable-header padding-left-5"
                         onClick={() => {
-                            navigate("/cbcr-reports");
+                            navigate("/companies");
                         }}
                     >
-                        <img src={countryKeys} alt="Scanner Logo" className="logo-image" />
-                        <h2 className="header-title">CbCR</h2>
+                        <img src={companyLogo} alt="Company Logo" className="logo-image" />
+                        <h2 className="header-title">Companies</h2>
                     </div>
                     <button className="button-group-button" onClick={() => navigate("/entity-data")}>Entity-Data</button>
                     <button className="button-group-button" onClick={() => navigate("/insert")}>Insert</button>
