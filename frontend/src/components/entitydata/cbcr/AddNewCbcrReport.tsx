@@ -83,7 +83,7 @@ export default function AddNewCbcrReport(props: Readonly<AddNewCbcrReportProps>)
             .post('/api/cbcr-reports', newCbcrReport)
             .then((response) => {
                 props.handleNewCbcrReportSubmit(response.data);
-                navigate('/cbcr-reports');
+                navigate(`/entity-data/cbcr-reports/${response.data.id}`);
             })
             .catch((error) => console.error("Error creating Cbcr report", error));
     }
@@ -92,7 +92,6 @@ export default function AddNewCbcrReport(props: Readonly<AddNewCbcrReportProps>)
 
     return(
         <div>
-            <h2>Add New Cbcr</h2>
             <CbcrForm
                 language={props.language}
                 backNavigationPath={backNavigationPath}

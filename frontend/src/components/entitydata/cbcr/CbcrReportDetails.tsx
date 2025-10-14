@@ -37,7 +37,7 @@ export default function CbcrReportDetails(props: Readonly<CbcrReportDetailsProps
             })
             .finally(() => {
                 setShowPopup(false);
-                navigate("/cbcr-reports");
+                navigate("/entity-data/cbcr-reports");
             })
     }
 
