@@ -3,6 +3,8 @@ import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import type {CompanyModel} from "../../models/CompanyModel.ts";
 import type {CountryModel} from "../../models/CountryModel.ts";
+import axios from "axios";
+import CbcrForm from "./CbcrForm.tsx";
 
 type AddNewCbcrReportProps = {
    language: string;
@@ -41,6 +43,49 @@ export default function AddNewCbcrReport(props: Readonly<AddNewCbcrReportProps>)
 
     function handleNewAddSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
+
+        // Find the selected company and country objects
+        const selectedCompany = props.companies.find(c => c.id === companyId);
+        const selectedCountry = props.countries.find(c => c.id === countryId);
+
+        if (!selectedCompany || !selectedCountry) {
+            console.error("Company or Country not found");
+            return;
+        }
+
+        const newCbcrReport = {
+            company: selectedCompany,
+            reportingYear,
+            fiscalYearEnd,
+            country: selectedCountry,
+            revenuesUnrelatedParty,
+            revenuesRelatedParty,
+            revenuesTotal,
+            profitBeforeTax,
+            incomeTaxPaid,
+            incomeTaxAccrued,
+            effectiveTaxRate,
+            expectedTaxRate,
+            statedCapital,
+            accumulatedEarnings,
+            tangibleAssets,
+            intangibleAssets,
+            numberOfEmployees,
+            revenuePerEmployee,
+            commentReference,
+            taxExplanation,
+            dataSource,
+            auditStatus,
+            businessActivities
+        }
+
+        axios
+            .post('/api/cbcr-reports', newCbcrReport)
+            .then((response) => {
+                props.handleNewCbcrReportSubmit(response.data);
+                navigate('/cbcr-reports');
+            })
+            .catch((error) => console.error("Error creating Cbcr report", error));
     }
 
     const backNavigationPath = '/cbcr-reports';
@@ -48,7 +93,59 @@ export default function AddNewCbcrReport(props: Readonly<AddNewCbcrReportProps>)
     return(
         <div>
             <h2>Add New Cbcr</h2>
-            <p>This is the Add New Cbcr page.</p>
+            <CbcrForm
+                language={props.language}
+                backNavigationPath={backNavigationPath}
+                handleSubmit={handleNewAddSubmit}
+                companies={props.companies}
+                countries={props.countries}
+                companyId={companyId}
+                setCompanyId={setCompanyId}
+                reportingYear={reportingYear}
+                setReportingYear={setReportingYear}
+                fiscalYearEnd={fiscalYearEnd}
+                setFiscalYearEnd={setFiscalYearEnd}
+                countryId={countryId}
+                setCountryId={setCountryId}
+                revenuesUnrelatedParty={revenuesUnrelatedParty}
+                setRevenuesUnrelatedParty={setRevenuesUnrelatedParty}
+                revenuesRelatedParty={revenuesRelatedParty}
+                setRevenuesRelatedParty={setRevenuesRelatedParty}
+                revenuesTotal={revenuesTotal}
+                setRevenuesTotal={setRevenuesTotal}
+                profitBeforeTax={profitBeforeTax}
+                setProfitBeforeTax={setProfitBeforeTax}
+                incomeTaxPaid={incomeTaxPaid}
+                setIncomeTaxPaid={setIncomeTaxPaid}
+                incomeTaxAccrued={incomeTaxAccrued}
+                setIncomeTaxAccrued={setIncomeTaxAccrued}
+                effectiveTaxRate={effectiveTaxRate}
+                setEffectiveTaxRate={setEffectiveTaxRate}
+                expectedTaxRate={expectedTaxRate}
+                setExpectedTaxRate={setExpectedTaxRate}
+                statedCapital={statedCapital}
+                setStatedCapital={setStatedCapital}
+                accumulatedEarnings={accumulatedEarnings}
+                setAccumulatedEarnings={setAccumulatedEarnings}
+                tangibleAssets={tangibleAssets}
+                setTangibleAssets={setTangibleAssets}
+                intangibleAssets={intangibleAssets}
+                setIntangibleAssets={setIntangibleAssets}
+                numberOfEmployees={numberOfEmployees}
+                setNumberOfEmployees={setNumberOfEmployees}
+                revenuePerEmployee={revenuePerEmployee}
+                setRevenuePerEmployee={setRevenuePerEmployee}
+                commentReference={commentReference}
+                setCommentReference={setCommentReference}
+                taxExplanation={taxExplanation}
+                setTaxExplanation={setTaxExplanation}
+                dataSource={dataSource}
+                setDataSource={setDataSource}
+                auditStatus={auditStatus}
+                setAuditStatus={setAuditStatus}
+                businessActivities={businessActivities}
+                setBusinessActivities={setBusinessActivities}
+            />
         </div>
     )
 }
