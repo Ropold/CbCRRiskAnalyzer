@@ -153,10 +153,22 @@ export default function App() {
         setCbcrReportsResponse((prevReports) => [...prevReports, newReport]);
     }
 
+    function handleNewCompanySubmit(newCompany: CompanyModel) {
+        setCompanies((prevCompanies) => [...prevCompanies, newCompany]);
+    }
+
     function handleCbcrReportUpdate(updatedReport: CbcrReportResponse) {
         setCbcrReportsResponse((prevReports) =>
             prevReports.map((report) =>
                 report.id === updatedReport.id ? updatedReport : report
+            )
+        );
+    }
+
+    function handleCompanyUpdate(updatedCompany: CompanyModel) {
+        setCompanies((prevCompanies) =>
+            prevCompanies.map((company) =>
+                company.id === updatedCompany.id ? updatedCompany : company
             )
         );
     }
@@ -167,6 +179,12 @@ export default function App() {
         );
     }
 
+    function handleCompanyDelete(deletedCompanyId: string) {
+        setCompanies((prevCompanies) =>
+            prevCompanies.filter((company) => company.id !== deletedCompanyId)
+        );
+    }
+
   return (
     <>
       <Navbar user={user} getUser={getUser}/>
@@ -174,9 +192,9 @@ export default function App() {
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Welcome />}/>
               <Route element={<ProtectedRoute user={user}/>}>
-                  <Route path="/companies" element={<Companies language={language}/>} />
-                  <Route path="/companies/:id" element={<CompanyDetails language={language}/>} />
-                  <Route path="/companies/:id/edit" element={<EditCompany language={language}/>} />
+                  <Route path="/companies" element={<Companies language={language} companies={companies}/>} />
+                  <Route path="/companies/:id" element={<CompanyDetails language={language} handleCompanyDelete={handleCompanyDelete}/>} />
+                  <Route path="/companies/:id/edit" element={<EditCompany language={language} handleCompanyUpdate={handleCompanyUpdate}/>} />
                   <Route path="/entity-data" element={<EntityData language={language}/>} />
                   <Route path="/entity-data/cbcr-reports" element={<CbcrReports language={language} cbcrReports={cbcrReportsResponse} />} />
                   <Route path="/entity-data/cbcr-reports/:id" element={<CbcrReportDetails language={language} handleCbcrReportDelete={handleCbcrReportDelete} />} />
@@ -191,14 +209,14 @@ export default function App() {
                   <Route path="/entity-data/subsidiaries/:id" element={<SubsidiaryDetails language={language} />} />
                   <Route path="/entity-data/subsidiaries/:id/edit" element={<EditSubsidiary language={language} />} />
                   <Route path="/insert" element={<Insert language={language} />} />
-                  <Route path="/insert/add-new-company" element={<AddNewCompany language={language} />} />
+                  <Route path="/insert/add-new-company" element={<AddNewCompany language={language} handleNewCompanySubmit={handleNewCompanySubmit}/>} />
                   <Route path="/insert/add-new-cbcr-report" element={<AddNewCbcrReport language={language} handleNewCbcrReportSubmit={handleNewCbcrReportSubmit} companies={companies} countries={countries}/>} />
                   <Route path="/insert/add-new-country" element={<AddNewCountry language={language} />} />
                   <Route path="/insert/add-new-risk-assessment" element={<AddNewRiskAssessment language={language} />} />
                   <Route path="/insert/add-new-subsidiary" element={<AddNewSubsidiary language={language} />} />
                   <Route path="/profile" element={<Profile language={language} user={user} userDetails={userDetails} setLanguage={setLanguage}/>} />
-                  <Route path="/audit-logs" element={<AuditLogs language={language} auditLogs={auditLogs} />} />
-                  <Route path="/audit-logs/:id" element={<AuditLogDetails language={language} auditLogs={auditLogs} />} />
+                  <Route path="/profile/audit-logs" element={<AuditLogs language={language} auditLogs={auditLogs} />} />
+                  <Route path="/profile/audit-logs/:id" element={<AuditLogDetails language={language} auditLogs={auditLogs} />} />
               </Route>
       </Routes>
     </>

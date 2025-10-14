@@ -1,9 +1,21 @@
+import type {CompanyModel} from "../models/CompanyModel.ts";
+import {useNavigate} from "react-router-dom";
 
-export default function CompanyCard(){
+type CompanyCardProps = {
+    company: CompanyModel;
+    language: string;
+}
+
+export default function CompanyCard(props: Readonly<CompanyCardProps>){
+    const navigate = useNavigate();
+
+    const handleCardClick = () => {
+        navigate(`/companies/${props.company.id}`);
+    }
+
     return(
-        <div>
-            <h2>Company Card</h2>
-            <p>This is the Company Card page.</p>
+        <div className="card-overview" onClick={handleCardClick}>
+           <h2>{props.company.name}</h2>
         </div>
     )
 }

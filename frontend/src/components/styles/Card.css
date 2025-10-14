@@ -1,4 +1,4 @@
-.cbcr-report-card{
+.card-overview{
     /*display: flex;*/
     /*flex-direction: row;*/
     /*align-items: center;*/
@@ -11,7 +11,7 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.cbcr-report-card:hover{
+.card-overview:hover{
     border-color: #007bff;
     transform: scale(1.03);
     box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.8);
