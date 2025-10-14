@@ -135,6 +135,10 @@ export default function App() {
         }
     }, [user]);
 
+    function handleNewCbcrReportSubmit(newReport: CbcrReportResponse) {
+        setCbcrReportsResponse((prevReports) => [...prevReports, newReport]);
+    }
+
     function handleCbcrReportUpdate(updatedReport: CbcrReportResponse) {
         setCbcrReportsResponse((prevReports) =>
             prevReports.map((report) =>
@@ -162,7 +166,7 @@ export default function App() {
                   <Route path="/entity-data/*" element={<EntityData />} />
                   <Route path="/insert" element={<Insert />} />
                   <Route path="/insert/add-new-company" element={<AddNewCompany />} />
-                  <Route path="/insert/add-new-cbcr-report" element={<AddNewCbcrReport />} />
+                  <Route path="/insert/add-new-cbcr-report" element={<AddNewCbcrReport language={language} handleNewCbcrReportSubmit={handleNewCbcrReportSubmit} companies={companies} countries={countries}/>} />
                   <Route path="/insert/add-new-country" element={<AddNewCountry />} />
                   <Route path="/insert/add-new-risk-assessment" element={<AddNewRiskAssessment />} />
                   <Route path="/insert/add-new-subsidiary" element={<AddNewSubsidiary />} />
