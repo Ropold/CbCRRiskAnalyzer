@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { RiskAssessmentModel } from "../models/RiskAssessmentModel";
 
 export function useRiskAssessmentForm(initialRiskAssessment?: RiskAssessmentModel | null) {
+    const [cbcrReportId, setCbcrReportId] = useState<string>(initialRiskAssessment?.cbcrReportId || "");
     const [overallRiskLevel, setOverallRiskLevel] = useState<'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL' | undefined>(initialRiskAssessment?.overallRiskLevel);
     const [riskScore, setRiskScore] = useState<number | undefined>(initialRiskAssessment?.riskScore);
     const [lowEtrFlag, setLowEtrFlag] = useState<boolean>(initialRiskAssessment?.lowEtrFlag || false);
@@ -18,6 +19,8 @@ export function useRiskAssessmentForm(initialRiskAssessment?: RiskAssessmentMode
     const [recommendedAction, setRecommendedAction] = useState<string | undefined>(initialRiskAssessment?.recommendedAction);
 
     return {
+        cbcrReportId,
+        setCbcrReportId,
         overallRiskLevel,
         setOverallRiskLevel,
         riskScore,

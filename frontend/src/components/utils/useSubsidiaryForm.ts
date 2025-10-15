@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { SubsidiaryModel } from "../models/SubsidiaryModel.ts";
 
 export function useSubsidiaryForm(initialSubsidiary?: SubsidiaryModel | null) {
+    const [companyId, setCompanyId] = useState<string>(initialSubsidiary?.companyId || "");
     const [name, setName] = useState<string>(initialSubsidiary?.name || "");
     const [countryId, setCountryId] = useState<string>(initialSubsidiary?.countryId || "");
     const [leiCode, setLeiCode] = useState<string | undefined>(initialSubsidiary?.leiCode);
@@ -53,6 +54,8 @@ export function useSubsidiaryForm(initialSubsidiary?: SubsidiaryModel | null) {
     const [isActive, setIsActive] = useState<boolean>(initialSubsidiary?.isActive ?? true);
 
     return {
+        companyId,
+        setCompanyId,
         name,
         setName,
         countryId,
