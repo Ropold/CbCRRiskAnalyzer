@@ -85,6 +85,8 @@ public class CompanyController {
         CompanyModel existingCompany = companyService.getCompanyById(id);
         String newImageUrl = imageUploadUtil.determineImageUrl(image, companyModel.getImageUrl(), existingCompany.getImageUrl());
 
+        // Cleanup old image from Cloudinary if needed
+        imageUploadUtil.cleanupOldImageIfNeeded(existingCompany.getImageUrl(), newImageUrl);
 
         CompanyModel updatedCompany = new CompanyModel(
                 existingCompany.getId(),

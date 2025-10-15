@@ -4,6 +4,7 @@ import {useNavigate, useParams} from "react-router-dom";
 import {useCompanyForm} from "../utils/useCompanyForm.ts";
 import axios from "axios";
 import {onFileChange, onImageCancel} from "../utils/ComponentsFunctions.tsx";
+import CompanyForm from "./CompanyForm.tsx";
 
 type EditCompanyProps = {
     language: string;
@@ -109,7 +110,17 @@ export default function EditCompany(props: Readonly<EditCompanyProps>) {
     return(
         <div>
             <h2>Edit Company</h2>
-            <p>This is the Edit Company page.</p>
+            <CompanyForm
+                language={props.language}
+                backNavigationPath={backNavigationPath}
+                handleSubmit={handleSaveEdit}
+                {...formStateCompany}
+                image={image}
+                handleFileChange={handleFileChange}
+                handleImageCancel={handleImageCancel}
+                existingImageUrl={company?.imageUrl}
+                imageDeleted={imageDeleted}
+            />
         </div>
     )
 }
