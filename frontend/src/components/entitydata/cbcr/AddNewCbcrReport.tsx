@@ -76,52 +76,7 @@ export default function AddNewCbcrReport(props: Readonly<AddNewCbcrReportProps>)
                 handleSubmit={handleNewAddSubmit}
                 companies={props.companies}
                 countries={props.countries}
-                companyId={formStateCbcr.companyId}
-                setCompanyId={formStateCbcr.setCompanyId}
-                reportingYear={formStateCbcr.reportingYear}
-                setReportingYear={formStateCbcr.setReportingYear}
-                fiscalYearEnd={formStateCbcr.fiscalYearEnd}
-                setFiscalYearEnd={formStateCbcr.setFiscalYearEnd}
-                countryId={formStateCbcr.countryId}
-                setCountryId={formStateCbcr.setCountryId}
-                revenuesUnrelatedParty={formStateCbcr.revenuesUnrelatedParty}
-                setRevenuesUnrelatedParty={formStateCbcr.setRevenuesUnrelatedParty}
-                revenuesRelatedParty={formStateCbcr.revenuesRelatedParty}
-                setRevenuesRelatedParty={formStateCbcr.setRevenuesRelatedParty}
-                revenuesTotal={formStateCbcr.revenuesTotal}
-                setRevenuesTotal={formStateCbcr.setRevenuesTotal}
-                profitBeforeTax={formStateCbcr.profitBeforeTax}
-                setProfitBeforeTax={formStateCbcr.setProfitBeforeTax}
-                incomeTaxPaid={formStateCbcr.incomeTaxPaid}
-                setIncomeTaxPaid={formStateCbcr.setIncomeTaxPaid}
-                incomeTaxAccrued={formStateCbcr.incomeTaxAccrued}
-                setIncomeTaxAccrued={formStateCbcr.setIncomeTaxAccrued}
-                effectiveTaxRate={formStateCbcr.effectiveTaxRate}
-                setEffectiveTaxRate={formStateCbcr.setEffectiveTaxRate}
-                expectedTaxRate={formStateCbcr.expectedTaxRate}
-                setExpectedTaxRate={formStateCbcr.setExpectedTaxRate}
-                statedCapital={formStateCbcr.statedCapital}
-                setStatedCapital={formStateCbcr.setStatedCapital}
-                accumulatedEarnings={formStateCbcr.accumulatedEarnings}
-                setAccumulatedEarnings={formStateCbcr.setAccumulatedEarnings}
-                tangibleAssets={formStateCbcr.tangibleAssets}
-                setTangibleAssets={formStateCbcr.setTangibleAssets}
-                intangibleAssets={formStateCbcr.intangibleAssets}
-                setIntangibleAssets={formStateCbcr.setIntangibleAssets}
-                numberOfEmployees={formStateCbcr.numberOfEmployees}
-                setNumberOfEmployees={formStateCbcr.setNumberOfEmployees}
-                revenuePerEmployee={formStateCbcr.revenuePerEmployee}
-                setRevenuePerEmployee={formStateCbcr.setRevenuePerEmployee}
-                commentReference={formStateCbcr.commentReference}
-                setCommentReference={formStateCbcr.setCommentReference}
-                taxExplanation={formStateCbcr.taxExplanation}
-                setTaxExplanation={formStateCbcr.setTaxExplanation}
-                dataSource={formStateCbcr.dataSource}
-                setDataSource={formStateCbcr.setDataSource}
-                auditStatus={formStateCbcr.auditStatus}
-                setAuditStatus={formStateCbcr.setAuditStatus}
-                businessActivities={formStateCbcr.businessActivities}
-                setBusinessActivities={formStateCbcr.setBusinessActivities}
+                {...formStateCbcr}
             />
         </div>
     )
