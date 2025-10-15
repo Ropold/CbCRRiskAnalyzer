@@ -1,9 +1,11 @@
 import {useNavigate} from "react-router-dom";
+import type {CompanyModel} from "../models/CompanyModel.ts";
 
 type CompanyFormProps = {
     language: string;
     backNavigationPath: string;
     handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+    companies: CompanyModel[];
     // From useCompanyForm
     name: string;
     setName: (value: string) => void;
@@ -37,6 +39,7 @@ export default function CompanyForm(props: Readonly<CompanyFormProps>) {
 
     const {
         backNavigationPath,
+        companies,
         name,
         setName,
         industry,
@@ -94,12 +97,29 @@ export default function CompanyForm(props: Readonly<CompanyFormProps>) {
                     </label>
                     <label>
                         <span>Industry:</span>
-                        <input
+                        <select
                             className="input-small"
-                            type="text"
                             value={industry || ""}
                             onChange={(e)=> setIndustry(e.target.value || undefined)}
-                        />
+                        >
+                            <option value="">Select Industry</option>
+                            <option value="Oil & Gas">Oil & Gas</option>
+                            <option value="Mining">Mining</option>
+                            <option value="Pharmaceuticals">Pharmaceuticals</option>
+                            <option value="Technology">Technology</option>
+                            <option value="Financial Services">Financial Services</option>
+                            <option value="Telecommunications">Telecommunications</option>
+                            <option value="Consumer Goods">Consumer Goods</option>
+                            <option value="Automotive">Automotive</option>
+                            <option value="Manufacturing">Manufacturing</option>
+                            <option value="Retail">Retail</option>
+                            <option value="Energy">Energy</option>
+                            <option value="Healthcare">Healthcare</option>
+                            <option value="Real Estate">Real Estate</option>
+                            <option value="Transportation">Transportation</option>
+                            <option value="Utilities">Utilities</option>
+                            <option value="Other">Other</option>
+                        </select>
                     </label>
                     <label>
                         <span>Headquarters Country ID:</span>
@@ -112,13 +132,20 @@ export default function CompanyForm(props: Readonly<CompanyFormProps>) {
                     </label>
                     <label>
                         <span>Reporting Currency:</span>
-                        <input
+                        <select
                             className="input-small"
-                            type="text"
                             value={reportingCurrency}
                             onChange={(e)=> setReportingCurrency(e.target.value)}
                             required
-                        />
+                        >
+                            <option value="">Select Currency</option>
+                            <option value="EUR">EUR</option>
+                            <option value="USD">USD</option>
+                            <option value="GBP">GBP</option>
+                            <option value="CHF">CHF</option>
+                            <option value="JPY">JPY</option>
+                            <option value="CNY">CNY</option>
+                        </select>
                     </label>
                     <label>
                         <span>Tax Identification Number:</span>
@@ -139,13 +166,19 @@ export default function CompanyForm(props: Readonly<CompanyFormProps>) {
                         />
                     </label>
                     <label>
-                        <span>Parent Company ID:</span>
-                        <input
+                        <span>Parent Company:</span>
+                        <select
                             className="input-small"
-                            type="text"
                             value={parentCompanyId || ""}
                             onChange={(e)=> setParentCompanyId(e.target.value || undefined)}
-                        />
+                        >
+                            <option value="">None</option>
+                            {companies?.map((company) => (
+                                <option key={company.id} value={company.id}>
+                                    {company.name}
+                                </option>
+                            ))}
+                        </select>
                     </label>
                     <label>
                         <span>Ultimate Parent:</span>

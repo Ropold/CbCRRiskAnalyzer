@@ -9,6 +9,7 @@ import CompanyForm from "./CompanyForm.tsx";
 type EditCompanyProps = {
     language: string;
     handleCompanyUpdate: (updatedCompany: CompanyModel) => void;
+    companies: CompanyModel[];
 }
 
 export default function EditCompany(props: Readonly<EditCompanyProps>) {
@@ -114,6 +115,7 @@ export default function EditCompany(props: Readonly<EditCompanyProps>) {
                 language={props.language}
                 backNavigationPath={backNavigationPath}
                 handleSubmit={handleSaveEdit}
+                companies={props.companies}
                 {...formStateCompany}
                 image={image}
                 handleFileChange={handleFileChange}

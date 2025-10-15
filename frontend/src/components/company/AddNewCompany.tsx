@@ -9,6 +9,7 @@ import CompanyForm from "./CompanyForm.tsx";
 type AddNewCompanyProps = {
     language: string;
     handleNewCompanySubmit: (newCompany: CompanyModel) => void;
+    companies: CompanyModel[];
 }
 
 export default function AddNewCompany(props: Readonly<AddNewCompanyProps>) {
@@ -78,6 +79,7 @@ export default function AddNewCompany(props: Readonly<AddNewCompanyProps>) {
                 language={props.language}
                 backNavigationPath={backNavigationPath}
                 handleSubmit={handleNewAddSubmit}
+                companies={props.companies}
                 {...formStateCompany}
                 image={image}
                 handleFileChange={handleFileChange}

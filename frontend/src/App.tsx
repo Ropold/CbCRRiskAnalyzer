@@ -248,7 +248,7 @@ export default function App() {
               <Route element={<ProtectedRoute user={user}/>}>
                   <Route path="/companies" element={<Companies language={language} companies={companies}/>} />
                   <Route path="/companies/:id" element={<CompanyDetails language={language} handleCompanyDelete={handleCompanyDelete}/>} />
-                  <Route path="/companies/:id/edit" element={<EditCompany language={language} handleCompanyUpdate={handleCompanyUpdate} />} />
+                  <Route path="/companies/:id/edit" element={<EditCompany language={language} handleCompanyUpdate={handleCompanyUpdate} companies={companies} />} />
                   <Route path="/entity-data" element={<EntityData language={language}/>} />
                   <Route path="/entity-data/cbcr-reports" element={<CbcrReports language={language} cbcrReports={cbcrReportsResponse} />} />
                   <Route path="/entity-data/cbcr-reports/:id" element={<CbcrReportDetails language={language} handleCbcrReportDelete={handleCbcrReportDelete} />} />
@@ -263,7 +263,7 @@ export default function App() {
                   <Route path="/entity-data/subsidiaries/:id" element={<SubsidiaryDetails language={language} handleSubsidiaryDelete={handleSubsidiaryDelete}/>} />
                   <Route path="/entity-data/subsidiaries/:id/edit" element={<EditSubsidiary language={language} handleSubsidiaryUpdate={handleSubsidiaryUpdate}/>} />
                   <Route path="/insert" element={<Insert language={language} />} />
-                  <Route path="/insert/add-new-company" element={<AddNewCompany language={language} handleNewCompanySubmit={handleNewCompanySubmit}/>} />
+                  <Route path="/insert/add-new-company" element={<AddNewCompany language={language} handleNewCompanySubmit={handleNewCompanySubmit} companies={companies}/>} />
                   <Route path="/insert/add-new-cbcr-report" element={<AddNewCbcrReport language={language} handleNewCbcrReportSubmit={handleNewCbcrReportSubmit} companies={companies} countries={countries}/>} />
                   <Route path="/insert/add-new-country" element={<AddNewCountry language={language} handleNewCountrySubmit={handleNewCountrySubmit}/>} />
                   <Route path="/insert/add-new-risk-assessment" element={<AddNewRiskAssessment language={language} handleNewRiskAssessmentSubmit={handleNewRiskAssessmentSubmit}/>} />
