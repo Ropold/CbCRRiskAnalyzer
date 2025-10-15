@@ -48,26 +48,7 @@ export default function AddNewCountry(props: Readonly<AddNewCountryProps>) {
                 language={props.language}
                 backNavigationPath={backNavigationPath}
                 handleSubmit={handleNewAddSubmit}
-                countryCode={formStateCountry.countryCode}
-                setCountryCode={formStateCountry.setCountryCode}
-                countryName={formStateCountry.countryName}
-                setCountryName={formStateCountry.setCountryName}
-                region={formStateCountry.region}
-                setRegion={formStateCountry.setRegion}
-                jurisdictionType={formStateCountry.jurisdictionType}
-                setJurisdictionType={formStateCountry.setJurisdictionType}
-                taxHaven={formStateCountry.taxHaven}
-                setTaxHaven={formStateCountry.setTaxHaven}
-                expectedTaxRate={formStateCountry.expectedTaxRate}
-                setExpectedTaxRate={formStateCountry.setExpectedTaxRate}
-                statutoryTaxRate={formStateCountry.statutoryTaxRate}
-                setStatutoryTaxRate={formStateCountry.setStatutoryTaxRate}
-                isEuMember={formStateCountry.isEuMember}
-                setIsEuMember={formStateCountry.setIsEuMember}
-                isOecdMember={formStateCountry.isOecdMember}
-                setIsOecdMember={formStateCountry.setIsOecdMember}
-                blacklistStatus={formStateCountry.blacklistStatus}
-                setBlacklistStatus={formStateCountry.setBlacklistStatus}
+                {...formStateCountry}
             />
         </div>
     )
