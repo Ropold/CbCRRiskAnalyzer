@@ -10,11 +10,11 @@ export default function CbcrReportCard(props: Readonly<CbcrReportCardProps>){
     const navigate = useNavigate();
 
     const handleCardClick = () => {
-        navigate(`/cbcr-reports/${props.CbcrReportResponse.id}`);
+        navigate(`/entity-data/cbcr-reports/${props.CbcrReportResponse.id}`);
     }
 
     return(
-        <div className="cbcr-report-card" onClick={handleCardClick}>
+        <div className="card-overview" onClick={handleCardClick}>
            <h2>{props.CbcrReportResponse.company.name}</h2>
            <h2>{props.CbcrReportResponse.reportingYear}</h2>
            <h2>{props.CbcrReportResponse.country.countryName}</h2>

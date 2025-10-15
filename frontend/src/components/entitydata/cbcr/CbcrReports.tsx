@@ -2,7 +2,7 @@ import {useAutoScrollToTop} from "../../utils/ComponentsFunctions.tsx";
 import {useEffect, useState} from "react";
 import SearchBar from "../../SearchBar.tsx";
 import CbcrReportCard from "./CbcrReportCard.tsx";
-import "../../styles/CbcrReports.css"
+import "../../styles/Card.css"
 import type {CbcrReportResponse} from "../../dto/CbcrReportResponse.ts";
 
 type CbcrReportsProps = {
@@ -94,7 +94,7 @@ export default function CbcrReports(props: Readonly<CbcrReportsProps>) {
                 setSearchQuery={setSearchQuery}
             />
 
-            <div className="customer-card-container">
+            <div className="cards-container">
                 {filteredCbcrReports.map((report: CbcrReportResponse) => (
                     <CbcrReportCard
                         key={report.id}

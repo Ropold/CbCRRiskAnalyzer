@@ -26,16 +26,10 @@ export type CbcrReportBasicInfo = {
     profitBeforeTax?: number;
 }
 
-export type CbcrReportResponse = {
-    id: string;
-    company: CompanyBasicInfo;
-    reportingYear: number;
+export type CbcrReportResponse = CbcrReportBasicInfo & {
     fiscalYearEnd?: string;
-    country: CountryBasicInfo;
     revenuesUnrelatedParty?: number;
     revenuesRelatedParty?: number;
-    revenuesTotal?: number;
-    profitBeforeTax?: number;
     incomeTaxPaid?: number;
     incomeTaxAccrued?: number;
     effectiveTaxRate?: number;
