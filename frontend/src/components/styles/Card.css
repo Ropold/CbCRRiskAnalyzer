@@ -17,3 +17,44 @@
     box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.8);
     cursor: pointer;
 }
+
+.country-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 0 auto; /* Horizontal zentrieren */
+    max-width: 1400px;
+}
+
+.country-card {
+    cursor: pointer;
+    height: 150px;
+    width: 150px;
+    border: 2px solid #007bff;
+    border-radius: 12px;
+    padding: 10px;
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.country-card:hover {
+    border-color: #007bff;
+    transform: scale(1.03); /* Skaliert das Bild leicht beim Hover */
+    box-shadow: 1px 4px 20px rgba(0, 0, 0, 0.8); /* Leichter Schatten bei Hover */
+    cursor: pointer;
+}
+
+.country-card-image {
+    width: 100px; /* Bild passt sich der Breite an */
+    max-height: 70px;
+    object-fit: cover; /* Bild wird vollständig angezeigt */
+    border: 2px solid black; /* Border um das Bild */
+    border-radius: 5px;
+}
