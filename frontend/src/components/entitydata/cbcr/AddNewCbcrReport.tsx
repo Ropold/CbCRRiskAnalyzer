@@ -5,6 +5,7 @@ import type {CountryModel} from "../../models/CountryModel.ts";
 import axios from "axios";
 import CbcrForm from "./CbcrForm.tsx";
 import {useCbcrReportForm} from "../../utils/useCbcrReportForm.ts";
+import {buildCbcrReportPayload} from "../../utils/cbcrReportHelpers.ts";
 
 type AddNewCbcrReportProps = {
    language: string;
@@ -22,30 +23,19 @@ export default function AddNewCbcrReport(props: Readonly<AddNewCbcrReportProps>)
     function handleNewAddSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
 
-        // Find the selected company and country objects
-        const selectedCompany = props.companies.find(c => c.id === formStateCbcr.companyId);
-        const selectedCountry = props.countries.find(c => c.id === formStateCbcr.countryId);
+        try {
+            const newCbcrReport = buildCbcrReportPayload(formStateCbcr, props.companies, props.countries);
 
-        if (!selectedCompany || !selectedCountry) {
-            console.error("Company or Country not found");
-            return;
+            axios
+                .post('/api/cbcr-reports', newCbcrReport)
+                .then((response) => {
+                    props.handleNewCbcrReportSubmit(response.data);
+                    navigate(`/entity-data/cbcr-reports/${response.data.id}`);
+                })
+                .catch((error) => console.error("Error creating Cbcr report", error));
+        } catch (error) {
+            console.error(error);
         }
-
-        const {companyId, countryId, ...reportData} = formStateCbcr;
-
-        const newCbcrReport = {
-            ...reportData,
-            company: selectedCompany,
-            country: selectedCountry
-        }
-
-        axios
-            .post('/api/cbcr-reports', newCbcrReport)
-            .then((response) => {
-                props.handleNewCbcrReportSubmit(response.data);
-                navigate(`/entity-data/cbcr-reports/${response.data.id}`);
-            })
-            .catch((error) => console.error("Error creating Cbcr report", error));
     }
 
     const backNavigationPath = '/cbcr-reports';

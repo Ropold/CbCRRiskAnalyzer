@@ -7,6 +7,7 @@ import {useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
 import CbcrForm from "./CbcrForm.tsx";
 import {useCbcrReportForm} from "../../utils/useCbcrReportForm.ts";
+import {buildCbcrReportPayload} from "../../utils/cbcrReportHelpers.ts";
 
 
 type EditCbcrReportProps = {
@@ -61,30 +62,19 @@ export default function EditCbcrReport(props: Readonly<EditCbcrReportProps>){
         e.preventDefault();
         if(!cbcrReport || cbcrReport === defaultCbcrReport) return;
 
-        // Find the selected company and country objects
-        const selectedCompany = props.companies.find(c => c.id === formStateCbcr.companyId);
-        const selectedCountry = props.countries.find(c => c.id === formStateCbcr.countryId);
+        try {
+            const updatedCbcrReport = buildCbcrReportPayload(formStateCbcr, props.companies, props.countries);
 
-        if (!selectedCompany || !selectedCountry) {
-            console.error("Company or Country not found");
-            return;
+            axios
+                .put(`/api/cbcr-reports/${cbcrReport.id}`, updatedCbcrReport)
+                .then((response) => {
+                    props.handleCbcrReportUpdate(response.data);
+                    navigate(`/cbcr-reports/${cbcrReport.id}`);
+                })
+                .catch((error) => console.error("Error updating Cbcr report", error));
+        } catch (error) {
+            console.error(error);
         }
-
-        const {companyId, countryId, ...reportData} = formStateCbcr;
-
-        const updatedCbcrReport = {
-            ...reportData,
-            company: selectedCompany,
-            country: selectedCountry
-        }
-
-        axios
-            .put(`/api/cbcr-reports/${cbcrReport.id}`, updatedCbcrReport)
-            .then((response) => {
-                props.handleCbcrReportUpdate(response.data);
-                navigate(`/cbcr-reports/${cbcrReport.id}`);
-            })
-            .catch((error) => console.error("Error updating Cbcr report", error));
     }
 
     const backNavigationPath = cbcrReport?.id
