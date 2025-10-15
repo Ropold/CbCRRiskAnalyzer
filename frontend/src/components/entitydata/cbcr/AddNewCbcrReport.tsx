@@ -31,30 +31,12 @@ export default function AddNewCbcrReport(props: Readonly<AddNewCbcrReportProps>)
             return;
         }
 
+        const {companyId, countryId, ...reportData} = formStateCbcr;
+
         const newCbcrReport = {
+            ...reportData,
             company: selectedCompany,
-            reportingYear: formStateCbcr.reportingYear,
-            fiscalYearEnd: formStateCbcr.fiscalYearEnd,
-            country: selectedCountry,
-            revenuesUnrelatedParty: formStateCbcr.revenuesUnrelatedParty,
-            revenuesRelatedParty: formStateCbcr.revenuesRelatedParty,
-            revenuesTotal: formStateCbcr.revenuesTotal,
-            profitBeforeTax: formStateCbcr.profitBeforeTax,
-            incomeTaxPaid: formStateCbcr.incomeTaxPaid,
-            incomeTaxAccrued: formStateCbcr.incomeTaxAccrued,
-            effectiveTaxRate: formStateCbcr.effectiveTaxRate,
-            expectedTaxRate: formStateCbcr.expectedTaxRate,
-            statedCapital: formStateCbcr.statedCapital,
-            accumulatedEarnings: formStateCbcr.accumulatedEarnings,
-            tangibleAssets: formStateCbcr.tangibleAssets,
-            intangibleAssets: formStateCbcr.intangibleAssets,
-            numberOfEmployees: formStateCbcr.numberOfEmployees,
-            revenuePerEmployee: formStateCbcr.revenuePerEmployee,
-            commentReference: formStateCbcr.commentReference,
-            taxExplanation: formStateCbcr.taxExplanation,
-            dataSource: formStateCbcr.dataSource,
-            auditStatus: formStateCbcr.auditStatus,
-            businessActivities: formStateCbcr.businessActivities
+            country: selectedCountry
         }
 
         axios
