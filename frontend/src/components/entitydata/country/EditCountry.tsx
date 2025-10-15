@@ -1,8 +1,9 @@
-import type {CountryModel, JurisdictionType, BlacklistStatus} from "../../models/CountryModel.ts";
+import type {CountryModel} from "../../models/CountryModel.ts";
 import {useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
 import CountryForm from "./CountryForm.tsx";
+import {useCountryForm} from "../../utils/useCountryForm.ts";
 
 type EditCountryProps = {
     language: string;
@@ -14,16 +15,7 @@ export default function EditCountry(props: Readonly<EditCountryProps>){
     const {id} = useParams<{id: string}>();
     const navigate = useNavigate();
 
-    const [countryCode, setCountryCode] = useState<string>("");
-    const [countryName, setCountryName] = useState<string>("");
-    const [region, setRegion] = useState<string | undefined>(undefined);
-    const [jurisdictionType, setJurisdictionType] = useState<JurisdictionType | undefined>(undefined);
-    const [taxHaven, setTaxHaven] = useState<boolean>(false);
-    const [expectedTaxRate, setExpectedTaxRate] = useState<number | undefined>(undefined);
-    const [statutoryTaxRate, setStatutoryTaxRate] = useState<number | undefined>(undefined);
-    const [isEuMember, setIsEuMember] = useState<boolean>(false);
-    const [isOecdMember, setIsOecdMember] = useState<boolean>(false);
-    const [blacklistStatus, setBlacklistStatus] = useState<BlacklistStatus | undefined>(undefined);
+    const formStateCountry = useCountryForm();
 
     useEffect(() => {
         if(!id) return;
@@ -32,16 +24,16 @@ export default function EditCountry(props: Readonly<EditCountryProps>){
             .then((response) => {
                 const data = response.data;
                 setCountry(data);
-                setCountryCode(data.countryCode);
-                setCountryName(data.countryName);
-                setRegion(data.region);
-                setJurisdictionType(data.jurisdictionType);
-                setTaxHaven(data.taxHaven);
-                setExpectedTaxRate(data.expectedTaxRate);
-                setStatutoryTaxRate(data.statutoryTaxRate);
-                setIsEuMember(data.isEuMember);
-                setIsOecdMember(data.isOecdMember);
-                setBlacklistStatus(data.blacklistStatus);
+                formStateCountry.setCountryCode(data.countryCode);
+                formStateCountry.setCountryName(data.countryName);
+                formStateCountry.setRegion(data.region);
+                formStateCountry.setJurisdictionType(data.jurisdictionType);
+                formStateCountry.setTaxHaven(data.taxHaven);
+                formStateCountry.setExpectedTaxRate(data.expectedTaxRate);
+                formStateCountry.setStatutoryTaxRate(data.statutoryTaxRate);
+                formStateCountry.setIsEuMember(data.isEuMember);
+                formStateCountry.setIsOecdMember(data.isOecdMember);
+                formStateCountry.setBlacklistStatus(data.blacklistStatus);
             })
             .catch((error) => console.error("Error fetching Country Details", error));
     }, [id])
@@ -51,16 +43,16 @@ export default function EditCountry(props: Readonly<EditCountryProps>){
         if (!country) return;
 
         const updatedCountry = {
-            countryCode,
-            countryName,
-            region,
-            jurisdictionType,
-            taxHaven,
-            expectedTaxRate,
-            statutoryTaxRate,
-            isEuMember,
-            isOecdMember,
-            blacklistStatus
+            countryCode: formStateCountry.countryCode,
+            countryName: formStateCountry.countryName,
+            region: formStateCountry.region,
+            jurisdictionType: formStateCountry.jurisdictionType,
+            taxHaven: formStateCountry.taxHaven,
+            expectedTaxRate: formStateCountry.expectedTaxRate,
+            statutoryTaxRate: formStateCountry.statutoryTaxRate,
+            isEuMember: formStateCountry.isEuMember,
+            isOecdMember: formStateCountry.isOecdMember,
+            blacklistStatus: formStateCountry.blacklistStatus
         };
 
         axios
@@ -80,26 +72,26 @@ export default function EditCountry(props: Readonly<EditCountryProps>){
                 language={props.language}
                 backNavigationPath={backNavigationPath}
                 handleSubmit={handleSaveEdit}
-                countryCode={countryCode}
-                setCountryCode={setCountryCode}
-                countryName={countryName}
-                setCountryName={setCountryName}
-                region={region}
-                setRegion={setRegion}
-                jurisdictionType={jurisdictionType}
-                setJurisdictionType={setJurisdictionType}
-                taxHaven={taxHaven}
-                setTaxHaven={setTaxHaven}
-                expectedTaxRate={expectedTaxRate}
-                setExpectedTaxRate={setExpectedTaxRate}
-                statutoryTaxRate={statutoryTaxRate}
-                setStatutoryTaxRate={setStatutoryTaxRate}
-                isEuMember={isEuMember}
-                setIsEuMember={setIsEuMember}
-                isOecdMember={isOecdMember}
-                setIsOecdMember={setIsOecdMember}
-                blacklistStatus={blacklistStatus}
-                setBlacklistStatus={setBlacklistStatus}
+                countryCode={formStateCountry.countryCode}
+                setCountryCode={formStateCountry.setCountryCode}
+                countryName={formStateCountry.countryName}
+                setCountryName={formStateCountry.setCountryName}
+                region={formStateCountry.region}
+                setRegion={formStateCountry.setRegion}
+                jurisdictionType={formStateCountry.jurisdictionType}
+                setJurisdictionType={formStateCountry.setJurisdictionType}
+                taxHaven={formStateCountry.taxHaven}
+                setTaxHaven={formStateCountry.setTaxHaven}
+                expectedTaxRate={formStateCountry.expectedTaxRate}
+                setExpectedTaxRate={formStateCountry.setExpectedTaxRate}
+                statutoryTaxRate={formStateCountry.statutoryTaxRate}
+                setStatutoryTaxRate={formStateCountry.setStatutoryTaxRate}
+                isEuMember={formStateCountry.isEuMember}
+                setIsEuMember={formStateCountry.setIsEuMember}
+                isOecdMember={formStateCountry.isOecdMember}
+                setIsOecdMember={formStateCountry.setIsOecdMember}
+                blacklistStatus={formStateCountry.blacklistStatus}
+                setBlacklistStatus={formStateCountry.setBlacklistStatus}
             />
         </div>
     )
