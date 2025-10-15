@@ -43,7 +43,7 @@ export default function Companies(props: Readonly<CompaniesProps>) {
                 setSearchQuery={setSearchQuery}
             />
 
-            <div className="cards-container">
+            <div className="country-company-card-container">
                 {filteredCompanies.map((company) => (
                     <CompanyCard
                         key={company.id}

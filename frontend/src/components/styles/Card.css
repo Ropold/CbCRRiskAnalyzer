@@ -1,8 +1,4 @@
 .card-overview{
-    /*display: flex;*/
-    /*flex-direction: row;*/
-    /*align-items: center;*/
-    /*justify-content: center;*/
     gap: 20px;
     border: 2px solid #66b3ff;
     border-radius: 12px;
@@ -18,7 +14,7 @@
     cursor: pointer;
 }
 
-.country-card-container {
+.country-company-card-container {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -27,10 +23,10 @@
     max-width: 1400px;
 }
 
-.country-card {
+.country-company-card {
     cursor: pointer;
-    height: 150px;
-    width: 150px;
+    height: 180px;
+    width: 180px;
     border: 2px solid #007bff;
     border-radius: 12px;
     padding: 10px;
@@ -44,14 +40,14 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.country-card:hover {
+.country-company-card:hover {
     border-color: #007bff;
     transform: scale(1.03); /* Skaliert das Bild leicht beim Hover */
     box-shadow: 1px 4px 20px rgba(0, 0, 0, 0.8); /* Leichter Schatten bei Hover */
     cursor: pointer;
 }
 
-.country-card-image {
+.country-company-card-image {
     width: 100px; /* Bild passt sich der Breite an */
     max-height: 70px;
     object-fit: cover; /* Bild wird vollständig angezeigt */

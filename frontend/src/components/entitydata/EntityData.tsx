@@ -1,6 +1,10 @@
 import {useNavigate} from "react-router-dom";
 
-export default function EntityData(){
+type EntityDataProps = {
+    language: string;
+}
+
+export default function EntityData(props: Readonly<EntityDataProps>){
     const navigate = useNavigate();
 
     return(
@@ -14,6 +18,7 @@ export default function EntityData(){
 
             <h2>Entity Data</h2>
             <p>This is the Entity Data page.</p>
+            <p>{props.language}</p>
         </div>
     )
 }

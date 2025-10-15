@@ -134,7 +134,7 @@ class CompanyControllerIntegrationTest {
 
         mockMvc.perform(multipart("/api/companies")
                         .file(new MockMultipartFile("image", "image.jpg", "image/jpeg", "image".getBytes()))
-                        .file(new MockMultipartFile("customerModel", "", "application/json", """
+                        .file(new MockMultipartFile("companyModel", "", "application/json", """
               {
                 "name": "Test Company GmbH",
                 "industry": "Technology",
@@ -157,7 +157,7 @@ class CompanyControllerIntegrationTest {
     void testAddCompany_Unauthenticated_ShouldReturnForbidden() throws Exception {
         mockMvc.perform(multipart("/api/companies")
                         .file(new MockMultipartFile("image", "image.jpg", "image/jpeg", "image".getBytes()))
-                        .file(new MockMultipartFile("customerModel", "", "application/json", """
+                        .file(new MockMultipartFile("companyModel", "", "application/json", """
               {
                 "name": "Test Company GmbH",
                 "industry": "Technology",

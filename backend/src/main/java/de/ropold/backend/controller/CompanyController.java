@@ -38,7 +38,7 @@ public class CompanyController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public CompanyModel addCompany(
-            @RequestPart("customerModel") CompanyModel companyModel,
+            @RequestPart("companyModel") CompanyModel companyModel,
             @RequestPart(value = "image", required = false) MultipartFile image,
             @AuthenticationPrincipal OAuth2User authentication) throws IOException {
 
