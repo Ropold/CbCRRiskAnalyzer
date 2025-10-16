@@ -1,9 +1,20 @@
+import type {RiskAssessmentModel} from "../../models/RiskAssessmentModel.ts";
+import {useNavigate} from "react-router-dom";
 
-export default function RiskAssessmentCard(){
+type RiskAssessmentCardProps = {
+    riskAssessment: RiskAssessmentModel;
+    language: string;
+}
+
+export default function RiskAssessmentCard(props: Readonly<RiskAssessmentCardProps>) {
+    const navigate = useNavigate();
+    const handleCardClick = () => {
+        navigate(`/entity-data/risk-assessments/${props.riskAssessment.id}`);
+    }
+
     return(
-        <div>
-            <h2>Risk Assessment Card</h2>
-            <p>This is the Risk Assessment Card page.</p>
+        <div className="card-overview" onClick={handleCardClick}>
+            <h2>{props.riskAssessment.id}</h2>
         </div>
     )
 }
