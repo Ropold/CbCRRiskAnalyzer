@@ -12,7 +12,6 @@ import Profile from "./components/Profile.tsx";
 import type {AuditLogModel} from "./components/models/AuditLogModel.ts";
 import type {CompanyModel} from "./components/models/CompanyModel.ts";
 import type {RiskAssessmentResponse} from "./components/dto/RiskAssessmentResponse.ts";
-import type {SubsidiaryModel} from "./components/models/SubsidiaryModel.ts";
 import EntityData from "./components/entitydata/EntityData.tsx";
 import Insert from "./components/Insert.tsx";
 import CbcrReportDetails from "./components/entitydata/cbcr/CbcrReportDetails.tsx";
@@ -38,6 +37,7 @@ import SubsidiaryDetails from "./components/entitydata/subsidiary/SubsidiaryDeta
 import EditSubsidiary from "./components/entitydata/subsidiary/EditSubsidiary.tsx";
 import AuditLogDetails from "./components/auditlog/AuditLogDetails.tsx";
 import AuditLogs from "./components/auditlog/AuditLogs.tsx";
+import type {SubsidiaryResponse} from "./components/dto/SubsidiaryResponse.ts";
 
 export default function App() {
     const [user, setUser] = useState<string>("anonymousUser");
@@ -48,7 +48,7 @@ export default function App() {
     const [cbcrReportsResponse, setCbcrReportsResponse] = useState<CbcrReportResponse[]>([]);
     const [companies, setCompanies] = useState<CompanyModel[]>([]);
     const [riskAssessments, setRiskAssessments] = useState<RiskAssessmentResponse[]>([]);
-    const [subsidiaries, setSubsidiaries] = useState<SubsidiaryModel[]>([]);
+    const [subsidiaries, setSubsidiaries] = useState<SubsidiaryResponse[]>([]);
     const [countries, setCountries]= useState<CountryModel[]>([]);
 
     function getUser() {
@@ -116,7 +116,7 @@ export default function App() {
     function getAllSubsidiaries() {
         axios.get("/api/subsidiaries")
             .then((response) => {
-                setSubsidiaries(response.data as SubsidiaryModel[]);
+                setSubsidiaries(response.data as SubsidiaryResponse[]);
             })
             .catch((error) => {
                 console.error("Error fetching subsidiaries:", error);
@@ -165,7 +165,7 @@ export default function App() {
         setRiskAssessments((prevRiskAssessments) => [...prevRiskAssessments, newRiskAssessment]);
     }
 
-    function handleNewSubsidiarySubmit(newSubsidiary: SubsidiaryModel) {
+    function handleNewSubsidiarySubmit(newSubsidiary: SubsidiaryResponse) {
         setSubsidiaries((prevSubsidiaries) => [...prevSubsidiaries, newSubsidiary]);
     }
 
@@ -201,7 +201,7 @@ export default function App() {
         );
     }
 
-    function handleSubsidiaryUpdate(updatedSubsidiary: SubsidiaryModel) {
+    function handleSubsidiaryUpdate(updatedSubsidiary: SubsidiaryResponse) {
         setSubsidiaries((prevSubsidiaries) =>
             prevSubsidiaries.map((subsidiary) =>
                 subsidiary.id === updatedSubsidiary.id ? updatedSubsidiary : subsidiary
@@ -267,7 +267,7 @@ export default function App() {
                   <Route path="/insert/add-new-cbcr-report" element={<AddNewCbcrReport language={language} handleNewCbcrReportSubmit={handleNewCbcrReportSubmit} companies={companies} countries={countries}/>} />
                   <Route path="/insert/add-new-country" element={<AddNewCountry language={language} handleNewCountrySubmit={handleNewCountrySubmit}/>} />
                   <Route path="/insert/add-new-risk-assessment" element={<AddNewRiskAssessment language={language} handleNewRiskAssessmentSubmit={handleNewRiskAssessmentSubmit} cbcrReportsResponse={cbcrReportsResponse} riskAssessments={riskAssessments} />} />
-                  <Route path="/insert/add-new-subsidiary" element={<AddNewSubsidiary language={language} handleNewSubsidiarySubmit={handleNewSubsidiarySubmit}/>} />
+                  <Route path="/insert/add-new-subsidiary" element={<AddNewSubsidiary language={language} handleNewSubsidiarySubmit={handleNewSubsidiarySubmit} companies={companies} countries={countries}/>} />
                   <Route path="/profile" element={<Profile language={language} user={user} userDetails={userDetails} setLanguage={setLanguage}/>} />
                   <Route path="/profile/audit-logs" element={<AuditLogs language={language} auditLogs={auditLogs} />} />
                   <Route path="/profile/audit-logs/:id" element={<AuditLogDetails language={language} auditLogs={auditLogs} />} />
