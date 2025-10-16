@@ -82,6 +82,9 @@ export default function CountryDetails(props: Readonly<CountryDetailsProps>){
                     <div className="details-buttons">
                         <button className="button-blue" onClick={() => navigate(`/entity-data/countries/${country.id}/edit`)}>Edit</button>
                         <button className="button-delete" onClick={() => setShowPopup(true)}>Delete</button>
+                        <button className="button-blue" onClick={() => navigate("/entity-data/countries")}>
+                            Back to List
+                        </button>
                     </div>
 
                     {showPopup && (

@@ -1,4 +1,3 @@
-import type {RiskAssessmentModel} from "../../models/RiskAssessmentModel.ts";
 import {useRiskAssessmentForm} from "../../utils/useRiskAssessmentForm.ts";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";

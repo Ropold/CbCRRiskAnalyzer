@@ -1,4 +1,4 @@
-import type {RiskAssessmentModel} from "../../models/RiskAssessmentModel.ts";
+import type {RiskAssessmentResponse} from "../../dto/RiskAssessmentResponse.ts";
 import {useAutoScrollToTop} from "../../utils/ComponentsFunctions.tsx";
 import {useEffect, useState} from "react";
 import SearchBar from "../../SearchBar.tsx";
@@ -6,15 +6,15 @@ import RiskAssessmentCard from "./RiskAssessmentCard.tsx";
 
 type RiskAssessmentProps = {
     language: string;
-    riskAssessments: RiskAssessmentModel[];
+    riskAssessments: RiskAssessmentResponse[];
 }
 
 export default function RiskAssessments(props: Readonly<RiskAssessmentProps>) {
     useAutoScrollToTop()
     const [searchQuery, setSearchQuery] = useState<string>("");
-    const [filteredRiskAssessments, setFilteredRiskAssessments] = useState<RiskAssessmentModel[]>([]);
+    const [filteredRiskAssessments, setFilteredRiskAssessments] = useState<RiskAssessmentResponse[]>([]);
 
-    function filterRiskAssessments(riskAssessments: RiskAssessmentModel[], query: string): RiskAssessmentModel[] {
+    function filterRiskAssessments(riskAssessments: RiskAssessmentResponse[], query: string): RiskAssessmentResponse[] {
         if (!riskAssessments) return [];
         if (!query.trim()) return riskAssessments;
 
@@ -22,7 +22,9 @@ export default function RiskAssessments(props: Readonly<RiskAssessmentProps>) {
         return riskAssessments.filter(assessment => {
             return (
                 assessment.id.toLowerCase().includes(searchQuery) ||
-                assessment.cbcrReportId.toLowerCase().includes(searchQuery) ||
+                assessment.cbcrReport.id.toLowerCase().includes(searchQuery) ||
+                assessment.cbcrReport.company.name.toLowerCase().includes(searchQuery) ||
+                assessment.cbcrReport.country.countryName.toLowerCase().includes(searchQuery) ||
                 assessment.overallRiskLevel?.toLowerCase().includes(searchQuery) ||
                 assessment.riskScore?.toString().includes(searchQuery) ||
                 assessment.riskExplanation?.toLowerCase().includes(searchQuery) ||
@@ -44,7 +46,7 @@ export default function RiskAssessments(props: Readonly<RiskAssessmentProps>) {
             />
 
             <div className="cards-container">
-                {filteredRiskAssessments.map((assessment:RiskAssessmentModel) => (
+                {filteredRiskAssessments.map((assessment:RiskAssessmentResponse) => (
                     <RiskAssessmentCard
                         key={assessment.id}
                         riskAssessment={assessment}

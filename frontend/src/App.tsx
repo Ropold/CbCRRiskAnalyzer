@@ -258,7 +258,7 @@ export default function App() {
                   <Route path="/entity-data/countries/:id/edit" element={<EditCountry language={language} handleCountryUpdate={handleCountryUpdate}/>} />
                   <Route path="/entity-data/risk-assessments" element={<RiskAssessments language={language} riskAssessments={riskAssessments} />} />
                   <Route path="/entity-data/risk-assessments/:id" element={<RiskAssessmentDetails language={language} handleRiskAssessmentDelete={handleRiskAssessmentDelete}/>} />
-                  <Route path="/entity-data/risk-assessments/:id/edit" element={<EditRiskAssessment language={language} handleRiskAssessmentUpdate={handleRiskAssessmentUpdate} cbcrReportsResponse={cbcrReportsResponse}/>} />
+                  <Route path="/entity-data/risk-assessments/:id/edit" element={<EditRiskAssessment language={language} handleRiskAssessmentUpdate={handleRiskAssessmentUpdate} cbcrReportsResponse={cbcrReportsResponse} />} />
                   <Route path="/entity-data/subsidiaries" element={<Subsidiaries language={language} subsidiaries={subsidiaries} />} />
                   <Route path="/entity-data/subsidiaries/:id" element={<SubsidiaryDetails language={language} handleSubsidiaryDelete={handleSubsidiaryDelete}/>} />
                   <Route path="/entity-data/subsidiaries/:id/edit" element={<EditSubsidiary language={language} handleSubsidiaryUpdate={handleSubsidiaryUpdate}/>} />

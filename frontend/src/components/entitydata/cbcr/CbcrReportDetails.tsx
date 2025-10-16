@@ -89,8 +89,11 @@ export default function CbcrReportDetails(props: Readonly<CbcrReportDetailsProps
                     <p><strong>Updated At:</strong> {new Date(cbcrReportResponse.updatedAt).toLocaleString()}</p>
 
                     <div className="details-buttons">
-                        <button className="button-blue" onClick={() => navigate(`/cbcr-reports/${cbcrReportResponse.id}/edit`)}>Edit</button>
+                        <button className="button-blue" onClick={() => navigate(`/entity-data/cbcr-reports/${cbcrReportResponse.id}/edit`)}>Edit</button>
                         <button className="button-delete" onClick={() => setShowPopup(true)}>Delete</button>
+                        <button className="button-blue" onClick={() => navigate("/entity-data/cbcr-reports")}>
+                            Back to List
+                        </button>
                     </div>
 
                     {showPopup && (
