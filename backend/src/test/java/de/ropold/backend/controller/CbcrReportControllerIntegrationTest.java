@@ -6,6 +6,8 @@ import de.ropold.backend.model.CountryModel;
 import de.ropold.backend.repository.CbcrReportRepository;
 import de.ropold.backend.repository.CompanyRepository;
 import de.ropold.backend.repository.CountryRepository;
+import de.ropold.backend.repository.SubsidiaryRepository;
+import de.ropold.backend.repository.RiskAssessmentRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,6 +52,12 @@ class CbcrReportControllerIntegrationTest {
     private CountryRepository countryRepository;
 
     @Autowired
+    private SubsidiaryRepository subsidiaryRepository;
+
+    @Autowired
+    private RiskAssessmentRepository riskAssessmentRepository;
+
+    @Autowired
     private ObjectMapper objectMapper;
 
     private CompanyModel testCompany;
@@ -60,9 +68,12 @@ class CbcrReportControllerIntegrationTest {
 
     @BeforeEach
     void setUp() {
-        cbcrReportRepository.deleteAll();
-        companyRepository.deleteAll();
-        countryRepository.deleteAll();
+        // Delete in correct order: Child entities first, then parents
+        riskAssessmentRepository.deleteAll();  // References cbcrReports
+        cbcrReportRepository.deleteAll();       // References companies and countries
+        subsidiaryRepository.deleteAll();       // References companies and countries
+        companyRepository.deleteAll();          // References countries (headquarters)
+        countryRepository.deleteAll();          // No dependencies
 
         // Create test company
         testCompany = new CompanyModel(
