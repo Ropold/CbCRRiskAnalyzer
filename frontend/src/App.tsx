@@ -9,7 +9,6 @@ import axios from "axios";
 import CbcrReports from "./components/entitydata/cbcr/CbcrReports.tsx";
 import {DefaultUser, type UserModel} from "./components/models/UserModel.ts";
 import Profile from "./components/Profile.tsx";
-import type {AuditLogModel} from "./components/models/AuditLogModel.ts";
 import type {CompanyModel} from "./components/models/CompanyModel.ts";
 import type {RiskAssessmentResponse} from "./components/dto/RiskAssessmentResponse.ts";
 import EntityData from "./components/entitydata/EntityData.tsx";
@@ -38,13 +37,14 @@ import EditSubsidiary from "./components/entitydata/subsidiary/EditSubsidiary.ts
 import AuditLogDetails from "./components/auditlog/AuditLogDetails.tsx";
 import AuditLogs from "./components/auditlog/AuditLogs.tsx";
 import type {SubsidiaryResponse} from "./components/dto/SubsidiaryResponse.ts";
+import type {AuditLogResponse} from "./components/dto/AuditLogResponse.ts";
 
 export default function App() {
     const [user, setUser] = useState<string>("anonymousUser");
     const [userDetails, setUserDetails] = useState<UserModel | null>(DefaultUser);
     const [language, setLanguage] = useState<string>("de");
 
-    const [auditLogs, setAuditLogs] = useState<AuditLogModel[]>([]);
+    const [auditLogs, setAuditLogs] = useState<AuditLogResponse[]>([]);
     const [cbcrReportsResponse, setCbcrReportsResponse] = useState<CbcrReportResponse[]>([]);
     const [companies, setCompanies] = useState<CompanyModel[]>([]);
     const [riskAssessments, setRiskAssessments] = useState<RiskAssessmentResponse[]>([]);
@@ -76,7 +76,7 @@ export default function App() {
     function getAllAuditLogs() {
         axios.get("/api/audit-logs")
             .then((response) => {
-                setAuditLogs(response.data as AuditLogModel[]);
+                setAuditLogs(response.data as AuditLogResponse[]);
             })
             .catch((error) => {
                 console.error("Error fetching audit logs:", error);
@@ -270,7 +270,7 @@ export default function App() {
                   <Route path="/insert/add-new-subsidiary" element={<AddNewSubsidiary language={language} handleNewSubsidiarySubmit={handleNewSubsidiarySubmit} companies={companies} countries={countries}/>} />
                   <Route path="/profile" element={<Profile language={language} user={user} userDetails={userDetails} setLanguage={setLanguage}/>} />
                   <Route path="/profile/audit-logs" element={<AuditLogs language={language} auditLogs={auditLogs} />} />
-                  <Route path="/profile/audit-logs/:id" element={<AuditLogDetails language={language} auditLogs={auditLogs} />} />
+                  <Route path="/profile/audit-logs/:id" element={<AuditLogDetails language={language} />} />
               </Route>
       </Routes>
     </>

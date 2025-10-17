@@ -5,6 +5,7 @@ import "./styles/Popup.css"
 import axios from "axios";
 import {LanguagesImages} from "./utils/FlagImages.ts";
 import {translatedInfo} from "./utils/TranslatedInfo.ts";
+import {useNavigate} from "react-router-dom";
 
 type ProfileProps = {
     language: string;
@@ -26,11 +27,13 @@ function setPreferredLanguage(languageIso: string) {
 export default function Profile(props: Readonly<ProfileProps>) {
 
     const [showLanguagePopup, setShowLanguagePopup] = React.useState(false);
+    const navigate = useNavigate();
 
     return (
         <>
             <h2>Profile</h2>
             <div className="change-language-container">
+                <button className="button-blue" onClick={() => navigate("/profile/audit-logs")}>AuditLogs</button>
                 <p className="margin-right-5">Change Language:</p>
                 <div
                     className="clickable-header"
