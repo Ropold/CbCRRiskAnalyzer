@@ -261,7 +261,7 @@ export default function App() {
                   <Route path="/entity-data/risk-assessments/:id/edit" element={<EditRiskAssessment language={language} handleRiskAssessmentUpdate={handleRiskAssessmentUpdate} cbcrReportsResponse={cbcrReportsResponse} />} />
                   <Route path="/entity-data/subsidiaries" element={<Subsidiaries language={language} subsidiaries={subsidiaries} />} />
                   <Route path="/entity-data/subsidiaries/:id" element={<SubsidiaryDetails language={language} handleSubsidiaryDelete={handleSubsidiaryDelete}/>} />
-                  <Route path="/entity-data/subsidiaries/:id/edit" element={<EditSubsidiary language={language} handleSubsidiaryUpdate={handleSubsidiaryUpdate}/>} />
+                  <Route path="/entity-data/subsidiaries/:id/edit" element={<EditSubsidiary language={language} handleSubsidiaryUpdate={handleSubsidiaryUpdate} companies={companies} countries={countries}/>} />
                   <Route path="/insert" element={<Insert language={language} />} />
                   <Route path="/insert/add-new-company" element={<AddNewCompany language={language} handleNewCompanySubmit={handleNewCompanySubmit} companies={companies}/>} />
                   <Route path="/insert/add-new-cbcr-report" element={<AddNewCbcrReport language={language} handleNewCbcrReportSubmit={handleNewCbcrReportSubmit} companies={companies} countries={countries}/>} />

@@ -89,6 +89,7 @@ export default function CbcrReports(props: Readonly<CbcrReportsProps>) {
 
     return (
         <>
+            <h2>Cbcr Reports</h2>
             <SearchBar
                 searchQuery={searchQuery}
                 setSearchQuery={setSearchQuery}

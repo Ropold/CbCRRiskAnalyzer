@@ -40,6 +40,7 @@ export default function Subsidiaries(props: Readonly<SubsidiariesProps>){
 
     return(
         <div>
+            <h2>Subsidiaries</h2>
             <SearchBar
                 searchQuery={searchQuery}
                 setSearchQuery={setSearchQuery}

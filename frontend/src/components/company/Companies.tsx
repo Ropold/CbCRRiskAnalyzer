@@ -38,6 +38,7 @@ export default function Companies(props: Readonly<CompaniesProps>) {
 
     return(
         <>
+            <h2>Companies</h2>
             <SearchBar
                 searchQuery={searchQuery}
                 setSearchQuery={setSearchQuery}

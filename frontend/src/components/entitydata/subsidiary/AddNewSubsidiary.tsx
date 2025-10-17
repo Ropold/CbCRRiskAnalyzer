@@ -5,6 +5,7 @@ import {useSubsidiaryForm} from "../../utils/useSubsidiaryForm.ts";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import {buildSubsidiaryPayload} from "../../utils/subsidiaryHelpers.ts";
+import SubsidiaryForm from "./SubsidiaryForm.tsx";
 
 type AddNewSubsidiaryPros = {
     language: string;
@@ -40,7 +41,14 @@ export default function AddNewSubsidiary(props: Readonly<AddNewSubsidiaryPros>) 
 
     return(
         <div>
-            <h2>Add New Subsidiary</h2>
+            <SubsidiaryForm
+                language={props.language}
+                backNavigationPath={backNavigationPath}
+                handleSubmit={handleNewAddSubmit}
+                companies={props.companies}
+                countries={props.countries}
+                {...formStateSubsidiary}
+            />
         </div>
     )
 }

@@ -15,6 +15,10 @@ export default function SubsidiaryCard(props: Readonly<SubsidiaryCardProps>) {
     return(
         <div className="card-overview" onClick={handleCardClick}>
             <h2>{props.subsidiary.name}</h2>
+            <p><strong>Company:</strong> {props.subsidiary.company.name}</p>
+            <p><strong>Country:</strong> {props.subsidiary.country.countryName}</p>
+            <p><strong>Entity Type:</strong> {props.subsidiary.entityType}</p>
+            <p><strong>Main Activity:</strong> {props.subsidiary.mainBusinessActivity}</p>
         </div>
     )
 }

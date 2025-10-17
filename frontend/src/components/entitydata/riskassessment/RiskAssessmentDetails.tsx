@@ -45,15 +45,12 @@ export default function RiskAssessmentDetails(props: Readonly<RiskAssessmentDeta
         setShowPopup(false);
     }
 
-    if (!riskAssessment) {
-        return <div>Loading...</div>;
-    }
-
     return(
         <div>
             <h2>Risk Assessment Details</h2>
-
-            <div className="detail-section">
+            {riskAssessment ? (
+                <div className="details-container">
+                    <div className="detail-section">
                 <h3>CbCR Report Information</h3>
                 <p><strong>Company:</strong> {riskAssessment.cbcrReport.company.name}</p>
                 <p><strong>Country:</strong> {riskAssessment.cbcrReport.country.countryName}</p>
@@ -101,25 +98,33 @@ export default function RiskAssessmentDetails(props: Readonly<RiskAssessmentDeta
                 <p><strong>Updated At:</strong> {new Date(riskAssessment.updatedAt).toLocaleString()}</p>
             </div>
 
-            <button className="button-blue" onClick={() => navigate(`/entity-data/risk-assessments/${riskAssessment.id}/edit`)}>
-                Edit
-            </button>
-            <button className="button-delete margin-left-20" onClick={() => setShowPopup(true)}>
-                Delete
-            </button>
-            <button className="button-blue margin-left-20" onClick={() => navigate("/entity-data/risk-assessments")}>
-                Back to List
-            </button>
-
-            {showPopup && (
-                <div className="popup-overlay">
-                    <div className="popup-content">
-                        <h3>Confirm Deletion</h3>
-                        <p>Are you sure you want to delete this Risk Assessment?</p>
-                        <button className="button-blue" onClick={handleConfirmDelete}>Yes, Delete</button>
-                        <button className="button-blue margin-left-20" onClick={handleCancel}>Cancel</button>
+                    <div className="details-buttons">
+                        <button className="button-blue" onClick={() => navigate(`/entity-data/risk-assessments/${riskAssessment.id}/edit`)}>
+                            Edit
+                        </button>
+                        <button className="button-delete" onClick={() => setShowPopup(true)}>
+                            Delete
+                        </button>
+                        <button className="button-blue" onClick={() => navigate("/entity-data/risk-assessments")}>
+                            Back to List
+                        </button>
                     </div>
+
+                    {showPopup && (
+                        <div className="popup-overlay">
+                            <div className="popup-content">
+                                <h3>Confirm Deletion</h3>
+                                <p>Are you sure you want to delete this Risk Assessment?</p>
+                                <div className="popup-actions">
+                                    <button onClick={handleConfirmDelete} className="popup-confirm">Yes, Delete</button>
+                                    <button onClick={handleCancel} className="popup-cancel">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    )}
                 </div>
+            ) : (
+                <p>Loading...</p>
             )}
         </div>
     )

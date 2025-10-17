@@ -39,6 +39,7 @@ export default function Countries(props: Readonly<CountriesProps>) {
 
     return(
         <>
+            <h2>Countries</h2>
             <SearchBar
                 searchQuery={searchQuery}
                 setSearchQuery={setSearchQuery}
