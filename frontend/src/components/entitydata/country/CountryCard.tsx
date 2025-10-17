@@ -18,12 +18,12 @@ export default function CountryCard(props: Readonly<CountryCardProps>){
     }
 
     return(
-        <div className="country-card" onClick={handleCardClick}>
+        <div className="country-company-card" onClick={handleCardClick}>
             <h3> {translatedCountryNames[props.country.countryName]?.[props.language] ?? props.country.countryName}</h3>
             <img
                 src={flagSrc ?? undefined}
                 alt={`${props.country.countryName} flag`}
-                className="country-card-image"
+                className="country-company-card-image"
             />
         </div>
     )

@@ -69,7 +69,7 @@ export default function EditCbcrReport(props: Readonly<EditCbcrReportProps>){
                 .put(`/api/cbcr-reports/${cbcrReport.id}`, updatedCbcrReport)
                 .then((response) => {
                     props.handleCbcrReportUpdate(response.data);
-                    navigate(`/cbcr-reports/${cbcrReport.id}`);
+                    navigate(`/entity-data/cbcr-reports/${cbcrReport.id}`);
                 })
                 .catch((error) => console.error("Error updating Cbcr report", error));
         } catch (error) {
@@ -78,8 +78,8 @@ export default function EditCbcrReport(props: Readonly<EditCbcrReportProps>){
     }
 
     const backNavigationPath = cbcrReport?.id
-        ? `/cbcr-reports/${cbcrReport.id}`
-        : '/cbcr-reports';
+        ? `/entity-data/cbcr-reports/${cbcrReport.id}`
+        : '/entity-data/cbcr-reports';
 
     return(
         <div>

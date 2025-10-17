@@ -9,10 +9,8 @@ import axios from "axios";
 import CbcrReports from "./components/entitydata/cbcr/CbcrReports.tsx";
 import {DefaultUser, type UserModel} from "./components/models/UserModel.ts";
 import Profile from "./components/Profile.tsx";
-import type {AuditLogModel} from "./components/models/AuditLogModel.ts";
 import type {CompanyModel} from "./components/models/CompanyModel.ts";
-import type {RiskAssessmentModel} from "./components/models/RiskAssessmentModel.ts";
-import type {SubsidiaryModel} from "./components/models/SubsidiaryModel.ts";
+import type {RiskAssessmentResponse} from "./components/dto/RiskAssessmentResponse.ts";
 import EntityData from "./components/entitydata/EntityData.tsx";
 import Insert from "./components/Insert.tsx";
 import CbcrReportDetails from "./components/entitydata/cbcr/CbcrReportDetails.tsx";
@@ -38,17 +36,19 @@ import SubsidiaryDetails from "./components/entitydata/subsidiary/SubsidiaryDeta
 import EditSubsidiary from "./components/entitydata/subsidiary/EditSubsidiary.tsx";
 import AuditLogDetails from "./components/auditlog/AuditLogDetails.tsx";
 import AuditLogs from "./components/auditlog/AuditLogs.tsx";
+import type {SubsidiaryResponse} from "./components/dto/SubsidiaryResponse.ts";
+import type {AuditLogResponse} from "./components/dto/AuditLogResponse.ts";
 
 export default function App() {
     const [user, setUser] = useState<string>("anonymousUser");
     const [userDetails, setUserDetails] = useState<UserModel | null>(DefaultUser);
     const [language, setLanguage] = useState<string>("de");
 
-    const [auditLogs, setAuditLogs] = useState<AuditLogModel[]>([]);
+    const [auditLogs, setAuditLogs] = useState<AuditLogResponse[]>([]);
     const [cbcrReportsResponse, setCbcrReportsResponse] = useState<CbcrReportResponse[]>([]);
     const [companies, setCompanies] = useState<CompanyModel[]>([]);
-    const [riskAssessments, setRiskAssessments] = useState<RiskAssessmentModel[]>([]);
-    const [subsidiaries, setSubsidiaries] = useState<SubsidiaryModel[]>([]);
+    const [riskAssessments, setRiskAssessments] = useState<RiskAssessmentResponse[]>([]);
+    const [subsidiaries, setSubsidiaries] = useState<SubsidiaryResponse[]>([]);
     const [countries, setCountries]= useState<CountryModel[]>([]);
 
     function getUser() {
@@ -76,7 +76,7 @@ export default function App() {
     function getAllAuditLogs() {
         axios.get("/api/audit-logs")
             .then((response) => {
-                setAuditLogs(response.data as AuditLogModel[]);
+                setAuditLogs(response.data as AuditLogResponse[]);
             })
             .catch((error) => {
                 console.error("Error fetching audit logs:", error);
@@ -106,7 +106,7 @@ export default function App() {
     function getAllRiskAssessments() {
         axios.get("/api/risk-assessments")
             .then((response) => {
-                setRiskAssessments(response.data as RiskAssessmentModel[]);
+                setRiskAssessments(response.data as RiskAssessmentResponse[]);
             })
             .catch((error) => {
                 console.error("Error fetching risk assessments:", error);
@@ -116,7 +116,7 @@ export default function App() {
     function getAllSubsidiaries() {
         axios.get("/api/subsidiaries")
             .then((response) => {
-                setSubsidiaries(response.data as SubsidiaryModel[]);
+                setSubsidiaries(response.data as SubsidiaryResponse[]);
             })
             .catch((error) => {
                 console.error("Error fetching subsidiaries:", error);
@@ -161,11 +161,11 @@ export default function App() {
         setCountries((prevCountries) => [...prevCountries, newCountry]);
     }
 
-    function handleNewRiskAssessmentSubmit(newRiskAssessment: RiskAssessmentModel) {
+    function handleNewRiskAssessmentSubmit(newRiskAssessment: RiskAssessmentResponse) {
         setRiskAssessments((prevRiskAssessments) => [...prevRiskAssessments, newRiskAssessment]);
     }
 
-    function handleNewSubsidiarySubmit(newSubsidiary: SubsidiaryModel) {
+    function handleNewSubsidiarySubmit(newSubsidiary: SubsidiaryResponse) {
         setSubsidiaries((prevSubsidiaries) => [...prevSubsidiaries, newSubsidiary]);
     }
 
@@ -193,7 +193,7 @@ export default function App() {
         );
     }
 
-    function handleRiskAssessmentUpdate(updatedRiskAssessment: RiskAssessmentModel) {
+    function handleRiskAssessmentUpdate(updatedRiskAssessment: RiskAssessmentResponse) {
         setRiskAssessments((prevRiskAssessments) =>
             prevRiskAssessments.map((riskAssessment) =>
                 riskAssessment.id === updatedRiskAssessment.id ? updatedRiskAssessment : riskAssessment
@@ -201,7 +201,7 @@ export default function App() {
         );
     }
 
-    function handleSubsidiaryUpdate(updatedSubsidiary: SubsidiaryModel) {
+    function handleSubsidiaryUpdate(updatedSubsidiary: SubsidiaryResponse) {
         setSubsidiaries((prevSubsidiaries) =>
             prevSubsidiaries.map((subsidiary) =>
                 subsidiary.id === updatedSubsidiary.id ? updatedSubsidiary : subsidiary
@@ -248,7 +248,7 @@ export default function App() {
               <Route element={<ProtectedRoute user={user}/>}>
                   <Route path="/companies" element={<Companies language={language} companies={companies}/>} />
                   <Route path="/companies/:id" element={<CompanyDetails language={language} handleCompanyDelete={handleCompanyDelete}/>} />
-                  <Route path="/companies/:id/edit" element={<EditCompany language={language} handleCompanyUpdate={handleCompanyUpdate} />} />
+                  <Route path="/companies/:id/edit" element={<EditCompany language={language} handleCompanyUpdate={handleCompanyUpdate} companies={companies} />} />
                   <Route path="/entity-data" element={<EntityData language={language}/>} />
                   <Route path="/entity-data/cbcr-reports" element={<CbcrReports language={language} cbcrReports={cbcrReportsResponse} />} />
                   <Route path="/entity-data/cbcr-reports/:id" element={<CbcrReportDetails language={language} handleCbcrReportDelete={handleCbcrReportDelete} />} />
@@ -258,19 +258,19 @@ export default function App() {
                   <Route path="/entity-data/countries/:id/edit" element={<EditCountry language={language} handleCountryUpdate={handleCountryUpdate}/>} />
                   <Route path="/entity-data/risk-assessments" element={<RiskAssessments language={language} riskAssessments={riskAssessments} />} />
                   <Route path="/entity-data/risk-assessments/:id" element={<RiskAssessmentDetails language={language} handleRiskAssessmentDelete={handleRiskAssessmentDelete}/>} />
-                  <Route path="/entity-data/risk-assessments/:id/edit" element={<EditRiskAssessment language={language} handleRiskAssessmentUpdate={handleRiskAssessmentUpdate}/>} />
+                  <Route path="/entity-data/risk-assessments/:id/edit" element={<EditRiskAssessment language={language} handleRiskAssessmentUpdate={handleRiskAssessmentUpdate} cbcrReportsResponse={cbcrReportsResponse} />} />
                   <Route path="/entity-data/subsidiaries" element={<Subsidiaries language={language} subsidiaries={subsidiaries} />} />
                   <Route path="/entity-data/subsidiaries/:id" element={<SubsidiaryDetails language={language} handleSubsidiaryDelete={handleSubsidiaryDelete}/>} />
-                  <Route path="/entity-data/subsidiaries/:id/edit" element={<EditSubsidiary language={language} handleSubsidiaryUpdate={handleSubsidiaryUpdate}/>} />
+                  <Route path="/entity-data/subsidiaries/:id/edit" element={<EditSubsidiary language={language} handleSubsidiaryUpdate={handleSubsidiaryUpdate} companies={companies} countries={countries}/>} />
                   <Route path="/insert" element={<Insert language={language} />} />
-                  <Route path="/insert/add-new-company" element={<AddNewCompany language={language} handleNewCompanySubmit={handleNewCompanySubmit}/>} />
+                  <Route path="/insert/add-new-company" element={<AddNewCompany language={language} handleNewCompanySubmit={handleNewCompanySubmit} companies={companies}/>} />
                   <Route path="/insert/add-new-cbcr-report" element={<AddNewCbcrReport language={language} handleNewCbcrReportSubmit={handleNewCbcrReportSubmit} companies={companies} countries={countries}/>} />
                   <Route path="/insert/add-new-country" element={<AddNewCountry language={language} handleNewCountrySubmit={handleNewCountrySubmit}/>} />
-                  <Route path="/insert/add-new-risk-assessment" element={<AddNewRiskAssessment language={language} handleNewRiskAssessmentSubmit={handleNewRiskAssessmentSubmit}/>} />
-                  <Route path="/insert/add-new-subsidiary" element={<AddNewSubsidiary language={language} handleNewSubsidiarySubmit={handleNewSubsidiarySubmit}/>} />
+                  <Route path="/insert/add-new-risk-assessment" element={<AddNewRiskAssessment language={language} handleNewRiskAssessmentSubmit={handleNewRiskAssessmentSubmit} cbcrReportsResponse={cbcrReportsResponse} riskAssessments={riskAssessments} />} />
+                  <Route path="/insert/add-new-subsidiary" element={<AddNewSubsidiary language={language} handleNewSubsidiarySubmit={handleNewSubsidiarySubmit} companies={companies} countries={countries}/>} />
                   <Route path="/profile" element={<Profile language={language} user={user} userDetails={userDetails} setLanguage={setLanguage}/>} />
                   <Route path="/profile/audit-logs" element={<AuditLogs language={language} auditLogs={auditLogs} />} />
-                  <Route path="/profile/audit-logs/:id" element={<AuditLogDetails language={language} auditLogs={auditLogs} />} />
+                  <Route path="/profile/audit-logs/:id" element={<AuditLogDetails language={language} />} />
               </Route>
       </Routes>
     </>

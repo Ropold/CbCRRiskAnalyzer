@@ -1,9 +1,24 @@
+import type {SubsidiaryResponse} from "../../dto/SubsidiaryResponse.ts";
+import {useNavigate} from "react-router-dom";
 
-export default function SubsidiaryCard(){
+type SubsidiaryCardProps = {
+    subsidiary: SubsidiaryResponse;
+    language: string;
+}
+
+export default function SubsidiaryCard(props: Readonly<SubsidiaryCardProps>) {
+    const navigate = useNavigate();
+    const handleCardClick = () => {
+        navigate(`/entity-data/subsidiaries/${props.subsidiary.id}`);
+    }
+
     return(
-        <div>
-            <h2>Subsidiary Card</h2>
-            <p>This is the Subsidiary Card page.</p>
+        <div className="card-overview" onClick={handleCardClick}>
+            <h2>{props.subsidiary.name}</h2>
+            <p><strong>Company:</strong> {props.subsidiary.company.name}</p>
+            <p><strong>Country:</strong> {props.subsidiary.country.countryName}</p>
+            <p><strong>Entity Type:</strong> {props.subsidiary.entityType}</p>
+            <p><strong>Main Activity:</strong> {props.subsidiary.mainBusinessActivity}</p>
         </div>
     )
 }

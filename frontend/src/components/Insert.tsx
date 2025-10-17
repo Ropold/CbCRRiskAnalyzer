@@ -1,6 +1,10 @@
 import {useNavigate} from "react-router-dom";
 
-export default function Insert(){
+type InsertProps = {
+    language: string;
+}
+
+export default function Insert(props: Readonly<InsertProps>){
     const navigate = useNavigate();
 
     return(
@@ -16,6 +20,7 @@ export default function Insert(){
 
             <h2>Insert</h2>
             <p>This is the Insert page.</p>
+            <p>{props.language}</p>
         </div>
     )
 }

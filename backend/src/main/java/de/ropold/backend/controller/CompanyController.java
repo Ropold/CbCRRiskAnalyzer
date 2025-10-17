@@ -38,7 +38,7 @@ public class CompanyController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public CompanyModel addCompany(
-            @RequestPart("customerModel") CompanyModel companyModel,
+            @RequestPart("companyModel") CompanyModel companyModel,
             @RequestPart(value = "image", required = false) MultipartFile image,
             @AuthenticationPrincipal OAuth2User authentication) throws IOException {
 
@@ -85,6 +85,8 @@ public class CompanyController {
         CompanyModel existingCompany = companyService.getCompanyById(id);
         String newImageUrl = imageUploadUtil.determineImageUrl(image, companyModel.getImageUrl(), existingCompany.getImageUrl());
 
+        // Cleanup old image from Cloudinary if needed
+        imageUploadUtil.cleanupOldImageIfNeeded(existingCompany.getImageUrl(), newImageUrl);
 
         CompanyModel updatedCompany = new CompanyModel(
                 existingCompany.getId(),

@@ -38,7 +38,7 @@ export default function AddNewCbcrReport(props: Readonly<AddNewCbcrReportProps>)
         }
     }
 
-    const backNavigationPath = '/cbcr-reports';
+    const backNavigationPath = '/entity-data/cbcr-reports';
 
     return(
         <div>

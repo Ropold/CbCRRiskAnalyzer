@@ -39,12 +39,13 @@ export default function Countries(props: Readonly<CountriesProps>) {
 
     return(
         <>
+            <h2>Countries</h2>
             <SearchBar
                 searchQuery={searchQuery}
                 setSearchQuery={setSearchQuery}
             />
 
-            <div className="country-card-container">
+            <div className="country-company-card-container">
                 {filteredCountries.map((country) => (
                     <CountryCard
                         key={country.id}
