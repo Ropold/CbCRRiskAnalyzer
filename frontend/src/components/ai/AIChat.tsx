@@ -1,35 +1,31 @@
 import "../styles/AIChat.css"
 import {useState} from "react";
+import axios from "axios";
 
-type AiChatProps = {
-    language: string;
-}
 
-export default function AIChat(props: Readonly<AiChatProps>){
+export default function AIChat(){
     const [userInput, setUserInput] = useState("");
     const [aiResponse, setAiResponse] = useState("");
     const [isLoading, setIsLoading] = useState(false);
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (!userInput.trim()) return;
 
         setIsLoading(true);
 
-        // TODO: API-Call zur KI hier einfügen
-        // Beispiel:
-        // const response = await fetch('/api/ai-chat', {
-        //     method: 'POST',
-        //     body: JSON.stringify({ message: userInput })
-        // });
-        // const data = await response.json();
-        // setAiResponse(data.response);
-
-        // Dummy-Response für Demo
-        setTimeout(() => {
-            setAiResponse(`Echo: ${userInput}`);
-            setIsLoading(false);
-        }, 1000);
+        axios
+            .post('/api/ai-chat', { question: userInput })
+            .then((response) => {
+                setAiResponse(response.data.answer);
+                setUserInput("");
+                setIsLoading(false);
+            })
+            .catch((error) => {
+                console.error("Error fetching AI response", error);
+                setAiResponse("Sorry, there was an error processing your request.");
+                setIsLoading(false);
+            });
     };
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
