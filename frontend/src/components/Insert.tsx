@@ -10,7 +10,8 @@ export default function Insert(props: Readonly<InsertProps>){
     return(
         <div>
             <div className="add-new-button">
-                <button className="button-blue">csv/ai</button>
+                <button className="button-blue">insert csv</button>
+                <button className="button-blue" onClick={()=> navigate("ai-chat")}>Ai Chat</button>
                 <button className="button-blue" onClick={()=> navigate("add-new-company")}>add Company</button>
                 <button className="button-blue" onClick={()=> navigate("add-new-cbcr-report")}>add CbCR Report</button>
                 <button className="button-blue" onClick={()=> navigate("add-new-country")}>add Country</button>

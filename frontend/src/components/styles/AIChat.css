@@ -1,0 +1,78 @@
+.ai-chat-container {
+    max-width: 100%;
+    margin: 10px;
+    padding: 20px;
+}
+
+.ai-chat-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.ai-input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ai-input-section label {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.ai-input-field {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    resize: vertical;
+    font-family: inherit;
+}
+
+.ai-input-field:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.ai-submit-button {
+    align-self: flex-start;
+    padding: 10px 30px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.ai-submit-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.ai-response-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ai-response-section label {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.ai-response-box {
+    padding: 15px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    min-height: 100px;
+}
+
+.ai-response-box p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.ai-loading {
+    color: #666;
+    font-style: italic;
+}

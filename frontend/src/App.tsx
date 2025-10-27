@@ -38,6 +38,7 @@ import AuditLogDetails from "./components/auditlog/AuditLogDetails.tsx";
 import AuditLogs from "./components/auditlog/AuditLogs.tsx";
 import type {SubsidiaryResponse} from "./components/dto/SubsidiaryResponse.ts";
 import type {AuditLogResponse} from "./components/dto/AuditLogResponse.ts";
+import AIChat from "./components/ai/AIChat.tsx";
 
 export default function App() {
     const [user, setUser] = useState<string>("anonymousUser");
@@ -263,6 +264,7 @@ export default function App() {
                   <Route path="/entity-data/subsidiaries/:id" element={<SubsidiaryDetails language={language} handleSubsidiaryDelete={handleSubsidiaryDelete}/>} />
                   <Route path="/entity-data/subsidiaries/:id/edit" element={<EditSubsidiary language={language} handleSubsidiaryUpdate={handleSubsidiaryUpdate} companies={companies} countries={countries}/>} />
                   <Route path="/insert" element={<Insert language={language} />} />
+                  <Route path="/insert/ai-chat" element={<AIChat language={language}/>} />
                   <Route path="/insert/add-new-company" element={<AddNewCompany language={language} handleNewCompanySubmit={handleNewCompanySubmit} companies={companies}/>} />
                   <Route path="/insert/add-new-cbcr-report" element={<AddNewCbcrReport language={language} handleNewCbcrReportSubmit={handleNewCbcrReportSubmit} companies={companies} countries={countries}/>} />
                   <Route path="/insert/add-new-country" element={<AddNewCountry language={language} handleNewCountrySubmit={handleNewCountrySubmit}/>} />
