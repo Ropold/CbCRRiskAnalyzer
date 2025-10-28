@@ -3,6 +3,7 @@ package de.ropold.backend.service;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.http.HttpEntity;
@@ -17,8 +18,10 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class AIChatService {
 
-    private static final String LM_STUDIO_URL = "http://192.168.178.27:1234/v1/chat/completions";
     private static final int MAX_ITERATIONS = 5; // Prevent infinite loops
+
+    @Value("${lm.studio.url}")
+    private String lmStudioUrl;
 
     private final AIToolService aiToolService;
     private final ObjectMapper objectMapper = new ObjectMapper();
@@ -51,7 +54,7 @@ public class AIChatService {
             try {
                 // Call LM Studio API
                 Map<String, Object> response = restTemplate.postForObject(
-                    LM_STUDIO_URL,
+                    lmStudioUrl,
                     entity,
                     Map.class
                 );
